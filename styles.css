@@ -16,3 +16,24 @@ p {
   text-align: center;
   font-size: 1.2em;
 }
+
+.lang-selector {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+  margin: 0.5em 2em 0 0;
+}
+.lang-selector button {
+  background-color: #ffd600;
+  color: #5d341a;
+  padding: 0.4em 1em;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.lang-selector button:hover {
+  background-color: #ff9800;
+  color: #fff;
+}

@@ -19,29 +19,17 @@
       <button onclick="setLang('pt')">Português</button>
       <button onclick="setLang('en')">English</button>
     </div>
+    <div id="date-time"></div>
   </header>
+
   <main>
     <h1 id="menu-title"></h1>
     <section class="menu-list">
-      <h2 id="menu-day-title"></h2>
-      <p id="menu-day-desc"></p>
-      <img src="images/menu1.jpg" alt="Imagem menu do dia" style="max-width:340px; border-radius:8px; margin:1em 0;" />
-      <h2 id="menu-ac-title"></h2>
-      <ul>
-        <li id="menu-ac1"></li>
-        <li id="menu-ac2"></li>
-        <li id="menu-ac3"></li>
-      </ul>
-      <img src="images/menu2.jpg" alt="Imagem à la carte" style="max-width:340px; border-radius:8px; margin:1em 0;" />
-      <h2 id="menu-beb-title"></h2>
-      <ul>
-        <li id="menu-beb1"></li>
-        <li id="menu-beb2"></li>
-        <li id="menu-beb3"></li>
-        <li id="menu-beb4"></li>
-      </ul>
+      <div class="menu-img" id="menu-of-day"></div>
+      <div class="menu-link" id="menu-link"></div>
     </section>
   </main>
+
   <script>
     const langData = {
       pt: {
@@ -49,38 +37,19 @@
         navGallery: "Galeria",
         navMenu: "Menu",
         navContact: "Contactos",
-        menuTitle: "Menu Semanal",
-        menuDayTitle: "Prato do Dia",
-        menuDayDesc: "Veja o nosso prato especial para cada dia:",
-        menuAcTitle: "À la Carte",
-        menuAc1: "Moamba de galinha",
-        menuAc2: "Caril de camarão",
-        menuAc3: "Bife grelhado",
-        menuBebTitle: "Bebidas",
-        menuBeb1: "Águas",
-        menuBeb2: "Sumos naturais",
-        menuBeb3: "Cervejas",
-        menuBeb4: "Vinhos e espirituosos"
+        menuTitle: "Menu do Dia",
+        linkAlaCarte: "Ver Menu À la Carte"
       },
       en: {
         navHome: "Home",
         navGallery: "Gallery",
         navMenu: "Menu",
         navContact: "Contacts",
-        menuTitle: "Weekly Menu",
-        menuDayTitle: "Daily Special",
-        menuDayDesc: "Check our daily featured dish:",
-        menuAcTitle: "À la Carte",
-        menuAc1: "Chicken Moamba",
-        menuAc2: "Shrimp Curry",
-        menuAc3: "Grilled Steak",
-        menuBebTitle: "Drinks",
-        menuBeb1: "Water",
-        menuBeb2: "Fresh Juices",
-        menuBeb3: "Beer",
-        menuBeb4: "Wines & Spirits"
+        menuTitle: "Daily Menu",
+        linkAlaCarte: "View À la Carte Menu"
       }
     };
+
     function setLang(l) {
       const t = langData[l];
       document.getElementById("nav-home").innerText = t.navHome;
@@ -88,19 +57,50 @@
       document.getElementById("nav-menu").innerText = t.navMenu;
       document.getElementById("nav-contact").innerText = t.navContact;
       document.getElementById("menu-title").innerText = t.menuTitle;
-      document.getElementById("menu-day-title").innerText = t.menuDayTitle;
-      document.getElementById("menu-day-desc").innerText = t.menuDayDesc;
-      document.getElementById("menu-ac-title").innerText = t.menuAcTitle;
-      document.getElementById("menu-ac1").innerText = t.menuAc1;
-      document.getElementById("menu-ac2").innerText = t.menuAc2;
-      document.getElementById("menu-ac3").innerText = t.menuAc3;
-      document.getElementById("menu-beb-title").innerText = t.menuBebTitle;
-      document.getElementById("menu-beb1").innerText = t.menuBeb1;
-      document.getElementById("menu-beb2").innerText = t.menuBeb2;
-      document.getElementById("menu-beb3").innerText = t.menuBeb3;
-      document.getElementById("menu-beb4").innerText = t.menuBeb4;
+
+      const day = new Date().getDay();
+      const menuDiv = document.getElementById("menu-of-day");
+      const linkDiv = document.getElementById("menu-link");
+
+      const imgPaths = {
+        1: "images/2a.jpg",
+        2: "images/3a.jpg",
+        3: "images/4a.jpg",
+        4: "images/5a.jpg",
+        5: "images/6a.jpg"
+      };
+
+      if (day >= 1 && day <= 5) {
+        menuDiv.innerHTML = `<img src="${imgPaths[day]}" alt="Menu do dia ${day}"/>`;
+        linkDiv.innerHTML = "";
+      } else {
+        menuDiv.innerHTML = "";
+        linkDiv.innerHTML = `<a href="contactos.html">${t.linkAlaCarte}</a>`;
+      }
     }
+
     setLang('pt');
+
+    // Mostrar Data e Hora em tempo real
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('pt-PT', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('date-time').textContent = `${date} | ${time}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
+    // Botões para mudar idioma dinamicamente
+    const langBtns = document.querySelectorAll(".lang-selector button");
+    langBtns.forEach(btn => {
+      btn.onclick = function() {
+        const lang = this.textContent === "English" ? "en" : "pt";
+        setLang(lang);
+      }
+    });
   </script>
 </body>
 </html>

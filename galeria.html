@@ -12,12 +12,14 @@
     <nav>
       <a href="index.html" id="nav-home"></a>
       <a href="galeria.html" id="nav-gallery"></a>
+      <a href="menu.html" id="nav-menu"></a>
       <a href="contactos.html" id="nav-contact"></a>
     </nav>
     <div class="lang-selector">
       <button onclick="setLang('pt')">Português</button>
       <button onclick="setLang('en')">English</button>
     </div>
+    <div id="date-time"></div>
   </header>
   <main>
     <h1 id="galeria-title"></h1>
@@ -64,6 +66,7 @@
       pt: {
         navHome: "Principal",
         navGallery: "Galeria",
+        navMenu: "Menu",
         navContact: "Contactos",
         galeriaTitle: "Galeria - Conheça o nosso espaço",
         btnBack: "Voltar ao início",
@@ -72,6 +75,7 @@
       en: {
         navHome: "Home",
         navGallery: "Gallery",
+        navMenu: "Menu",
         navContact: "Contacts",
         galeriaTitle: "Gallery – See our space",
         btnBack: "Back to Home",
@@ -79,10 +83,23 @@
       }
     };
 
+    // -- Data e hora ao vivo --
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('pt-PT', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('date-time').textContent = `${date} | ${time}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 60000);
+
     function setLang(l) {
       const t = langData[l];
       document.getElementById("nav-home").innerText = t.navHome;
       document.getElementById("nav-gallery").innerText = t.navGallery;
+      document.getElementById("nav-menu").innerText = t.navMenu;
       document.getElementById("nav-contact").innerText = t.navContact;
       document.getElementById("galeria-title").innerText = t.galeriaTitle;
       document.getElementById("btn-back").innerText = t.btnBack;

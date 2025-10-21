@@ -5,7 +5,7 @@ body {
   color: #262019;
 }
 
-/* ---------- Cabeçalho e barra ---------- */
+/* ---------- Header ---------- */
 header {
   background: #008000;
   text-align: center;
@@ -22,12 +22,6 @@ header {
   font-weight: 500;
 }
 
-.logo {
-  max-height: 80px;
-  display: block;
-  margin: 0 auto 1em auto;
-}
-
 nav {
   margin-bottom: 0.5em;
 }
@@ -36,7 +30,7 @@ nav a {
   margin: 0 1em;
   text-decoration: none;
   color: #fffbe6;
-  font-size: 1.1em;
+  font-size: 1.05em;
   font-weight: bold;
 }
 
@@ -55,18 +49,58 @@ nav a {
   color: #262019;
 }
 
-/* ---------- Corpo principal ---------- */
+/* ---------- Main section with dark overlay ---------- */
 main {
+  position: relative;
   max-width: 900px;
   margin: 0 auto;
-  padding: 1em;
+  padding: 2em;
   text-align: center;
+  background: url("images/background1.png") center center / cover no-repeat;
+  min-height: 600px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+  z-index: 1;
 }
 
-/* ---------- Galeria de imagens ---------- */
+main::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: rgba(28, 36, 25, 0.76); /* dark overlay for contrast */
+  pointer-events: none;
+  border-radius: 18px;
+}
+
+main > * {
+  position: relative;
+  z-index: 1;
+  color: #fafafa;
+  text-shadow: 0 2px 6px #000;
+}
+
+/* ---------- Sections ---------- */
+.filosofia {
+  text-align: justify;
+  max-width: 640px;
+  margin: 2em auto;
+  line-height: 1.7em;
+  text-align-last: center;
+}
+
+.filosofia h2 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+/* ---------- Gallery styles ---------- */
 .galeria-imagens {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   justify-items: center;
   align-items: center;
@@ -75,7 +109,8 @@ main {
 
 .galeria-imagens img {
   width: 100%;
-  height: 250px;
+  max-width: 320px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -95,7 +130,7 @@ main {
   z-index: 9999;
   top: 0; left: 0;
   width: 100vw; height: 100vh;
-  background: rgba(10,10,10,0.95);
+  background: rgba(10, 10, 10, 0.95);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -114,15 +149,15 @@ main {
 }
 
 #lightbox-text {
-  background: rgba(30,30,30,0.7);
   color: #89ff89;
-  padding: 0.4em 1em;
+  background: rgba(28,16,2,0.82);
+  padding: 0.5em 1.1em;
   border-radius: 6px;
-  font-size: 1em;
+  font-size: 1.05em;
   text-align: center;
 }
 
-/* ---------- Botão Voltar ---------- */
+/* ---------- Buttons ---------- */
 .button-back {
   padding: 0.8em 2em;
   font-size: 1.2em;
@@ -140,35 +175,40 @@ main {
   background-color: #5ad95a;
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 1em;
+/* ---------- Menu page elements ---------- */
+.menu-img {
   text-align: center;
-  background: url("images/background1.png") center center / cover no-repeat;
-  min-height: 600px;
-  border-radius: 18px;
-  box-shadow: 0 0 40px rgba(28,60,25,0.14);
+}
+.menu-img img {
+  max-width: 340px;
+  width: 90%;
+  border-radius: 8px;
+  margin: 1em 0;
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+}
+.menu-link {
+  text-align: center;
+  margin: 2em;
+}
+.menu-link a {
+  background: #008000;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.7em 1.5em;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.menu-link a:hover {
+  background: #00b300;
 }
 
-main {
-  position: relative;
-  z-index: 1;
-  /* existing background code remains here */
-}
-
-main::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  z-index: 0;
-  background: rgba(20, 25, 20, 0.38);  /* dark translucent overlay */
-  pointer-events: none;
-  border-radius: 18px;
-}
-
-main > * {
-  position: relative;
-  z-index: 1;
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  main {
+    padding: 1em;
+  }
+  .galeria-imagens {
+    grid-template-columns: 1fr;
+  }
 }

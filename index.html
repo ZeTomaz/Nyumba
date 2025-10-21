@@ -6,30 +6,45 @@
   <title>Nyumba Food Concept</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header>
     <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" class="logo" />
+
+    <nav>
+      <a href="index.html" id="nav-home"></a>
+      <a href="galeria.html" id="nav-gallery"></a>
+      <a href="contactos.html" id="nav-contact"></a>
+    </nav>
+
     <div class="lang-selector">
       <button onclick="setLang('pt')">Português</button>
       <button onclick="setLang('en')">English</button>
     </div>
+
     <h1 id="site-title"></h1>
     <p id="site-schedule"></p>
   </header>
 
-  <section class="ambiente">
-    <h2 id="ambiente-title"></h2>
-    <div class="grid-imagens">
-      <img src="placeholder1.jpg" alt="Ambiente 1" />
-      <img src="placeholder2.jpg" alt="Ambiente 2" />
-      <img src="placeholder3.jpg" alt="Ambiente 3" />
-    </div>
-  </section>
+  <main>
+    <section class="filosofia">
+      <h2 id="filosofia-title"></h2>
+      <p id="filosofia-text"></p>
+    </section>
 
-  <section class="filosofia">
-    <h2 id="filosofia-title"></h2>
-    <p id="filosofia-text"></p>
-  </section>
+    <section class="localizacao">
+      <h3 id="location-title"></h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+        width="600"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+  </main>
 
   <footer>
     <div class="contactos">
@@ -38,19 +53,16 @@
       <p id="contact-whatsapp"></p>
       <p id="contact-facebook"></p>
     </div>
-    <div class="localizacao">
-      <h3 id="location-title"></h3>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
   </footer>
 
   <script>
     const langData = {
       pt: {
+        navHome: "Principal",
+        navGallery: "Galeria",
+        navContact: "Contactos",
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Aberto todos os dias, das 09:00 às 22:30",
-        ambienteTitle: "Conheça o nosso espaço",
         filosofiaTitle: "A nossa filosofia",
         filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade.",
         contactTitle: "Contactos",
@@ -60,9 +72,11 @@
         locationTitle: "Localização"
       },
       en: {
+        navHome: "Home",
+        navGallery: "Gallery",
+        navContact: "Contacts",
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
-        ambienteTitle: "See our space",
         filosofiaTitle: "Our philosophy",
         filosofiaText: "Nyumba Food Concept is a space dedicated to celebrating African culture and cuisine, where every dish tells a story of tradition, flavour, and community.",
         contactTitle: "Contacts",
@@ -72,11 +86,14 @@
         locationTitle: "Location"
       }
     };
+
     function setLang(l) {
       const t = langData[l];
+      document.getElementById("nav-home").innerText = t.navHome;
+      document.getElementById("nav-gallery").innerText = t.navGallery;
+      document.getElementById("nav-contact").innerText = t.navContact;
       document.getElementById("site-title").innerText = t.siteTitle;
       document.getElementById("site-schedule").innerText = t.siteSchedule;
-      document.getElementById("ambiente-title").innerText = t.ambienteTitle;
       document.getElementById("filosofia-title").innerText = t.filosofiaTitle;
       document.getElementById("filosofia-text").innerText = t.filosofiaText;
       document.getElementById("contact-title").innerText = t.contactTitle;
@@ -89,3 +106,4 @@
   </script>
 </body>
 </html>
+

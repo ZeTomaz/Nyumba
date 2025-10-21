@@ -6,7 +6,7 @@
   <title>Nyumba Food Concept</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Elementos flutuantes no canto */
+    /* Elementos fixos na base */
     #logo-fixed {
       position: fixed;
       left: 25px;
@@ -48,11 +48,23 @@
       #logo-fixed { left: 4vw; bottom: 4vw;}
       #map-fixed-box { right: 4vw; bottom: 4vw;}
     }
+
+    /* Filosofia centralizada e justificada */
+    .filosofia {
+      text-align: justify;
+      max-width: 620px;
+      margin: 2em auto;
+      line-height: 1.6em;
+      text-align-last: center;
+    }
+    .filosofia h2 {
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="images/logo-nyumba.png" alt="Nyumba logo" class="logo">
     <nav>
       <a href="index.html" id="nav-home"></a>
       <a href="galeria.html" id="nav-gallery"></a>
@@ -65,6 +77,7 @@
     </div>
     <div id="date-time"></div>
   </header>
+
   <main>
     <h1 id="site-title"></h1>
     <p id="site-schedule"></p>
@@ -73,6 +86,8 @@
       <p id="filosofia-text"></p>
     </section>
   </main>
+
+  <!-- Logo e mapa nos cantos inferiores -->
   <img src="images/logo-nyumba.png" alt="Nyumba logo" id="logo-fixed" />
   <div id="map-fixed-box">
     <iframe
@@ -83,6 +98,7 @@
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
+
   <script>
     const langData = {
       pt: {
@@ -93,8 +109,7 @@
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Aberto todos os dias das 09:00 às 22:30",
         filosofiaTitle: "A nossa filosofia",
-        filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade.",
-        locationTitle: "Localização"
+        filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade."
       },
       en: {
         navHome: "Home",
@@ -104,8 +119,7 @@
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
         filosofiaTitle: "Our philosophy",
-        filosofiaText: "Nyumba Food Concept celebrates African culture and cuisine, where every dish tells a story of tradition, flavour and community.",
-        locationTitle: "Location"
+        filosofiaText: "Nyumba Food Concept celebrates African culture and cuisine, where every dish tells a story of tradition, flavour and community."
       }
     };
 

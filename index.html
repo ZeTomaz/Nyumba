@@ -8,7 +8,7 @@
       siteTitle: "Nyumba Food Concept",
       siteSchedule: "Aberto todos os dias das 09:00 às 22:30",
       filosofiaTitle: "A nossa filosofia",
-      filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar."
+      filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar."
     },
     en: {
       navHome: "Home",
@@ -18,16 +18,25 @@
       siteTitle: "Nyumba Food Concept",
       siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
       filosofiaTitle: "Our Philosophy",
-      filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return."
+      filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return."
     }
   };
 
   function updateDateTime() {
     const now = new Date();
-    const date = now.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-    const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+    const date = now.toLocaleDateString('pt-PT', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
+    const time = now.toLocaleTimeString('pt-PT', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
     document.getElementById('date-time').textContent = `${date} | ${time}`;
   }
+
   setInterval(updateDateTime, 60000);
   updateDateTime();
 
@@ -42,5 +51,6 @@
     document.getElementById("filosofia-title").innerText = t.filosofiaTitle;
     document.getElementById("filosofia-text").innerText = t.filosofiaText;
   }
+
   setLang('pt');
 </script>

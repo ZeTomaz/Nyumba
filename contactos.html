@@ -5,10 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contactos | Nyumba Food Concept</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Elementos fixos no canto inferior */
+    #logo-fixed {
+      position: fixed;
+      left: 25px;
+      bottom: 25px;
+      z-index: 22;
+      width: 320px;
+      height: 180px;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 13px rgba(0,0,0,0.21);
+      background: #fffefc;
+      object-fit: contain;
+    }
+
+    #map-fixed-box {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      z-index: 22;
+      width: 320px;
+      height: 180px;
+      border-radius: 12px;
+      box-shadow: 0 0 14px rgba(0,0,0,0.25);
+      overflow: hidden;
+      background: #fffefc;
+      display: flex;
+    }
+
+    #map-fixed {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    @media (max-width: 900px) {
+      #logo-fixed, #map-fixed-box { width: 45vw; height: 25vw; min-width:140px; min-height:90px; }
+      #logo-fixed { left: 5vw; bottom: 5vw; }
+      #map-fixed-box { right: 5vw; bottom: 5vw;}
+    }
+    @media (max-width: 600px) {
+      #logo-fixed, #map-fixed-box { width: 40vw; height: 22vw; min-width:100px; min-height:60px;}
+      #logo-fixed { left: 4vw; bottom: 4vw;}
+      #map-fixed-box { right: 4vw; bottom: 4vw;}
+    }
+  </style>
 </head>
 <body>
   <header>
-    <img src="images/logo-nyumba.png" alt="Logo Nyumba" class="logo">
     <nav>
       <a href="index.html" id="nav-home"></a>
       <a href="galeria.html" id="nav-gallery"></a>
@@ -30,6 +76,18 @@
       <li id="contact-instagram"></li>
     </ul>
   </main>
+
+  <!-- Logo e mapa iguais à página inicial -->
+  <img src="images/logo-nyumba.png" alt="Logo Nyumba" id="logo-fixed" />
+  <div id="map-fixed-box">
+    <iframe
+      id="map-fixed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
 
   <script>
     const langData = {

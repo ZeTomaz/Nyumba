@@ -139,3 +139,15 @@ main {
 .button-back:hover {
   background-color: #5ad95a;
 }
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+  background: url("images/background1.png") center center / cover no-repeat;
+  min-height: 600px;
+  border-radius: 18px;
+  box-shadow: 0 0 40px rgba(28,60,25,0.14);
+}
+

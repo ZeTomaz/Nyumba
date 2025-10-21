@@ -222,3 +222,24 @@ main {
   animation: fadeInSmooth 1.6s ease-in-out;
   opacity: 1;
 }
+.contact-list {
+  list-style-type: none;  /* elimina os marcadores da lista */
+  padding-left: 0;        /* remove o recuo à esquerda */
+  margin: 1.5em auto;
+  text-align: center;     /* centraliza o conteúdo */
+}
+
+.contact-list li {
+  margin: 0.6em 0;
+  font-size: 1.1em;
+}
+
+.contact-list a {
+  color: #e5ffe5;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}

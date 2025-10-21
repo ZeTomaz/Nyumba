@@ -6,7 +6,7 @@ body {
 }
 
 header {
-  background: #ffe97d;
+  background: #008000;
   text-align: center;
   padding: 1em 0 0.5em 0;
 }
@@ -25,7 +25,7 @@ nav {
 nav a {
   margin: 0 1em;
   text-decoration: none;
-  color: #966d00;
+  color: #fffbe6;
   font-size: 1.1em;
   font-weight: bold;
 }
@@ -35,7 +35,7 @@ nav a {
 }
 
 .lang-selector button {
-  background: #ffc107;
+  background: #89ff89;
   border: none;
   border-radius: 6px;
   margin: 0 0.25em;
@@ -62,7 +62,6 @@ main {
   justify-items: center;
   padding: 2em 0;
 }
-
 .galeria-imagens img {
   width: 100%;
   max-width: 400px;
@@ -89,28 +88,30 @@ main {
   display: flex;
 }
 #lightbox-image {
-  max-width: 85vw;
-  max-height: 75vh;
+  max-width: 95vw;
+  max-height: 85vh;
   border-radius: 10px;
-  margin-bottom: 1em;
+  margin-bottom: 0.3em;
   box-shadow: 0 3px 18px rgba(0,0,0,0.32);
-  border: 4px solid #ffe97d;
+  border: 4px solid #89ff89;
+  display: block;
+}
+#lightbox-bar {
+  text-align: center;
+  margin-top: 0.7em;
 }
 #lightbox-text {
-  color: #ffe97d;
-  background: rgba(28,16,2,0.77);
+  color: #89ff89;
+  background: rgba(28,16,2,0.82);
   padding: 0.5em 1.1em;
   border-radius: 6px;
-  font-size: 1em;
-  text-align:center;
-  margin-top: 0;
+  font-size: 1.05em;
 }
 
-/* Botão Voltar */
 .button-back {
   padding: 0.8em 2em;
   font-size: 1.2em;
-  background-color: #ffe97d;
+  background-color: #89ff89;
   color: #262019;
   border: none;
   border-radius: 8px;
@@ -121,28 +122,6 @@ main {
   transition: background 0.2s;
 }
 .button-back:hover {
-  background-color: #ffd442;
-}
-#lightbox-bar {
-  text-align: center;
-  margin-top: 0.7em;
-}
-
-#lightbox-text {
-  color: #ffe97d;
-  background: rgba(28,16,2,0.82);
-  padding: 0.5em 1.1em;
-  border-radius: 6px;
-  font-size: 1.05em;
-}
-
-#lightbox-image {
-  max-width: 95vw;
-  max-height: 85vh;
-  border-radius: 10px;
-  margin-bottom: 0.3em;
-  box-shadow: 0 3px 18px rgba(0,0,0,0.32);
-  border: 4px solid #ffe97d;
-  display: block;
+  background-color: #5ad95a;
 }
 

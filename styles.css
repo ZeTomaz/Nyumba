@@ -69,10 +69,78 @@ main {
   margin: 2em 0;
 }
 
+.galeria-imagens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1em;
+  justify-items: center;
+  padding: 2em 0;
+}
+.galeria-imagens img {
+  width: 100%;
+  max-width: 400px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: box-shadow 0.15s;
+}
+
+#lightbox-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top:0; left:0; width:100vw; height:100vh;
+  background: rgba(20, 20, 22, 0.95);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#lightbox-overlay.open {
+  display: flex;
+}
+#lightbox-image {
+  max-width: 95vw;
+  max-height: 85vh;
+  border-radius: 10px;
+  margin-bottom: 0.3em;
+  box-shadow: 0 3px 18px rgba(0,0,0,0.32);
+  border: 4px solid #89ff89;
+  display: block;
+}
+#lightbox-bar {
+  text-align: center;
+  margin-top: 0.7em;
+}
+#lightbox-text {
+  color: #89ff89;
+  background: rgba(28,16,2,0.82);
+  padding: 0.5em 1.1em;
+  border-radius: 6px;
+  font-size: 1.05em;
+}
+
+.button-back {
+  padding: 0.8em 2em;
+  font-size: 1.2em;
+  background-color: #89ff89;
+  color: #262019;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 2em;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(70, 50, 30, 0.10);
+  transition: background 0.2s;
+}
+.button-back:hover {
+  background-color: #5ad95a;
+}
+
 .menu-img {
   text-align: center;
 }
-
 .menu-img img {
   max-width: 340px;
   width: 90%;
@@ -80,12 +148,10 @@ main {
   margin: 1em 0;
   box-shadow: 0 0 12px rgba(0,0,0,0.25);
 }
-
 .menu-link {
   text-align: center;
   margin: 2em;
 }
-
 .menu-link a {
   background: #008000;
   color: #fff;
@@ -95,7 +161,6 @@ main {
   font-weight: bold;
   transition: background 0.2s;
 }
-
 .menu-link a:hover {
   background: #00b300;
 }

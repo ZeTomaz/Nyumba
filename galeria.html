@@ -55,9 +55,10 @@
   <!-- Lightbox overlay -->
   <div id="lightbox-overlay" tabindex="-1">
     <img id="lightbox-image" src="" alt="Full image"/>
-    <p id="lightbox-text"></p>
+    <div id="lightbox-bar">
+      <small id="lightbox-text"></small>
+    </div>
   </div>
-
   <script>
     const langData = {
       pt: {
@@ -66,7 +67,7 @@
         navContact: "Contactos",
         galeriaTitle: "Galeria - Conheça o nosso espaço",
         btnBack: "Voltar ao início",
-        lightbox: "Pressione ESC para fechar"
+        lightbox: "⌨ Esc para fechar"
       },
       en: {
         navHome: "Home",
@@ -74,7 +75,7 @@
         navContact: "Contacts",
         galeriaTitle: "Gallery – See our space",
         btnBack: "Back to Home",
-        lightbox: "Press ESC to close"
+        lightbox: "⌨ Esc to close"
       }
     };
 
@@ -105,14 +106,12 @@
       }
     });
 
-    // Close with ESC or click outside
     overlay.onclick = function(e) {
       if (e.target === overlay) closeLightbox();
     };
     document.onkeydown = function(e) {
       if (overlay.classList.contains("open") && e.key === "Escape") closeLightbox();
     };
-
     function closeLightbox() {
       overlay.classList.remove("open");
       lightboxImg.src = "";
@@ -133,4 +132,3 @@
   </script>
 </body>
 </html>
-

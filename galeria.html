@@ -52,6 +52,12 @@
       </a>
     </div>
   </main>
+  <!-- Lightbox overlay -->
+  <div id="lightbox-overlay" tabindex="-1">
+    <img id="lightbox-image" src="" alt="Full image"/>
+    <p id="lightbox-text"></p>
+  </div>
+
   <script>
     const langData = {
       pt: {
@@ -59,16 +65,19 @@
         navGallery: "Galeria",
         navContact: "Contactos",
         galeriaTitle: "Galeria - Conheça o nosso espaço",
-        btnBack: "Voltar ao início"
+        btnBack: "Voltar ao início",
+        lightbox: "Pressione ESC para fechar"
       },
       en: {
         navHome: "Home",
         navGallery: "Gallery",
         navContact: "Contacts",
         galeriaTitle: "Gallery – See our space",
-        btnBack: "Back to Home"
+        btnBack: "Back to Home",
+        lightbox: "Press ESC to close"
       }
     };
+
     function setLang(l) {
       const t = langData[l];
       document.getElementById("nav-home").innerText = t.navHome;
@@ -76,8 +85,51 @@
       document.getElementById("nav-contact").innerText = t.navContact;
       document.getElementById("galeria-title").innerText = t.galeriaTitle;
       document.getElementById("btn-back").innerText = t.btnBack;
+      document.getElementById("lightbox-text").innerText = t.lightbox;
     }
     setLang('pt');
+
+    // Lightbox logic
+    const imgs = document.querySelectorAll(".galeria-imagens img");
+    const overlay = document.getElementById("lightbox-overlay");
+    const lightboxImg = document.getElementById("lightbox-image");
+    const lightboxText = document.getElementById("lightbox-text");
+
+    imgs.forEach(img => {
+      img.onclick = function() {
+        overlay.classList.add("open");
+        lightboxImg.src = this.src;
+        lightboxImg.alt = this.alt;
+        lightboxText.innerText = langData[document.documentElement.lang || 'pt'].lightbox;
+        overlay.focus();
+      }
+    });
+
+    // Close with ESC or click outside
+    overlay.onclick = function(e) {
+      if (e.target === overlay) closeLightbox();
+    };
+    document.onkeydown = function(e) {
+      if (overlay.classList.contains("open") && e.key === "Escape") closeLightbox();
+    };
+
+    function closeLightbox() {
+      overlay.classList.remove("open");
+      lightboxImg.src = "";
+      lightboxImg.alt = "";
+    }
+
+    // Update language if language changes
+    const langBtns = document.querySelectorAll(".lang-selector button");
+    langBtns.forEach(btn => {
+      btn.onclick = function() {
+        const lang = this.textContent === "English" ? "en" : "pt";
+        setLang(lang);
+        if (overlay.classList.contains("open")) {
+          lightboxText.innerText = langData[lang].lightbox;
+        }
+      }
+    });
   </script>
 </body>
 </html>

@@ -1,291 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Menu | Nyumba Food Concept</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* MENU DO DIA - realce e moldura */
-    .menu-dia-container {
-      text-align: center;
-      margin-top: 1.5em;
-    }
-    .menu-dia-img {
-      display: block;
-      margin: 0.5em auto 0.7em auto;
-      width: 320px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 4px solid #38b000; /* Moldura verde */
-      box-shadow: 0 0 18px rgba(56,176,0,0.35); /* Reflexo leve */
-    }
-    .menu-dia-legenda {
-      font-size: 1.6em;
-      font-weight: 700;
-      color: #155d00;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.25);
-    }
-
-    /* Restante grelha de menus */
-    .menu-semana-grelha {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
-      justify-items: center;
-      max-width: 370px;
-      margin: 2em auto 1em auto;
-    }
-    .menu-selo {
-      width: 140px;
-      height: 78px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.17);
-      cursor: pointer;
-      background: #f8fff5;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.21s, transform 0.2s;
-    }
-    .menu-selo:hover {
-      transform: scale(1.05);
-    }
-    .menu-selo img {
-      width: 100%;
-      height: 75px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-    .menu-selo span {
-      position: absolute;
-      bottom: 4px;
-      left: 0;
-      width: 100%;
-      font-size: 1em;
-      font-weight: bold;
-      color: #037203;
-      background: rgba(245,255,245,0.6);
-      text-align: center;
-      pointer-events: none;
-    }
-    .menu-selo.expanded {
-      z-index: 40;
-      width: 320px !important;
-      height: 180px !important;
-      box-shadow: 0 0 30px #2228;
-    }
-    .menu-selo.expanded img {
-      height: 172px;
-      border-radius: 12px;
-    }
-    .menu-selo.expanded span {
-      font-size: 1.2em;
-      bottom: 14px;
-      background: rgba(230,255,240,0.85);
-    }
-
-    /* Botão À la Carte */
-    #alacarte-btn {
-      margin: 2.5em auto 0 auto;
-      display: block;
-      padding: 0.9em 2.4em;
-      background: #008000;
-      color: #fff;
-      border-radius: 8px;
-      border: none;
-      font-weight: 700;
-      font-size: 1.3em;
-      cursor: pointer;
-      box-shadow: 0 2px 8px rgba(25,85,45,0.12);
-      transition: background 0.22s;
-    }
-    #alacarte-btn:hover {
-      background: #199e19;
-    }
-
-    /* Modal À la Carte */
-    #alacarte-modal {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(10,30,10,0.82);
-      z-index: 1200;
-      align-items: center;
-      justify-content: center;
-    }
-    #alacarte-modal.open {
-      display: flex;
-    }
-    #alacarte-text-box {
-      background: #fff;
-      color: #184c23;
-      border-radius: 12px;
-      padding: 2em 2em;
-      min-width: 330px;
-      max-width: 98vw;
-      box-shadow: 0 0 28px rgba(23,80,25,0.19);
-      font-size: 1.16em;
-      max-height: 95vh;
-      overflow-y: auto;
-      position: relative;
-    }
-    #alacarte-close {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      background: none;
-      border: none;
-      font-size: 1.5em;
-      color: #008000;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    @media (max-width: 600px) {
-      .menu-dia-img { width: 92vw; height: auto; }
-      .menu-dia-legenda { font-size: 1.2em; }
-      .menu-semana-grelha { grid-template-columns: 1fr; }
-      .menu-selo, .menu-selo.expanded {
-        width: 80vw !important;
-        height: 17vw !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu | Nyumba Food Concept</title>
+<link rel="stylesheet" href="styles.css" />
+<style>
+.menu-dia-container {
+  text-align: center;
+  margin-top: 1.5em;
+}
+.menu-dia-img {
+  display: block;
+  margin: 0.5em auto 0.7em auto;
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid #38b000;
+  box-shadow: 0 0 18px rgba(56,176,0,0.35);
+  cursor: pointer;
+}
+.menu-dia-legenda {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #155d00;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+.menu-semana-grelha {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  justify-items: center;
+  max-width: 370px;
+  margin: 2em auto 1em auto;
+}
+.menu-selo {
+  width: 140px;
+  height: 78px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.17);
+  cursor: pointer;
+  background: #f8fff5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+.menu-selo:hover {
+  transform: scale(1.05);
+}
+.menu-selo img {
+  width: 100%;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.menu-selo span {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  font-size: 1em;
+  font-weight: bold;
+  color: #037203;
+  background: rgba(245,255,245,0.7);
+  text-align: center;
+  pointer-events: none;
+}
+/* Modal visual detalhes */
+#menu-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(15,15,15,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#menu-lightbox.open { display: flex; }
+#menu-lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 10px;
+  border: 4px solid #94ff94;
+  box-shadow: 0 0 30px rgba(0,0,0,0.45);
+}
+#menu-lightbox small {
+  color: #94ff94;
+  background: rgba(25,25,25,0.8);
+  padding: 0.5em 1em;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+/* Botão à la carte modal */
+#alacarte-btn {
+  margin: 2.5em auto 0 auto;
+  display: block;
+  padding: 0.9em 2.4em;
+  background: #008000;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  font-weight: 700;
+  font-size: 1.3em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25,85,45,0.12);
+  transition: background 0.22s;
+}
+#alacarte-btn:hover { background: #199e19; }
+#alacarte-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(10,30,10,0.82);
+  z-index: 1200;
+  align-items: center;
+  justify-content: center;
+}
+#alacarte-modal.open { display: flex; }
+#alacarte-text-box {
+  background: #fff;
+  color: #184c23;
+  border-radius: 12px;
+  padding: 2em;
+  min-width: 330px;
+  max-width: 95vw;
+  box-shadow: 0 0 28px rgba(23,80,25,0.19);
+  font-size: 1.1em;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+}
+#alacarte-close {
+  position: absolute;
+  top: 12px; right: 14px;
+  background: none; border: none;
+  font-size: 1.5em; color: #008000;
+  cursor: pointer; font-weight: bold;
+}
+</style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" id="nav-home"></a>
-      <a href="galeria.html" id="nav-gallery"></a>
-      <a href="menu.html" id="nav-menu"></a>
-      <a href="contactos.html" id="nav-contact"></a>
-    </nav>
-    <div class="lang-selector">
-      <button onclick="setLang('pt')">Português</button>
-      <button onclick="setLang('en')">English</button>
+<header>
+  <nav>
+    <a href="index.html" id="nav-home"></a>
+    <a href="galeria.html" id="nav-gallery"></a>
+    <a href="menu.html" id="nav-menu"></a>
+    <a href="contactos.html" id="nav-contact"></a>
+  </nav>
+  <div class="lang-selector">
+    <button onclick="setLang('pt')">Português</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+  <div id="date-time"></div>
+</header>
+<main>
+  <h1 id="menu-title"></h1>
+  <div class="menu-dia-container">
+    <img id="menu-dia-img" class="menu-dia-img" src="" alt="Menu do dia">
+    <div id="menu-dia-legenda" class="menu-dia-legenda"></div>
+  </div>
+  <div class="menu-semana-grelha" id="grelha-menus"></div>
+  <button id="alacarte-btn"></button>
+  <!-- Modal imagem expandida -->
+  <div id="menu-lightbox">
+    <img id="menu-lg-img" src="" alt="">
+    <small id="menu-lightbox-text">⌨ Esc para fechar</small>
+  </div>
+  <!-- Modal À la carte -->
+  <div id="alacarte-modal">
+    <div id="alacarte-text-box">
+      <button id="alacarte-close" title="Fechar">×</button>
+      <h2 style="margin-top:0">Menu À la Carte</h2>
+      <ul>
+        <li>Moamba de galinha tradicional do Zambeze</li>
+        <li>Caril de camarão fresco com especiarias</li>
+        <li>Frango grelhado à africana</li>
+        <li>Bife de novilho grelhado</li>
+        <li>Feijoada de peixe malandro</li>
+        <li>Legumes salteados da época</li>
+        <li>Arroz branco ou de côco</li>
+        <li>Batata frita ou cozida</li>
+        <li>Frutas tropicais frescas</li>
+      </ul>
     </div>
-    <div id="date-time"></div>
-  </header>
-  <main>
-    <h1 id="menu-title"></h1>
-    <div class="menu-dia-container">
-      <img id="menu-dia-img" class="menu-dia-img" src="" alt="Menu do dia" />
-      <div id="menu-dia-legenda" class="menu-dia-legenda"></div>
-    </div>
-    <div class="menu-semana-grelha" id="grelha-menus"></div>
-    <button id="alacarte-btn"></button>
-    <div id="alacarte-modal">
-      <div id="alacarte-text-box">
-        <button id="alacarte-close" title="Fechar">×</button>
-        <h2 style="margin-top:0">Menu À la Carte</h2>
-        <ul>
-          <li>Moamba de galinha tradicional do Zambeze</li>
-          <li>Caril de camarão fresco com especiarias</li>
-          <li>Frango grelhado à africana</li>
-          <li>Bife de novilho grelhado</li>
-          <li>Feijoada de peixe malandro</li>
-          <li>Legumes salteados da época</li>
-          <li>Arroz branco ou de côco</li>
-          <li>Batata frita ou cozida</li>
-          <li>Frutas tropicais frescas</li>
-        </ul>
-      </div>
-    </div>
-  </main>
-  <script>
-    const langData = {
-      pt: {
-        navHome: "Principal",
-        navGallery: "Galeria",
-        navMenu: "Menu",
-        navContact: "Contactos",
-        menuTitle: "Menu do Dia e da Semana",
-        dias: ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"],
-        alacarteBtn: "À la Carte"
-      },
-      en: {
-        navHome: "Home",
-        navGallery: "Gallery",
-        navMenu: "Menu",
-        navContact: "Contacts",
-        menuTitle: "Today's and Weekly Menu",
-        dias: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        alacarteBtn: "À la Carte"
-      }
-    };
-    const menuImgs = {
-      1: { img: "images/2a.jpg" }, 
-      2: { img: "images/3a.jpg" },
-      3: { img: "images/4a.jpg" },
-      4: { img: "images/5a.jpg" },
-      5: { img: "images/6a.jpg" }
-    };
-    function updateDateTime() {
-      const now = new Date();
-      const date = now.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('date-time').textContent = `${date} | ${time}`;
+  </div>
+</main>
+<script>
+const langData={
+  pt:{navHome:"Principal",navGallery:"Galeria",navMenu:"Menu",navContact:"Contactos",menuTitle:"Menu do Dia e da Semana",dias:["Domingo","Segunda-feira","Terça-feira","Quarta-feira","Quinta-feira","Sexta-feira","Sábado"],alacarteBtn:"À la Carte"},
+  en:{navHome:"Home",navGallery:"Gallery",navMenu:"Menu",navContact:"Contacts",menuTitle:"Today's and Weekly Menu",dias:["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],alacarteBtn:"À la Carte"}
+};
+const menuImgs={1:{img:"images/2a.jpg"},2:{img:"images/3a.jpg"},3:{img:"images/4a.jpg"},4:{img:"images/5a.jpg"},5:{img:"images/6a.jpg"}};
+
+function updateDateTime(){
+  const now=new Date();
+  const d=now.toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const t=now.toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'});
+  document.getElementById('date-time').textContent=`${d} | ${t}`;
+}
+setInterval(updateDateTime,60000);updateDateTime();
+
+function setLang(l){
+  const t=langData[l];
+  ["home","gallery","menu","contact"].forEach(n=>document.getElementById(`nav-${n}`).innerText=t[`nav${n.charAt(0).toUpperCase()+n.slice(1)}`]);
+  document.getElementById("menu-title").innerText=t.menuTitle;
+  document.getElementById("alacarte-btn").innerText=t.alacarteBtn;
+  showMenus(t);
+}
+
+function showMenus(t){
+  const hoje=new Date(),day=hoje.getDay();
+  const menuHoje=menuImgs[day];
+  if(menuHoje){
+    const diaElem=document.getElementById("menu-dia-img");
+    diaElem.src=menuHoje.img;
+    diaElem.alt=t.dias[day];
+    document.getElementById("menu-dia-legenda").innerText=t.dias[day];
+    diaElem.onclick=()=>openLightbox(menuHoje.img,t.dias[day]);
+  }else{
+    document.getElementById("menu-dia-img").style.display="none";
+    document.getElementById("menu-dia-legenda").innerText="";
+  }
+  const grelha=document.getElementById("grelha-menus");grelha.innerHTML="";
+  for(let i=1;i<=5;i++){
+    if(i!==day){
+      const selo=document.createElement("div");
+      selo.className="menu-selo";
+      selo.innerHTML=`<img src="${menuImgs[i].img}" alt="${t.dias[i]}"><span>${t.dias[i]}</span>`;
+      selo.onclick=()=>openLightbox(menuImgs[i].img,t.dias[i]);
+      grelha.appendChild(selo);
     }
-    setInterval(updateDateTime, 60000);
-    updateDateTime();
-    function setLang(l) {
-      const t = langData[l];
-      document.getElementById("nav-home").innerText = t.navHome;
-      document.getElementById("nav-gallery").innerText = t.navGallery;
-      document.getElementById("nav-menu").innerText = t.navMenu;
-      document.getElementById("nav-contact").innerText = t.navContact;
-      document.getElementById("menu-title").innerText = t.menuTitle;
-      document.getElementById("alacarte-btn").innerText = t.alacarteBtn;
-      showMenus();
-    }
-    function showMenus() {
-      const hoje = new Date();
-      const lang = document.documentElement.lang === "en" ? "en" : "pt";
-      const t = langData[lang];
-      const day = hoje.getDay();
-      const menuHoje = menuImgs[day];
-      let restantes = [];
-      for (let i = 1; i <= 5; i++) if (i !== day) restantes.push({ id: i, ...menuImgs[i] });
-      if (!menuHoje) {
-        document.getElementById("menu-dia-img").style.display = "none";
-        document.getElementById("menu-dia-legenda").innerText = "";
-      } else {
-        document.getElementById("menu-dia-img").src = menuHoje.img;
-        document.getElementById("menu-dia-legenda").innerText = t.dias[day];
-      }
-      const grelha = document.getElementById("grelha-menus");
-      grelha.innerHTML = "";
-      restantes.forEach(({ id, img }) => {
-        const selo = document.createElement("div");
-        selo.className = "menu-selo";
-        selo.innerHTML = `<img src="${img}" alt="${t.dias[id]}"><span>${t.dias[id]}</span>`;
-        selo.onclick = function() {
-          this.classList.toggle("expanded");
-        };
-        grelha.appendChild(selo);
-      });
-    }
-    setLang('pt');
-    document.getElementById("alacarte-btn").onclick = function() {
-      document.getElementById("alacarte-modal").classList.add("open");
-    };
-    document.getElementById("alacarte-close").onclick = function() {
-      document.getElementById("alacarte-modal").classList.remove("open");
-    };
-    window.addEventListener("keydown", e => {
-      if (e.key === "Escape") document.getElementById("alacarte-modal").classList.remove("open");
-    });
-    document.querySelectorAll(".lang-selector button").forEach(btn => {
-      btn.onclick = function() {
-        const lang = this.textContent === "English" ? "en" : "pt";
-        setLang(lang);
-      };
-    });
-  </script>
+  }
+}
+
+function openLightbox(src,alt){
+  const box=document.getElementById("menu-lightbox");
+  const img=document.getElementById("menu-lg-img");
+  const txt=document.getElementById("menu-lightbox-text");
+  img.src=src;img.alt=alt;txt.textContent="⌨ Esc para fechar";
+  box.classList.add("open");box.focus();
+}
+function closeLightbox(){
+  document.getElementById("menu-lightbox").classList.remove("open");
+  document.getElementById("menu-lg-img").src="";
+}
+document.getElementById("menu-lightbox").onclick=e=>{if(e.target.id==="menu-lightbox")closeLightbox();};
+document.onkeydown=e=>{if(e.key==="Escape")closeLightbox();};
+
+document.getElementById("alacarte-btn").onclick=()=>document.getElementById("alacarte-modal").classList.add("open");
+document.getElementById("alacarte-close").onclick=()=>document.getElementById("alacarte-modal").classList.remove("open");
+window.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("alacarte-modal").classList.remove("open");});
+document.querySelectorAll(".lang-selector button").forEach(b=>b.onclick=()=>setLang(b.textContent==="English"?"en":"pt"));
+setLang('pt');
+</script>
 </body>
 </html>

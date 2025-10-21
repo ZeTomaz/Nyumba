@@ -8,14 +8,14 @@ body {
 /* ---------- Header com imagem friso2 ---------- */
 header {
   background: url("images/friso1.png") center center / cover no-repeat;
-  height: 160px;                 /* ajusta conforme a altura real do friso */
+  height: 160px;
   width: 100%;
   text-align: center;
   padding: 0;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;     /* menus no fundo do friso */
+  justify-content: flex-end;
   box-shadow: 0 3px 12px rgba(0,0,0,0.25);
 }
 
@@ -24,14 +24,14 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  height: 160px;                /* mesma altura do friso */
-  width: auto;                  /* mantém proporção */
+  height: 160px;       /* igual ao cabeçalho */
+  width: auto;
   object-fit: contain;
   z-index: 20;
   margin-left: 10px;
 }
 
-/* ---------- Navegação e data/hora sobre o friso ---------- */
+/* ---------- Navegação e data/hora ---------- */
 nav {
   margin: 0.5em 0 1em 0;
 }
@@ -39,15 +39,15 @@ nav {
 nav a {
   margin: 0 1em;
   text-decoration: none;
-  color: #ff7c00;                 /* laranja forte */
+  color: #ff7c00;
   font-size: 1.15em;
-  font-weight: 800;               /* mais negrito */
+  font-weight: 800;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #ffa64d;                 /* tom de laranja mais claro ao passar */
+  color: #ffa64d;
 }
 
 .lang-selector {
@@ -55,14 +55,14 @@ nav a:hover {
 }
 
 .lang-selector button {
-  background: #000000;            /* fundo preto */
+  background: #000000;
   border: none;
   border-radius: 6px;
   margin: 0 0.25em;
   padding: 0.3em 1em;
   font-weight: bold;
   cursor: pointer;
-  color: #ffffff;                 /* texto branco */
+  color: #ffffff;
   box-shadow: 0 1px 4px rgba(0,0,0,0.3);
   transition: background 0.25s, transform 0.15s;
 }
@@ -82,7 +82,7 @@ nav a:hover {
   font-weight: 500;
 }
 
-/* ---------- Main section with neutral dark overlay ---------- */
+/* ---------- Main section com overlay neutro ---------- */
 main {
   position: relative;
   max-width: 900px;
@@ -104,7 +104,7 @@ main::before {
   width: 100%;
   height: 100%;
   z-index: 0;
-  background: rgba(30, 30, 30, 0.55); /* neutral dark overlay (gray tint) */
+  background: rgba(30, 30, 30, 0.55);
   pointer-events: none;
   border-radius: 18px;
 }
@@ -116,7 +116,7 @@ main > * {
   text-shadow: 0 2px 6px #000;
 }
 
-/* ---------- Sections ---------- */
+/* ---------- Secções ---------- */
 .filosofia {
   text-align: justify;
   max-width: 640px;
@@ -130,7 +130,7 @@ main > * {
   margin-bottom: 0.5em;
 }
 
-/* ---------- Gallery styles ---------- */
+/* ---------- Galeria ---------- */
 .galeria-imagens {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -190,7 +190,7 @@ main > * {
   text-align: center;
 }
 
-/* ---------- Buttons ---------- */
+/* ---------- Botões ---------- */
 .button-back {
   padding: 0.8em 2em;
   font-size: 1.2em;
@@ -208,7 +208,7 @@ main > * {
   background-color: #5ad95a;
 }
 
-/* ---------- Menu page elements ---------- */
+/* ---------- Menu ---------- */
 .menu-img {
   text-align: center;
 }
@@ -263,10 +263,10 @@ main > * {
   text-decoration: underline;
 }
 
-/* ---------- Fade‑in animation ---------- */
+/* ---------- Fade‑in ---------- */
 @keyframes fadeInSmooth {
   from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 main {
@@ -274,15 +274,25 @@ main {
   opacity: 1;
 }
 
-/* ---------- Responsive ---------- */
-@media (max-width: 800px) {
-  main {
-    padding: 1em;
-  }
-  .galeria-imagens {
-    grid-template-columns: 1fr;
-  }
-  #logo-fixed {
-    height: 100px;  /* reduzido em ecrãs menores */
-  }
+/* ---------- Responsividade ---------- */
+@media (max-width: 900px) {
+  header { height: 130px; }
+  #logo-fixed { height: 130px; }
+  nav a { font-size: 1em; }
+}
+
+@media (max-width: 700px) {
+  main { padding: 1em; }
+  .galeria-imagens { grid-template-columns: 1fr; }
+  nav a { display: inline-block; margin: 0.3em; font-size: 1em; }
+  .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
+  header { height: 110px; }
+  #logo-fixed { height: 110px; }
+}
+
+@media (max-width: 480px) {
+  header { height: 100px; }
+  #logo-fixed { height: 90px; }
+  nav a { font-size: 0.95em; }
+  .lang-selector { margin-bottom: 0.5em; }
 }

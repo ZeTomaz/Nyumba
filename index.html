@@ -14,6 +14,7 @@
     <nav>
       <a href="index.html" id="nav-home"></a>
       <a href="galeria.html" id="nav-gallery"></a>
+      <a href="menu.html" id="nav-menu"></a>
       <a href="contactos.html" id="nav-contact"></a>
     </nav>
 
@@ -46,43 +47,28 @@
     </section>
   </main>
 
-  <footer>
-    <div class="contactos">
-      <h3 id="contact-title"></h3>
-      <p id="contact-email"></p>
-      <p id="contact-whatsapp"></p>
-      <p id="contact-facebook"></p>
-    </div>
-  </footer>
-
   <script>
     const langData = {
       pt: {
         navHome: "Principal",
         navGallery: "Galeria",
+        navMenu: "Menu",
         navContact: "Contactos",
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Aberto todos os dias, das 09:00 às 22:30",
         filosofiaTitle: "A nossa filosofia",
         filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade.",
-        contactTitle: "Contactos",
-        contactEmail: "Email: <a href='mailto:nyumba.maputo@gmail.com'>nyumba.maputo@gmail.com</a>",
-        contactWhatsapp: "WhatsApp: <a href='https://wa.me/258864663788' target='_blank'>+258 864663788</a>",
-        contactFacebook: "Facebook Messenger: <a href='https://m.me/nyumbafoodconcept' target='_blank'>Nyumba Food Concept</a>",
         locationTitle: "Localização"
       },
       en: {
         navHome: "Home",
         navGallery: "Gallery",
+        navMenu: "Menu",
         navContact: "Contacts",
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
         filosofiaTitle: "Our philosophy",
         filosofiaText: "Nyumba Food Concept is a space dedicated to celebrating African culture and cuisine, where every dish tells a story of tradition, flavour, and community.",
-        contactTitle: "Contacts",
-        contactEmail: "Email: <a href='mailto:nyumba.maputo@gmail.com'>nyumba.maputo@gmail.com</a>",
-        contactWhatsapp: "WhatsApp: <a href='https://wa.me/258864663788' target='_blank'>+258 864663788</a>",
-        contactFacebook: "Facebook Messenger: <a href='https://m.me/nyumbafoodconcept' target='_blank'>Nyumba Food Concept</a>",
         locationTitle: "Location"
       }
     };
@@ -91,19 +77,15 @@
       const t = langData[l];
       document.getElementById("nav-home").innerText = t.navHome;
       document.getElementById("nav-gallery").innerText = t.navGallery;
+      document.getElementById("nav-menu").innerText = t.navMenu;
       document.getElementById("nav-contact").innerText = t.navContact;
       document.getElementById("site-title").innerText = t.siteTitle;
       document.getElementById("site-schedule").innerText = t.siteSchedule;
       document.getElementById("filosofia-title").innerText = t.filosofiaTitle;
       document.getElementById("filosofia-text").innerText = t.filosofiaText;
-      document.getElementById("contact-title").innerText = t.contactTitle;
       document.getElementById("location-title").innerText = t.locationTitle;
-      document.getElementById("contact-email").innerHTML = t.contactEmail;
-      document.getElementById("contact-whatsapp").innerHTML = t.contactWhatsapp;
-      document.getElementById("contact-facebook").innerHTML = t.contactFacebook;
     }
     setLang('pt');
   </script>
 </body>
 </html>
-

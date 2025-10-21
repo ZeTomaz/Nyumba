@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu | Nyumba Food Concept</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" class="logo" />
+    <nav>
+      <a href="index.html" id="nav-home"></a>
+      <a href="galeria.html" id="nav-gallery"></a>
+      <a href="menu.html" id="nav-menu"></a>
+      <a href="contactos.html" id="nav-contact"></a>
+    </nav>
+    <div class="lang-selector">
+      <button onclick="setLang('pt')">Português</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+  </header>
+  <main>
+    <h1 id="menu-title"></h1>
+    <section class="menu-list">
+      <h2 id="menu-day-title"></h2>
+      <p id="menu-day-desc"></p>
+      <img src="images/menu1.jpg" alt="Imagem menu do dia" style="max-width:340px; border-radius:8px; margin:1em 0;" />
+      <h2 id="menu-ac-title"></h2>
+      <ul>
+        <li id="menu-ac1"></li>
+        <li id="menu-ac2"></li>
+        <li id="menu-ac3"></li>
+      </ul>
+      <img src="images/menu2.jpg" alt="Imagem à la carte" style="max-width:340px; border-radius:8px; margin:1em 0;" />
+      <h2 id="menu-beb-title"></h2>
+      <ul>
+        <li id="menu-beb1"></li>
+        <li id="menu-beb2"></li>
+        <li id="menu-beb3"></li>
+        <li id="menu-beb4"></li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    const langData = {
+      pt: {
+        navHome: "Principal",
+        navGallery: "Galeria",
+        navMenu: "Menu",
+        navContact: "Contactos",
+        menuTitle: "Menu Semanal",
+        menuDayTitle: "Prato do Dia",
+        menuDayDesc: "Veja o nosso prato especial para cada dia:",
+        menuAcTitle: "À la Carte",
+        menuAc1: "Moamba de galinha",
+        menuAc2: "Caril de camarão",
+        menuAc3: "Bife grelhado",
+        menuBebTitle: "Bebidas",
+        menuBeb1: "Águas",
+        menuBeb2: "Sumos naturais",
+        menuBeb3: "Cervejas",
+        menuBeb4: "Vinhos e espirituosos"
+      },
+      en: {
+        navHome: "Home",
+        navGallery: "Gallery",
+        navMenu: "Menu",
+        navContact: "Contacts",
+        menuTitle: "Weekly Menu",
+        menuDayTitle: "Daily Special",
+        menuDayDesc: "Check our daily featured dish:",
+        menuAcTitle: "À la Carte",
+        menuAc1: "Chicken Moamba",
+        menuAc2: "Shrimp Curry",
+        menuAc3: "Grilled Steak",
+        menuBebTitle: "Drinks",
+        menuBeb1: "Water",
+        menuBeb2: "Fresh Juices",
+        menuBeb3: "Beer",
+        menuBeb4: "Wines & Spirits"
+      }
+    };
+    function setLang(l) {
+      const t = langData[l];
+      document.getElementById("nav-home").innerText = t.navHome;
+      document.getElementById("nav-gallery").innerText = t.navGallery;
+      document.getElementById("nav-menu").innerText = t.navMenu;
+      document.getElementById("nav-contact").innerText = t.navContact;
+      document.getElementById("menu-title").innerText = t.menuTitle;
+      document.getElementById("menu-day-title").innerText = t.menuDayTitle;
+      document.getElementById("menu-day-desc").innerText = t.menuDayDesc;
+      document.getElementById("menu-ac-title").innerText = t.menuAcTitle;
+      document.getElementById("menu-ac1").innerText = t.menuAc1;
+      document.getElementById("menu-ac2").innerText = t.menuAc2;
+      document.getElementById("menu-ac3").innerText = t.menuAc3;
+      document.getElementById("menu-beb-title").innerText = t.menuBebTitle;
+      document.getElementById("menu-beb1").innerText = t.menuBeb1;
+      document.getElementById("menu-beb2").innerText = t.menuBeb2;
+      document.getElementById("menu-beb3").innerText = t.menuBeb3;
+      document.getElementById("menu-beb4").innerText = t.menuBeb4;
+    }
+    setLang('pt');
+  </script>
+</body>
+</html>

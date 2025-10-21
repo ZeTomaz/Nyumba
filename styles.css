@@ -7,7 +7,7 @@ body {
 
 /* ---------- Header com imagem friso2 ---------- */
 header {
-  background: url("images/friso2.png") center center / cover no-repeat;
+  background: url("images/friso1.png") center center / cover no-repeat;
   height: 160px;                 /* ajusta conforme a altura real do friso */
   width: 100%;
   text-align: center;

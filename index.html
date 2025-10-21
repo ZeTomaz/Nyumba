@@ -1,49 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nyumba Food Concept</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <header>
-    <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" class="logo" />
-
+    <img src="images/logo-nyumba.png" alt="Nyumba logo" class="logo">
     <nav>
       <a href="index.html" id="nav-home"></a>
       <a href="galeria.html" id="nav-gallery"></a>
       <a href="menu.html" id="nav-menu"></a>
       <a href="contactos.html" id="nav-contact"></a>
     </nav>
-
     <div class="lang-selector">
       <button onclick="setLang('pt')">Português</button>
       <button onclick="setLang('en')">English</button>
     </div>
-
+    <div id="date-time"></div>
+  </header>
+  <main>
     <h1 id="site-title"></h1>
     <p id="site-schedule"></p>
-  </header>
-
-  <main>
     <section class="filosofia">
       <h2 id="filosofia-title"></h2>
       <p id="filosofia-text"></p>
-    </section>
-
-    <section class="localizacao">
-      <h3 id="location-title"></h3>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-        width="600"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
     </section>
   </main>
 
@@ -55,10 +38,9 @@
         navMenu: "Menu",
         navContact: "Contactos",
         siteTitle: "Nyumba Food Concept",
-        siteSchedule: "Aberto todos os dias, das 09:00 às 22:30",
+        siteSchedule: "Aberto todos os dias das 09:00 às 22:30",
         filosofiaTitle: "A nossa filosofia",
-        filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade.",
-        locationTitle: "Localização"
+        filosofiaText: "A Nyumba Food Concept é um espaço dedicado à celebração da cultura e gastronomia africana, onde cada prato conta uma história de tradição, sabor e comunidade."
       },
       en: {
         navHome: "Home",
@@ -68,10 +50,18 @@
         siteTitle: "Nyumba Food Concept",
         siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
         filosofiaTitle: "Our philosophy",
-        filosofiaText: "Nyumba Food Concept is a space dedicated to celebrating African culture and cuisine, where every dish tells a story of tradition, flavour, and community.",
-        locationTitle: "Location"
+        filosofiaText: "Nyumba Food Concept celebrates African culture and cuisine, where every dish tells a story of tradition, flavour and community."
       }
     };
+
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+      document.getElementById('date-time').textContent = `${date} | ${time}`;
+    }
+    setInterval(updateDateTime, 60000);
+    updateDateTime();
 
     function setLang(l) {
       const t = langData[l];
@@ -83,9 +73,9 @@
       document.getElementById("site-schedule").innerText = t.siteSchedule;
       document.getElementById("filosofia-title").innerText = t.filosofiaTitle;
       document.getElementById("filosofia-text").innerText = t.filosofiaText;
-      document.getElementById("location-title").innerText = t.locationTitle;
     }
     setLang('pt');
   </script>
 </body>
 </html>
+

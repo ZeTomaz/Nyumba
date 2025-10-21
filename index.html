@@ -6,60 +6,31 @@
   <title>Nyumba Food Concept</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Elementos fixos na base */
+    /* Logo fixo no canto superior esquerdo sobre o friso */
     #logo-fixed {
       position: fixed;
-      left: 25px;
-      bottom: 25px;
-      z-index: 22;
-      width: 320px;
-      height: 180px;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 0 13px rgba(0,0,0,0.21);
-      background: #fffefc;
+      top: 10px;
+      left: 10px;
+      z-index: 50;
+      width: 200px;
+      height: 200px;
       object-fit: contain;
-    }
-    #map-fixed-box {
-      position: fixed;
-      right: 25px;
-      bottom: 25px;
-      z-index: 22;
-      width: 320px;
-      height: 180px;
-      border-radius: 12px;
-      box-shadow: 0 0 14px rgba(0,0,0,0.25);
-      overflow: hidden;
-      background: #fffefc;
-      display: flex;
-    }
-    #map-fixed {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-    @media (max-width: 900px) {
-      #logo-fixed, #map-fixed-box { width: 45vw; height: 25vw; min-width:140px; min-height:90px; }
-      #logo-fixed { left: 5vw; bottom: 5vw; }
-      #map-fixed-box { right: 5vw; bottom: 5vw;}
-    }
-    @media (max-width: 600px) {
-      #logo-fixed, #map-fixed-box { width: 40vw; height: 22vw; min-width:100px; min-height:60px;}
-      #logo-fixed { left: 4vw; bottom: 4vw;}
-      #map-fixed-box { right: 4vw; bottom: 4vw;}
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.25);
     }
 
-    /* Filosofia centralizada e justificada */
-    .filosofia {
-      text-align: justify;
-      max-width: 620px;
-      margin: 2em auto;
-      line-height: 1.6em;
-      text-align-last: center;
+    /* Ocultar o mapa nesta página */
+    #map-fixed-box {
+      display: none;
     }
-    .filosofia h2 {
-      text-align: center;
-      margin-bottom: 0.5em;
+
+    @media (max-width: 600px) {
+      #logo-fixed {
+        width: 140px;
+        height: 140px;
+        top: 6px;
+        left: 6px;
+      }
     }
   </style>
 </head>
@@ -77,7 +48,6 @@
     </div>
     <div id="date-time"></div>
   </header>
-
   <main>
     <h1 id="site-title"></h1>
     <p id="site-schedule"></p>
@@ -87,8 +57,10 @@
     </section>
   </main>
 
-  <!-- Logo e mapa nos cantos inferiores -->
+  <!-- Novo logo fixo no topo sobre o friso -->
   <img src="images/logo-nyumba.png" alt="Nyumba logo" id="logo-fixed" />
+
+  <!-- Mapa removido (está oculto por CSS) -->
   <div id="map-fixed-box">
     <iframe
       id="map-fixed"

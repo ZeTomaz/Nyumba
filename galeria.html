@@ -16,7 +16,7 @@
         /* ---------- Header (Corrigido e Padrão) ---------- */
         header {
             background-color: #4a2d1e; /* Cor escura do fundo */
-            /* Caminho corrigido para o ficheiro na raiz */
+            /* Caminho na raiz */
             background-image: url("friso1.png"); 
             background-position: center center;
             background-size: cover;
@@ -368,25 +368,28 @@
                         // Caminhos e nomes corrigidos: pcX.jpg
                         { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
                         { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
-                        // Usando pc3.jpg (corrigido do erro de digitação original 'pg3.jpg')
                         { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." }, // Item adicional
                     ],
                     esplanada: [
                         // Caminhos e nomes corrigidos: esX.jpg
                         { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
                         { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
                         { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." }, // Item adicional
                     ],
                     cocktails: [
                         // Caminhos e nomes corrigidos: ckX.jpg
                         { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
                         { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
                         { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." }, // Item adicional
                     ],
                     cozinha: [
                         // Caminhos e nomes corrigidos: czX.jpg
                         { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
                         { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." }, // Item adicional
                     ]
                 }
             },
@@ -407,25 +410,28 @@
                         // Caminhos e nomes corrigidos: pcX.jpg
                         { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
                         { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
-                        // Usando pc3.jpg (corrigido do erro de digitação original 'pg3.jpg')
                         { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." }, // Item adicional
                     ],
                     esplanada: [
                         // Caminhos e nomes corrigidos: esX.jpg
                         { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
                         { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
                         { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." }, // Item adicional
                     ],
                     cocktails: [
                         // Caminhos e nomes corrigidos: ckX.jpg
                         { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
                         { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
                         { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." }, // Item adicional
                     ],
                     cozinha: [
                         // Caminhos e nomes corrigidos: czX.jpg
                         { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
                         { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." }, // Item adicional
                     ]
                 }
             }
@@ -449,6 +455,7 @@
             const lang = document.documentElement.lang || 'pt';
             const captionKey = lang === 'pt' ? 'pt' : 'en';
             
+            // Aqui é onde a imagem do modal é carregada
             enlargedImage.src = images[currentImageIndex].src;
             modalCaption.innerText = images[currentImageIndex][captionKey];
         }

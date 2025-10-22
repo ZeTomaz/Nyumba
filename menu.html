@@ -1,609 +1,583 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu | Nyumba Food Concept</title>
-    
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background: #fffbe6;
-            color: #262019;
-        }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu | Nyumba Food Concept</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #fffbe6;
+            color: #262019;
+        }
 
-        /* ---------- Header (Padrão) ---------- */
-        header {
-            background-color: #4a2d1e; 
-            background-image: url("images/friso1.png");
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 160px;
-            width: 100%;
-            text-align: center;
-            padding: 0;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-        }
+        /* ---------- Header (Padrão) ---------- */
+        header {
+            background-color: #4a2d1e; 
+            background-image: url("images/friso1.png");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 160px;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+        }
 
-        #header-logo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 160px;
-            width: auto;
-            object-fit: contain;
-            z-index: 20;
-            margin-left: 10px;
-            background: rgba(0, 0, 0, 0.2); 
-        }
+        #header-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            z-index: 20;
+            margin-left: 10px;
+            background: rgba(0, 0, 0, 0.2); 
+        }
 
-        nav { margin: 0.5em 0 1em 0; }
-        nav a {
-            margin: 0 1em;
-            text-decoration: none;
-            color: #ff7c00;
-            font-size: 1.15em;
-            font-weight: 800;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-            transition: color 0.3s;
-        }
-        nav a:hover { color: #ffa64d; }
+        nav { margin: 0.5em 0 1em 0; }
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #ff7c00;
+            font-size: 1.15em;
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ffa64d; }
 
-        .lang-selector { margin-bottom: 0.8em; }
-        .lang-selector button {
-            background: #000000;
-            border: none;
-            border-radius: 6px;
-            margin: 0 0.25em;
-            padding: 0.3em 1em;
-            font-weight: bold;
-            cursor: pointer;
-            color: #ffffff;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-            transition: background 0.25s, transform 0.15s;
-        }
-        .lang-selector button:hover { background: #222; transform: scale(1.05); }
+        .lang-selector { margin-bottom: 0.8em; }
+        .lang-selector button {
+            background: #000000;
+            border: none;
+            border-radius: 6px;
+            margin: 0 0.25em;
+            padding: 0.3em 1em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            transition: background 0.25s, transform 0.15s;
+        }
+        .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
-        #date-time {
-            position: absolute;
-            top: 8px;
-            right: 20px;
-            color: #fffdf5;
-            font-size: 0.95em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
-            font-weight: 500;
-        }
+        #date-time {
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            color: #fffdf5;
+            font-size: 0.95em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            font-weight: 500;
+        }
 
-        /* ---------- Main Section (Padrão) ---------- */
-        main {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2em;
-            text-align: center;
-            background: url("images/background2.png") center center / cover no-repeat;
-            min-height: 600px;
-            border-radius: 18px;
-            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
-            z-index: 1;
-        }
+        /* ---------- Main Section (Padrão) ---------- */
+        main {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2em;
+            text-align: center;
+            background: url("images/background2.png") center center / cover no-repeat;
+            min-height: 600px;
+            border-radius: 18px;
+            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+            z-index: 1;
+        }
 
-        main::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: rgba(30, 30, 30, 0.55);
-            pointer-events: none;
-            border-radius: 18px;
-        }
+        main::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: rgba(30, 30, 30, 0.55);
+            pointer-events: none;
+            border-radius: 18px;
+        }
 
-        main > * {
-            position: relative;
-            z-index: 1;
-            color: #fafafa;
-            text-shadow: 0 2px 6px #000;
-        }
+        main > * {
+            position: relative;
+            z-index: 1;
+            color: #fafafa;
+            text-shadow: 0 2px 6px #000;
+        }
 
-        .page-title {
-            font-size: 2.5em; 
-            margin-bottom: 0.5em; 
-            text-transform: uppercase;
-            color: #89ff89;
-        }
+        .page-title {
+            font-size: 2.5em; 
+            margin-bottom: 0.5em; 
+            text-transform: uppercase;
+            color: #89ff89;
+        }
 
-        /* ---------- Menu Diário (Novidade) ---------- */
-        #daily-menu-container {
-            margin-bottom: 2em;
-        }
-        
-        #daily-menu-subtitle {
-            font-size: 1.2em;
-            font-weight: 500;
-            margin-bottom: 1.5em;
-            color: #ff7c00;
-        }
+        /* ---------- Menu Diário (Novidade) ---------- */
+        #daily-menu-container {
+            margin-bottom: 2em;
+        }
+        
+        #daily-menu-subtitle {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 1.5em;
+            color: #ff7c00;
+        }
 
-        .daily-menu-images {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 2em;
-            overflow-x: auto; /* Permite scroll em mobile se necessário */
-            padding-bottom: 10px;
-        }
-        
-        .daily-menu-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 120px;
-            flex-shrink: 0;
-        }
+        .daily-menu-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2em;
+            overflow-x: auto; /* Permite scroll em mobile se necessário */
+            padding-bottom: 10px;
+        }
+        
+        .daily-menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            flex-shrink: 0;
+        }
 
-        .daily-menu-item img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 3px solid transparent;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            transition: border-color 0.3s, transform 0.3s;
-            cursor: pointer; /* Adicionado para indicar interatividade */
-        }
+        .daily-menu-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s, transform 0.3s;
+            cursor: pointer; /* Adicionado para indicar interatividade */
+        }
 
-        .daily-menu-item.highlighted img {
-            border-color: #ff7c00; /* Cor de destaque */
-            transform: scale(1.1);
-        }
+        .daily-menu-item.highlighted img {
+            border-color: #ff7c00; /* Cor de destaque */
+            transform: scale(1.1);
+        }
 
-        .daily-menu-item p {
-            margin-top: 8px;
-            font-size: 0.9em;
-            font-weight: bold;
-        }
+        .daily-menu-item p {
+            margin-top: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
 
-        /* ---------- Botão À La Carte ---------- */
-        #alacarte-toggle-button {
-            padding: 10px 25px;
-            font-size: 1.1em;
-            background-color: #ff7c00;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255,124,0,0.3);
-            transition: background 0.2s, transform 0.2s;
-            margin-bottom: 3em;
-        }
-        
-        #alacarte-toggle-button:hover {
-            background-color: #ffa64d;
-            transform: translateY(-2px);
-        }
-        
-        /* ---------- Menu À La Carte (Secção Antiga) ---------- */
-        #alacarte-menu-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-in-out;
-            padding-top: 0;
-        }
+        /* ---------- Botão À La Carte ---------- */
+        #alacarte-toggle-button {
+            padding: 10px 25px;
+            font-size: 1.1em;
+            background-color: #ff7c00;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,124,0,0.3);
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 3em;
+        }
+        
+        #alacarte-toggle-button:hover {
+            background-color: #ffa64d;
+            transform: translateY(-2px);
+        }
+        
+        /* ---------- Menu À La Carte (Secção Antiga) ---------- */
+        #alacarte-menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            padding-top: 0;
+        }
 
-        #alacarte-menu-content.open {
-            max-height: 2000px; /* Suficiente para expandir */
-            padding-top: 20px;
-        }
+        #alacarte-menu-content.open {
+            max-height: 2000px; /* Suficiente para expandir */
+            padding-top: 20px;
+        }
 
-        .menu-section {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-            text-align: left;
-        }
+        .menu-section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            text-align: left;
+        }
 
-        .menu-section h2 {
-            color: #89ff89;
-            font-size: 1.8em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #89ff89;
-            padding-bottom: 5px;
-            text-align: center;
-        }
+        .menu-section h2 {
+            color: #89ff89;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #89ff89;
+            padding-bottom: 5px;
+            text-align: center;
+        }
 
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 10px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
-        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+        }
 
-        .menu-item:last-child { border-bottom: none; }
+        .menu-item:last-child { border-bottom: none; }
 
-        .item-details h3 {
-            margin: 0 0 5px 0;
-            color: #ff7c00;
-            font-size: 1.2em;
-        }
+        .item-details h3 {
+            margin: 0 0 5px 0;
+            color: #ff7c00;
+            font-size: 1.2em;
+        }
 
-        .item-details p {
-            margin: 0;
-            font-size: 0.9em;
-            color: #ccc;
-        }
+        .item-details p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #ccc;
+        }
 
-        .item-price {
-            font-weight: bold;
-            font-size: 1.3em;
-            color: #89ff89;
-            margin-left: 20px;
-            white-space: nowrap;
-        }
-        
-        /* ---------- Modal para Imagem Ampliada (NOVO) ---------- */
-        #image-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            display: none; /* Controlado pelo JS */
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 20px;
-            cursor: pointer; /* Indica que clicar fecha */
-        }
-        
-        #modal-close-hint {
-            color: #fff; 
-            font-size: 1.1em; 
-            margin-bottom: 15px;
-            text-shadow: 0 0 5px #000;
-        }
+        .item-price {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #89ff89;
+            margin-left: 20px;
+            white-space: nowrap;
+        }
+        
+        /* ---------- Modal para Imagem Ampliada (NOVO) ---------- */
+        #image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none; /* Controlado pelo JS */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            cursor: pointer; /* Indica que clicar fecha */
+        }
+        
+        #modal-close-hint {
+            color: #fff; 
+            font-size: 1.1em; 
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #000;
+        }
 
-        #enlarged-menu-image {
-            max-width: 95%;
-            max-height: 85%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(255,124,0,0.5);
-            cursor: default; /* Remove o cursor de fechar na imagem */
-        }
+        #enlarged-menu-image {
+            max-width: 95%;
+            max-height: 85%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255,124,0,0.5);
+      _       cursor: default; /* Remove o cursor de fechar na imagem */
+        }
 
-        /* ---------- Responsividade ---------- */
-        @media (max-width: 900px) {
-            header { height: 130px; }
-            #header-logo { height: 130px; }
-            nav a { font-size: 1em; }
-            .daily-menu-item img { width: 100px; height: 100px; }
-            .daily-menu-item { min-width: 100px; }
-        }
+        /* ---------- Responsividade ---------- */
+        @media (max-width: 900px) {
+            header { height: 130px; }
+            #header-logo { height: 130px; }
+            nav a { font-size: 1em; }
+            .daily-menu-item img { width: 100px; height: 100px; }
+            .daily-menu-item { min-width: 100px; }
+        }
 
-        @media (max-width: 700px) {
-            main { padding: 1em; }
-            nav a { display: block; margin: 0.3em; font-size: 1em; }
-            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
-            header { height: 110px; }
-            #header-logo { height: 110px; }
-            #map-fixed-box { display: none !important; }
-            .daily-menu-images { justify-content: flex-start; } /* Scroll to be the main mechanism */
-            .daily-menu-item img { width: 80px; height: 80px; }
-            .daily-menu-item { min-width: 80px; }
-            .menu-item { flex-direction: column; align-items: flex-start; }
-            .item-price { margin-left: 0; margin-top: 5px; }
-        }
-    </style>
+        @media (max-width: 700px) {
+            main { padding: 1em; }
+            nav a { display: block; margin: 0.3em; font-size: 1em; }
+            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
+            header { height: 110px; }
+            #header-logo { height: 110px; }
+            #map-fixed-box { display: none !important; }
+            .daily-menu-images { justify-content: flex-start; } /* Scroll to be the main mechanism */
+            .daily-menu-item img { width: 80px; height: 80px; }
+            .daily-menu-item { min-width: 80px; }
+            .menu-item { flex-direction: column; align-items: flex-start; }
+            .item-price { margin-left: 0; margin-top: 5px; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
-        <nav>
-            <a href="index.html" id="nav-home">Principal</a> 
-            <a href="galeria.html" id="nav-gallery">Galeria</a>
-            <a href="menu.html" id="nav-menu">Menu</a>
-            <a href="contactos.html" id="nav-contact">Contactos</a>
-        </nav>
-        <div class="lang-selector">
-            <button onclick="setLang('pt')">Português</button>
-            <button onclick="setLang('en')">English</button>
-        </div>
-        <div id="date-time"></div>
-    </header>
+    <header>
+        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <nav>
+            <a href="index.html" id="nav-home">Principal</a> 
+            <a href="galeria.html" id="nav-gallery">Galeria</a>
+            <a href="menu.html" id="nav-menu">Menu</a>
+            <a href="contactos.html" id="nav-contact">Contactos</a>
+        </nav>
+        <div class="lang-selector">
+            <button onclick="setLang('pt')">Português</button>
+            <button onclick="setLang('en')">English</button>
+        </div>
+        <div id="date-time"></div>
+    </header>
 
-    <main>
-        <h1 id="menu-title" class="page-title"></h1>
-        
-        <!-- Menu Diário Dinâmico -->
-        <div id="daily-menu-container">
-            <h2 id="daily-menu-title">Menu Semanal de Almoço</h2>
-            <p id="daily-menu-subtitle"></p>
-            
-            <div class="daily-menu-images">
-                <!-- Dia da Semana (1-5) e Imagem (2a-6a) -->
-                <div class="daily-menu-item" id="day-1">
-                    <!-- Note: A imagem agora é clicável via JavaScript -->
-                    <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
-                    <p id="day-1-label">2ª Feira</p>
-                </div>
-                <div class="daily-menu-item" id="day-2">
-                    <img src="images/3a.jpg" alt="Menu Terça-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
-                    <p id="day-2-label">3ª Feira</p>
-                </div>
-                <div class="daily-menu-item" id="day-3">
-                    <img src="images/4a.jpg" alt="Menu Quarta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
-                    <p id="day-3-label">4ª Feira</p>
-                </div>
-                <div class="daily-menu-item" id="day-4">
-                    <img src="images/5a.jpg" alt="Menu Quinta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
-                    <p id="day-4-label">5ª Feira</p>
-                </div>
-                <div class="daily-menu-item" id="day-5">
-                    <img src="images/6a.jpg" alt="Menu Sexta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
-                    <p id="day-5-label">6ª Feira</p>
-                </div>
-            </div>
-        </div>
+M   <main>
+        <h1 id="menu-title" class="page-title"></h1>
+        
+                <div id="daily-menu-container">
+            <h2 id="daily-menu-title">Menu Semanal de Almoço</h2>
+            <p id="daily-menu-subtitle"></p>
+            
+            <div class="daily-menu-images">
+                                <div class="daily-menu-item" id="day-1">
+                                        <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
+                    <p id="day-1-label">2ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-2">
+                    <img src="images/3a.jpg" alt="Menu Terça-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
+                    <p id="day-2-label">3ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-3">
+                    <img src="images/4a.jpg" alt="Menu Quarta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
+                    <p id="day-3-label">4ª Feira</p>
+                </div>
+              _ <div class="daily-menu-item" id="day-4">
+                    <img src="images/5a.jpg" alt="Menu Quinta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
+                    <p id="day-4-label">5ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-5">
+                    <img src="images/6a.jpg" alt="Menu Sexta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
+                    <p id="day-5-label">6ª Feira</p>
+                </div>
+            </div>
+        </div>
 
-        <!-- Botão para Menu À La Carte -->
-        <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">
-            Ver Menu À La Carte Completo
-        </button>
+                <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">
+            Ver Menu Completo         </button>
 
-        <!-- Menu À La Carte (Conteúdo Antigo, Agora Ocultável) -->
-        <div id="alacarte-menu-content">
-            <h1 id="alacarte-title" class="page-title" style="color: #ff7c00; margin-top: 0;">Menu À La Carte</h1>
+                <div id="alacarte-menu-content">
+            <h1 id="alacarte-title" class="page-title" style="color: #ff7c00; margin-top: 0;">Menu À La Carte</h1>
 
-            <!-- Starters Section -->
-            <section class="menu-section">
-                <h2 id="starters-section-title"></h2>
-                
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 id="item-1-title">Camarões ao Alho</h3>
-                        <p id="item-1-desc">Camarões salteados com azeite, alho e piri-piri.</p>
-                    </div>
-                    <span class="item-price">750 MT</span>
-                </div>
+                        <section class="menu-section">
+                <h2 id="starters-section-title"></h2>
+                
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 id="item-1-title">Camarões ao Alho</h3>
+                        <p id="item-1-desc">Camarões salteados com azeite, alho e piri-piri.</p>
+                    </div>
+                    <span class="item-price">750 MT</span>
+                </div>
 
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3>Samosas de Vegetais</h3>
-                        <p>Crocantes pasteis triangulares recheados com vegetais e especiarias.</p>
-                    </div>
-                    <span class="item-price">450 MT</span>
-                </div>
-            </section>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3>Samosas de Vegetais</h3>
+            _             <p>Crocantes pasteis triangulares recheados com vegetais e especiarias.</p>
+                    </div>
+                    <span class="item-price">450 MT</span>
+                </div>
+            </section>
 
-            <!-- Main Courses Section -->
-            <section class="menu-section">
-                <h2 id="main-section-title"></h2>
-                
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3 id="item-2-title">Frango com Amendoim</h3>
-                        <p id="item-2-desc">Frango cozido em molho rico de amendoim, servido com arroz.</p>
-                    </div>
-                    <span class="item-price">1200 MT</span>
-                </div>
+                        <section class="menu-section">
+                <h2 id="main-section-title"></h2>
+                
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 id="item-2-title">Frango com Amendoim</h3>
+                        <p id="item-2-desc">Frango cozido em molho rico de amendoim, servido com arroz.</p>
+section>
 
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3>Peixe Grelhado com Manga</h3>
-                        <p>Peixe fresco do dia grelhado, servido com salada de manga e limão.</p>
-                    </div>
-                    <span class="item-price">1450 MT</span>
-                </div>
-            </section>
+                        <section class="menu-section">
+                <h2 id="desserts-section-title"></h2>
+                
+                <div class="menu-item">
+section>
+        </div>
+    </main>
+    
+    <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
+        <iframe
+            id="map-fixed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    
+        <div id="image-modal">
+        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
+        <img id="enlarged-menu-image" alt="Menu ampliado">
+    </div>
 
-            <!-- Desserts Section -->
-            <section class="menu-section">
-                <h2 id="desserts-section-title"></h2>
-                
-                <div class="menu-item">
-                    <div class="item-details">
-                        <h3>Mousse de Maracujá</h3>
-                        <p>Mousse cremosa feita com polpa de maracujá fresco.</p>
-                    </div>
-                    <span class="item-price">550 MT</span>
-                </div>
-            </section>
-        </div>
-    </main>
-    
-    <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
-        <iframe
-            id="map-fixed"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-    
-    <!-- Novo Modal para Imagem Ampliada (NOVO) -->
-    <div id="image-modal">
-        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
-        <img id="enlarged-menu-image" alt="Menu ampliado">
-    </div>
+    <script>
+        const langData = {
+            pt: {
+                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
+                menuTitle: "Especialidades do Dia", 
+                dailyMenuTitle: "Menu Semanal de Almoço",
+                dailyMenuSubtitleToday: "Destaque de Hoje:",
+                dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
+                aLaCarteButtonOpen: "Ocultar Menu Completo", // MODIFICADO
+                aLaCarteButtonClosed: "Ver Menu Completo", // MODIFICADO
+                alacarteTitle: "Menu À La Carte",
+                menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
+                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.",
+                item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
+                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+                modalCloseHint: "Clique ou prima ESC para fechar.",
+            },
+            en: {
+                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
+                menuTitle: "Daily Specials",
+                dailyMenuTitle: "Weekly Lunch Menu",
+  S             dailyMenuSubtitleToday: "Today's Highlight:",
+                dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
+                aLaCarteButtonOpen: "Hide Complete Menu", // MODIFICADO
+                aLaCarteButtonClosed: "View Complete Menu", // MODIFICADO
+                alacarteTitle: "À La Carte Menu",
+                menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
+                item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.",
+                item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
+  S             dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
+                modalCloseHint: "Click or press ESC to close.",
+            }
+        };
 
-    <script>
-        const langData = {
-            pt: {
-                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                menuTitle: "Especialidades do Dia", 
-                dailyMenuTitle: "Menu Semanal de Almoço",
-                dailyMenuSubtitleToday: "Destaque de Hoje:",
-                dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
-                aLaCarteButtonOpen: "Ocultar Menu À La Carte",
-                aLaCarteButtonClosed: "Ver Menu À La Carte Completo",
-                alacarteTitle: "Menu À La Carte",
-                menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
-                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.",
-                item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
-                modalCloseHint: "Clique ou prima ESC para fechar.",
-            },
-            en: {
-                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                menuTitle: "Daily Specials",
-                dailyMenuTitle: "Weekly Lunch Menu",
-                dailyMenuSubtitleToday: "Today's Highlight:",
-                dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
-                aLaCarteButtonOpen: "Hide À La Carte Menu",
-                aLaCarteButtonClosed: "View Full À La Carte Menu",
-                alacarteTitle: "À La Carte Menu",
-                menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
-                item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.",
-                item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
-                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
-                modalCloseHint: "Click or press ESC to close.",
-            }
-        };
-
-        const dailyMenuDayMapping = {
-            1: { id: "day-1" },
-            2: { id: "day-2" },
-            3: { id: "day-3" },
-            4: { id: "day-4" },
-            5: { id: "day-5" }
-        };
-        
-        const modal = document.getElementById('image-modal');
-        const enlargedImage = document.getElementById('enlarged-menu-image');
-        const modalCloseHint = document.getElementById('modal-close-hint');
-        
-        function updateText(id, text) {
-            const el = document.getElementById(id);
-            if (el) el.innerText = text;
-        }
-        
-        function highlightDailyMenu() {
-            const now = new Date();
-            let day = now.getDay();
-            document.querySelectorAll('.daily-menu-item').forEach(item => {
-                item.classList.remove('highlighted');
-            });
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            const dailySubtitle = document.getElementById('daily-menu-subtitle');
-            const todayDayOfWeek = (day === 0) ? 7 : day;
-            if (todayDayOfWeek >= 1 && todayDayOfWeek <= 5) {
-                const item = dailyMenuDayMapping[todayDayOfWeek];
-                const dayElement = document.getElementById(item.id);
-                if (dayElement) {
-                    dayElement.classList.add('highlighted');
-                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
-                } else {
-                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
-                }
-            } else {
-                dailySubtitle.innerText = t.dailyMenuWeekend;
-            }
-        }
-        
-        function toggleAlacarteMenu() {
-            const content = document.getElementById('alacarte-menu-content');
-            const button = document.getElementById('alacarte-toggle-button');
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            const isOpen = content.classList.toggle('open');
-            button.innerText = isOpen ? t.aLaCarteButtonOpen : t.aLaCarteButtonClosed;
-        }
-        
-        function openImageModal(imgSrc) {
-            enlargedImage.src = imgSrc;
-            modal.style.display = 'flex';
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            modalCloseHint.innerText = t.modalCloseHint;
-        }
-        
-        function closeImageModal() {
-            modal.style.display = 'none';
-            enlargedImage.src = '';
-        }
-        
-        function setupDailyMenuListeners() {
-            document.querySelectorAll('.daily-menu-item img').forEach(img => {
-                img.addEventListener('click', () => openImageModal(img.src));
-            });
-            modal.addEventListener('click', closeImageModal);
-            enlargedImage.addEventListener('click', e => e.stopPropagation());
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && modal.style.display === 'flex') closeImageModal();
-            });
-        }
-        
-        function setLang(l) {
-            const t = langData[l];
-            document.documentElement.lang = l;
-            updateText("nav-home", t.navHome);
-            updateText("nav-gallery", t.navGallery);
-            updateText("nav-menu", t.navMenu);
-            updateText("nav-contact", t.navContact);
-            updateText("menu-title", t.menuTitle);
-            updateText("daily-menu-title", t.dailyMenuTitle);
-            updateText("day-1-label", t.dayNames[1]);
-            updateText("day-2-label", t.dayNames[2]);
-            updateText("day-3-label", t.dayNames[3]);
-            updateText("day-4-label", t.dayNames[4]);
-            updateText("day-5-label", t.dayNames[5]);
-            const alacarteContent = document.getElementById('alacarte-menu-content');
-            const alacarteButton = document.getElementById('alacarte-toggle-button');
-            if (alacarteContent && alacarteButton) {
-                if (alacarteContent.classList.contains('open'))
-                    alacarteButton.innerText = t.aLaCarteButtonOpen;
-                else
-                    alacarteButton.innerText = t.aLaCarteButtonClosed;
-            }
-            updateText("alacarte-title", t.alacarteTitle);
-            updateText("starters-section-title", t.menuStarters);
-            updateText("main-section-title", t.menuMain);
-            updateText("desserts-section-title", t.menuDesserts);
-            updateText("item-1-title", t.item1Title);
-            updateText("item-1-desc", t.item1Desc);
-            updateText("item-2-title", t.item2Title);
-            updateText("item-2-desc", t.item2Desc);
-            if (modal.style.display === 'flex') modalCloseHint.innerText = t.modalCloseHint;
-            highlightDailyMenu();
-            updateDateTime();
-        }
-        
-        function updateDateTime() {
-            const now = new Date();
-            const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('date-time').textContent = `${date} | ${time}`;
-        }
-        
-        window.onload = function() {
-            setLang('pt');
-            setupDailyMenuListeners();
-        }
-        setInterval(updateDateTime, 60000);
-    </script>
+        const dailyMenuDayMapping = {
+            1: { id: "day-1" },
+            2: { id: "day-2" },
+            3: { id: "day-3" },
+            4: { id: "day-4" },
+            5: { id: "day-5" }
+        };
+        
+        const modal = document.getElementById('image-modal');
+        const enlargedImage = document.getElementById('enlarged-menu-image');
+        const modalCloseHint = document.getElementById('modal-close-hint');
+        
+        function updateText(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.innerText = text;
+        }
+        
+        function highlightDailyMenu() {
+            const now = new Date();
+            let day = now.getDay();
+            document.querySelectorAll('.daily-menu-item').forEach(item => {
+                item.classList.remove('highlighted');
+            });
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+            const dailySubtitle = document.getElementById('daily-menu-subtitle');
+            const todayDayOfWeek = (day === 0) ? 7 : day;
+            if (todayDayOfWeek >= 1 && todayDayOfWeek <= 5) {
+                const item = dailyMenuDayMapping[todayDayOfWeek];
+                const dayElement = document.getElementById(item.id);
+                if (dayElement) {
+                    dayElement.classList.add('highlighted');
+sh                 dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
+                } else {
+                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
+                }
+            } else {
+                dailySubtitle.innerText = t.dailyMenuWeekend;
+            }
+        }
+        
+        function toggleAlacarteMenu() {
+            const content = document.getElementById('alacarte-menu-content');
+    ar       const button = document.getElementById('alacarte-toggle-button');
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+            const isOpen = content.classList.toggle('open');
+            button.innerText = isOpen ? t.aLaCarteButtonOpen : t.aLaCarteButtonClosed;
+        }
+        
+        function openImageModal(imgSrc) {
+            enlargedImage.src = imgSrc;
+    á       modal.style.display = 'flex';
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+            modalCloseHint.innerText = t.modalCloseHint;
+        }
+        
+        function closeImageModal() {
+            modal.style.display = 'none';
+SA           enlargedImage.src = '';
+        }
+        
+        function setupDailyMenuListeners() {
+            document.querySelectorAll('.daily-menu-item img').forEach(img => {
+                img.addEventListener('click', () => openImageModal(img.src));
+            });
+            modal.addEventListener('click', closeImageModal);
+Click         enlargedImage.addEventListener('click', e => e.stopPropagation());
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') closeImageModal();
+            });
+        }
+        
+        function setLang(l) {
+            const t = langData[l];
+            document.documentElement.lang = l;
+            updateText("nav-home", t.navHome);
+Click         updateText("nav-gallery", t.navGallery);
+            updateText("nav-menu", t.navMenu);
+            updateText("nav-contact", t.navContact);
+            updateText("menu-title", t.menuTitle);
+            updateText("daily-menu-title", t.dailyMenuTitle);
+            updateText("day-1-label", t.dayNames[1]);
+            updateText("day-2-label", t.dayNames[2]);
+            updateText("day-3-label", t.dayNames[3]);
+Click         updateText("day-4-label", t.dayNames[4]);
+Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.         updateText("day-5-label", t.dayNames[5]);
+            const alacarteContent = document.getElementById('alacarte-menu-content');
+            const alacarteButton = document.getElementById('alacarte-toggle-button');
+            if (alacarteContent && alacarteButton) {
+  section>
+                if (alacarteContent.classList.contains('open'))
+                    alacarteButton.innerText = t.aLaCarteButtonOpen;
+                else
+                    alacarteButton.innerText = t.aLaCarteButtonClosed;
+Ah         }
+            updateText("alacarte-title", t.alacarteTitle);
+            updateText("starters-section-title", t.menuStarters);
+            updateText("main-section-title", t.menuMain);
+Sábado         updateText("desserts-section-title", t.menuDesserts);
+            updateText("item-1-title", t.item1Title);
+    m       updateText("item-1-desc", t.item1Desc);
+            updateText("item-2-title", t.item2Title);
+A           updateText("item-2-desc", t.item2Desc);
+            if (modal.style.display === 'flex') modalCloseHint.innerText = t.modalCloseHint;
+            highlightDailyMenu();
+            updateDateTime();
+        }
+        
+        function updateDateTime() {
+Do         const now = new Date();
+            const langCode = document.documentElement.lang || 'pt';
+            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
+We         document.getElementById('date-time').textContent = `${date} | ${time}`;
+        }
+        
+        window.onload = function() {
+A           setLang('pt');
+            setupDailyMenuListeners();
+        }
+        setInterval(updateDateTime, 60000);
+Two   </script>
 </body>
 </html>

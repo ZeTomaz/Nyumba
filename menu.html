@@ -13,14 +13,13 @@
             color: #262019;
         }
 
-        /* ---------- Header com imagem friso2 (IDENTICAL) ---------- */
+        /* ---------- Header (Padrão) ---------- */
         header {
             background-color: #4a2d1e; 
             background-image: url("images/friso1.png");
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            
             height: 160px;
             width: 100%;
             text-align: center;
@@ -32,7 +31,6 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.25);
         }
 
-        /* ---------- Logótipo sobre o header (IDENTICAL) ---------- */
         #header-logo {
             position: absolute;
             top: 0;
@@ -45,11 +43,7 @@
             background: rgba(0, 0, 0, 0.2); 
         }
 
-        /* ---------- Navegação e data/hora (IDENTICAL) ---------- */
-        nav {
-            margin: 0.5em 0 1em 0;
-        }
-
+        nav { margin: 0.5em 0 1em 0; }
         nav a {
             margin: 0 1em;
             text-decoration: none;
@@ -59,15 +53,9 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
             transition: color 0.3s;
         }
+        nav a:hover { color: #ffa64d; }
 
-        nav a:hover {
-            color: #ffa64d;
-        }
-
-        .lang-selector {
-            margin-bottom: 0.8em;
-        }
-
+        .lang-selector { margin-bottom: 0.8em; }
         .lang-selector button {
             background: #000000;
             border: none;
@@ -80,11 +68,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.3);
             transition: background 0.25s, transform 0.15s;
         }
-
-        .lang-selector button:hover {
-            background: #222;
-            transform: scale(1.05);
-        }
+        .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
         #date-time {
             position: absolute;
@@ -96,7 +80,7 @@
             font-weight: 500;
         }
 
-        /* ---------- Main section com overlay neutro (IDENTICAL) ---------- */
+        /* ---------- Main Section (Padrão) ---------- */
         main {
             position: relative;
             max-width: 900px;
@@ -130,11 +114,94 @@
             text-shadow: 0 2px 6px #000;
         }
 
-        /* ---------- Menu Specific Styles ---------- */
         .page-title {
             font-size: 2.5em; 
-            margin-bottom: 1em; 
+            margin-bottom: 0.5em; 
             text-transform: uppercase;
+            color: #89ff89;
+        }
+
+        /* ---------- Menu Diário (Novidade) ---------- */
+        #daily-menu-container {
+            margin-bottom: 2em;
+        }
+        
+        #daily-menu-subtitle {
+            font-size: 1.2em;
+            font-weight: 500;
+            margin-bottom: 1.5em;
+            color: #ff7c00;
+        }
+
+        .daily-menu-images {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2em;
+            overflow-x: auto; /* Permite scroll em mobile se necessário */
+            padding-bottom: 10px;
+        }
+        
+        .daily-menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+
+        .daily-menu-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 3px solid transparent;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .daily-menu-item.highlighted img {
+            border-color: #ff7c00; /* Cor de destaque */
+            transform: scale(1.1);
+        }
+
+        .daily-menu-item p {
+            margin-top: 8px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        /* ---------- Botão À La Carte ---------- */
+        #alacarte-toggle-button {
+            padding: 10px 25px;
+            font-size: 1.1em;
+            background-color: #ff7c00;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255,124,0,0.3);
+            transition: background 0.2s, transform 0.2s;
+            margin-bottom: 3em;
+        }
+        
+        #alacarte-toggle-button:hover {
+            background-color: #ffa64d;
+            transform: translateY(-2px);
+        }
+        
+        /* ---------- Menu À La Carte (Secção Antiga) ---------- */
+        #alacarte-menu-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            padding-top: 0;
+        }
+
+        #alacarte-menu-content.open {
+            max-height: 2000px; /* Suficiente para expandir */
+            padding-top: 20px;
         }
 
         .menu-section {
@@ -143,6 +210,7 @@
             padding: 20px;
             margin-bottom: 30px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            text-align: left;
         }
 
         .menu-section h2 {
@@ -152,6 +220,7 @@
             margin-bottom: 15px;
             border-bottom: 2px solid #89ff89;
             padding-bottom: 5px;
+            text-align: center;
         }
 
         .menu-item {
@@ -162,13 +231,7 @@
             border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
         }
 
-        .menu-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-details {
-            text-align: left;
-        }
+        .menu-item:last-child { border-bottom: none; }
 
         .item-details h3 {
             margin: 0 0 5px 0;
@@ -190,26 +253,33 @@
             white-space: nowrap;
         }
         
-        /* ---------- Responsividade (IDENTICAL) ---------- */
+        /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
             #header-logo { height: 130px; }
             nav a { font-size: 1em; }
+            .daily-menu-item img { width: 100px; height: 100px; }
+            .daily-menu-item { min-width: 100px; }
         }
 
         @media (max-width: 700px) {
             main { padding: 1em; }
-            nav a { display: inline-block; margin: 0.3em; font-size: 1em; }
+            nav a { display: block; margin: 0.3em; font-size: 1em; }
             .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
             header { height: 110px; }
             #header-logo { height: 110px; }
             #map-fixed-box { display: none !important; }
+            .daily-menu-images { justify-content: flex-start; } /* Scroll to be the main mechanism */
+            .daily-menu-item img { width: 80px; height: 80px; }
+            .daily-menu-item { min-width: 80px; }
+            .menu-item { flex-direction: column; align-items: flex-start; }
+            .item-price { margin-left: 0; margin-top: 5px; }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" id="header-logo" />
+        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -225,61 +295,101 @@
 
     <main>
         <h1 id="menu-title" class="page-title"></h1>
-
-        <!-- Starters Section -->
-        <section class="menu-section">
-            <h2 id="starters-section-title"></h2>
+        
+        <!-- Menu Diário Dinâmico -->
+        <div id="daily-menu-container">
+            <h2 id="daily-menu-title">Menu Semanal de Almoço</h2>
+            <p id="daily-menu-subtitle"></p>
             
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 id="item-1-title"></h3>
-                    <p id="item-1-desc"></p>
+            <div class="daily-menu-images">
+                <!-- Dia da Semana (1-5) e Imagem (2a-6a) -->
+                <div class="daily-menu-item" id="day-1">
+                    <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
+                    <p id="day-1-label">2ª Feira</p>
                 </div>
-                <span class="item-price">750 MT</span>
+                <div class="daily-menu-item" id="day-2">
+                    <img src="images/3a.jpg" alt="Menu Terça-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
+                    <p id="day-2-label">3ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-3">
+                    <img src="images/4a.jpg" alt="Menu Quarta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
+                    <p id="day-3-label">4ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-4">
+                    <img src="images/5a.jpg" alt="Menu Quinta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
+                    <p id="day-4-label">5ª Feira</p>
+                </div>
+                <div class="daily-menu-item" id="day-5">
+                    <img src="images/6a.jpg" alt="Menu Sexta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
+                    <p id="day-5-label">6ª Feira</p>
+                </div>
             </div>
+        </div>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3>Samosas de Vegetais</h3>
-                    <p>Crocantes pasteis triangulares recheados com vegetais e especiarias.</p>
-                </div>
-                <span class="item-price">450 MT</span>
-            </div>
-        </section>
+        <!-- Botão para Menu À La Carte -->
+        <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">
+            Ver Menu À La Carte Completo
+        </button>
 
-        <!-- Main Courses Section -->
-        <section class="menu-section">
-            <h2 id="main-section-title"></h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3 id="item-2-title"></h3>
-                    <p id="item-2-desc"></p>
-                </div>
-                <span class="item-price">1200 MT</span>
-            </div>
+        <!-- Menu À La Carte (Conteúdo Antigo, Agora Ocultável) -->
+        <div id="alacarte-menu-content">
+            <h1 id="alacarte-title" class="page-title" style="color: #ff7c00; margin-top: 0;">Menu À La Carte</h1>
 
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3>Peixe Grelhado com Manga</h3>
-                    <p>Peixe fresco do dia grelhado, servido com salada de manga e limão.</p>
+            <!-- Starters Section -->
+            <section class="menu-section">
+                <h2 id="starters-section-title"></h2>
+                
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 id="item-1-title">Camarões ao Alho</h3>
+                        <p id="item-1-desc">Camarões salteados com azeite, alho e piri-piri.</p>
+                    </div>
+                    <span class="item-price">750 MT</span>
                 </div>
-                <span class="item-price">1450 MT</span>
-            </div>
-        </section>
 
-        <!-- Desserts Section -->
-        <section class="menu-section">
-            <h2 id="desserts-section-title"></h2>
-            
-            <div class="menu-item">
-                <div class="item-details">
-                    <h3>Mousse de Maracujá</h3>
-                    <p>Mousse cremosa feita com polpa de maracujá fresco.</p>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3>Samosas de Vegetais</h3>
+                        <p>Crocantes pasteis triangulares recheados com vegetais e especiarias.</p>
+                    </div>
+                    <span class="item-price">450 MT</span>
                 </div>
-                <span class="item-price">550 MT</span>
-            </div>
-        </section>
+            </section>
+
+            <!-- Main Courses Section -->
+            <section class="menu-section">
+                <h2 id="main-section-title"></h2>
+                
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3 id="item-2-title">Frango com Amendoim</h3>
+                        <p id="item-2-desc">Frango cozido em molho rico de amendoim, servido com arroz.</p>
+                    </div>
+                    <span class="item-price">1200 MT</span>
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3>Peixe Grelhado com Manga</h3>
+                        <p>Peixe fresco do dia grelhado, servido com salada de manga e limão.</p>
+                    </div>
+                    <span class="item-price">1450 MT</span>
+                </div>
+            </section>
+
+            <!-- Desserts Section -->
+            <section class="menu-section">
+                <h2 id="desserts-section-title"></h2>
+                
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h3>Mousse de Maracujá</h3>
+                        <p>Mousse cremosa feita com polpa de maracujá fresco.</p>
+                    </div>
+                    <span class="item-price">550 MT</span>
+                </div>
+            </section>
+        </div>
     </main>
     
     <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
@@ -300,33 +410,54 @@
             pt: {
                 // Universal Nav
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                // Index Page
+                // Index Page (Manter para consistência)
                 siteTitle: "Nyumba Food Concept", siteSchedule: "Aberto todos os dias das 09:00 às 22:30", filosofiaTitle: "A nossa filosofia", filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.", menuButtonText: "Ver Menu Completo",
-                // Gallery Page
-                galleryTitle: "A Nossa Galeria de Sabores",
-                image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
-                // Menu Page
-                menuTitle: "Nosso Menu", menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
+                // Gallery Page (Manter para consistência)
+                galleryTitle: "A Nossa Galeria de Sabores", image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
+                // Menu Page (Atualizado)
+                menuTitle: "Especialidades do Dia", 
+                dailyMenuTitle: "Menu Semanal de Almoço",
+                dailyMenuSubtitleToday: "Destaque de Hoje:",
+                dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
+                aLaCarteButtonOpen: "Ocultar Menu À La Carte",
+                aLaCarteButtonClosed: "Ver Menu À La Carte Completo",
+                alacarteTitle: "Menu À La Carte",
+                menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
                 item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.", item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
-                // Contacts Page
-                contactTitle: "Contacte-nos", contactPhone: "Telefone:", contactEmail: "Email:", contactAddress: "Morada:", contactFormTitle: "Envie-nos uma mensagem", contactSend: "Enviar",
+                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" }
+                // Contacts Page (Manter para consistência)
             },
             en: {
                 // Universal Nav
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                // Index Page
+                // Index Page (Manter para consistência)
                 siteTitle: "Nyumba Food Concept", siteSchedule: "Open daily from 9:00 AM to 10:30 PM", filosofiaTitle: "Our Philosophy", filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.", menuButtonText: "View Full Menu",
-                // Gallery Page
-                galleryTitle: "Our Gallery of Flavours",
-                image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
-                // Menu Page
-                menuTitle: "Our Menu", menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
+                // Gallery Page (Manter para consistência)
+                galleryTitle: "Our Gallery of Flavours", image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
+                // Menu Page (Atualizado)
+                menuTitle: "Daily Specials",
+                dailyMenuTitle: "Weekly Lunch Menu",
+                dailyMenuSubtitleToday: "Today's Highlight:",
+                dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
+                aLaCarteButtonOpen: "Hide À La Carte Menu",
+                aLaCarteButtonClosed: "View Full À La Carte Menu",
+                alacarteTitle: "À La Carte Menu",
+                menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
                 item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.", item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
-                // Contacts Page
-                contactTitle: "Contact Us", contactPhone: "Phone:", contactEmail: "Email:", contactAddress: "Address:", contactFormTitle: "Send us a message", contactSend: "Send",
+                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" }
+                // Contacts Page (Manter para consistência)
             }
         };
 
+        const dailyMenuDayMapping = {
+            1: { id: "day-1", labelKey: "day-1-label", imageFile: "2a.jpg" }, // Segunda-feira (Monday)
+            2: { id: "day-2", labelKey: "day-2-label", imageFile: "3a.jpg" }, // Terça-feira (Tuesday)
+            3: { id: "day-3", labelKey: "day-3-label", imageFile: "4a.jpg" }, // Quarta-feira (Wednesday)
+            4: { id: "day-4", labelKey: "day-4-label", imageFile: "5a.jpg" }, // Quinta-feira (Thursday)
+            5: { id: "day-5", labelKey: "day-5-label", imageFile: "6a.jpg" }  // Sexta-feira (Friday)
+        };
+        
+        // --- Funções de Ajuda ---
         function updateText(id, text) {
             const el = document.getElementById(id);
             if (el) { el.innerText = text; }
@@ -348,7 +479,61 @@
             });
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
+
+        // --- Lógica do Menu Diário ---
+        function highlightDailyMenu() {
+            const now = new Date();
+            let day = now.getDay(); // 0 (Domingo) a 6 (Sábado)
+
+            // Remove destaque de todos
+            document.querySelectorAll('.daily-menu-item').forEach(item => {
+                item.classList.remove('highlighted');
+            });
+            
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+            const dailySubtitle = document.getElementById('daily-menu-subtitle');
+            
+            // Mapeamos para 1 (Segunda) a 5 (Sexta)
+            const todayDayOfWeek = (day === 0) ? 7 : day; // 1=Mon, 5=Fri, 6=Sat, 7=Sun (não usado diretamente)
+            
+            if (todayDayOfWeek >= 1 && todayDayOfWeek <= 5) {
+                // É dia de semana (2ª a 6ª)
+                const item = dailyMenuDayMapping[todayDayOfWeek];
+                const dayElement = document.getElementById(item.id);
+                
+                if (dayElement) {
+                    dayElement.classList.add('highlighted');
+                    // Exibir destaque do dia
+                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
+                } else {
+                    // Fallback se houver erro no mapeamento
+                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
+                }
+            } else {
+                // Fim de semana (Sábado ou Domingo)
+                dailySubtitle.innerText = t.dailyMenuWeekend;
+            }
+        }
         
+        // --- Lógica de Toggle À La Carte ---
+        function toggleAlacarteMenu() {
+            const content = document.getElementById('alacarte-menu-content');
+            const button = document.getElementById('alacarte-toggle-button');
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+
+            const isOpen = content.classList.toggle('open');
+            
+            if (isOpen) {
+                button.innerText = t.aLaCarteButtonOpen;
+            } else {
+                button.innerText = t.aLaCarteButtonClosed;
+            }
+        }
+
+
+        // --- Função de Tradução Global ---
         function setLang(l) {
             const t = langData[l];
             document.documentElement.lang = l; 
@@ -361,20 +546,52 @@
             
             // Menu Page Content
             updateText("menu-title", t.menuTitle);
+            updateText("daily-menu-title", t.dailyMenuTitle);
+
+            // Atualiza os nomes dos dias abaixo das imagens
+            updateText("day-1-label", t.dayNames[1]);
+            updateText("day-2-label", t.dayNames[2]);
+            updateText("day-3-label", t.dayNames[3]);
+            updateText("day-4-label", t.dayNames[4]);
+            updateText("day-5-label", t.dayNames[5]);
+
+            // Atualiza o botão À La Carte (mantendo o estado open/closed)
+            const alacarteContent = document.getElementById('alacarte-menu-content');
+            const alacarteButton = document.getElementById('alacarte-toggle-button');
+            if(alacarteContent && alacarteButton) {
+                if (alacarteContent.classList.contains('open')) {
+                    alacarteButton.innerText = t.aLaCarteButtonOpen;
+                } else {
+                    alacarteButton.innerText = t.aLaCarteButtonClosed;
+                }
+            }
+            updateText("alacarte-title", t.alacarteTitle);
             updateText("starters-section-title", t.menuStarters);
             updateText("main-section-title", t.menuMain);
             updateText("desserts-section-title", t.menuDesserts);
-            updateText("item-1-title", t.item1Title);
-            updateText("item-1-desc", t.item1Desc);
-            updateText("item-2-title", t.item2Title);
-            updateText("item-2-desc", t.item2Desc);
 
+            // Atualiza o conteúdo do menu à la carte
+            // item-1-title e item-1-desc já estão no HTML, se não houver ID global
+            const item1Title = document.getElementById("item-1-title");
+            if (item1Title) item1Title.innerText = t.item1Title;
+            const item1Desc = document.getElementById("item-1-desc");
+            if (item1Desc) item1Desc.innerText = t.item1Desc;
+            const item2Title = document.getElementById("item-2-title");
+            if (item2Title) item2Title.innerText = t.item2Title;
+            const item2Desc = document.getElementById("item-2-desc");
+            if (item2Desc) item2Desc.innerText = t.item2Desc;
+
+
+            // Destaque do menu do dia (deve ser o último)
+            highlightDailyMenu();
             updateDateTime();
         }
 
-        // Initialize and set language
+        // --- Inicialização ---
+        window.onload = function() {
+            setLang('pt');
+        }
         setInterval(updateDateTime, 60000);
-        setLang('pt');
     </script>
 </body>
 </html>

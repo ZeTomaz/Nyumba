@@ -13,10 +13,10 @@
             color: #262019;
         }
 
-        /* ---------- Header (Corrigido e Padrão) ---------- */
+        /* ---------- Header (Caminhos na Raiz) ---------- */
         header {
             background-color: #4a2d1e; /* Cor escura do fundo */
-            /* Caminho na raiz */
+            /* Caminho na raiz. Se o friso não aparecer, o ficheiro friso1.png está em falta. */
             background-image: url("friso1.png"); 
             background-position: center center;
             background-size: cover;
@@ -255,8 +255,13 @@
 </head>
 <body>
     <header>
-        <!-- Caminho do logotipo corrigido para a raiz -->
-        <img src="logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <!-- Logótipo: Caminho na raiz. Adicionado onerror para debug visual. -->
+        <img 
+            src="logo-nyumba.png" 
+            alt="Logótipo Nyumba Food Concept" 
+            id="header-logo"
+            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
+        />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -271,15 +276,14 @@
     </header>
 
     <main>
-        <!-- Título atualizado para "Venha conhecer-nos" -->
         <h1 id="gallery-title" class="page-title">Venha conhecer-nos</h1> 
         
         <div class="gallery-grid">
             
             <!-- Pasta 1: Pratos do Chefe -->
             <div class="gallery-item" data-category="pratos">
-                <!-- Usando o thumbnail pc1.jpg -->
-                <img src="pc1.jpg" alt="Pratos do Chef" onerror="this.onerror=null; this.src='https://placehold.co/400x200/4a2d1e/ffffff?text=Pratos+Chef';" />
+                <!-- Thumbnail: pc1.jpg com fallback claro -->
+                <img src="pc1.jpg" alt="Pratos do Chef" onerror="this.onerror=null; this.src='https://placehold.co/400x200/4a2d1e/ffffff?text=FALTA:+pc1.jpg';" />
                 <div class="image-caption">
                     <strong id="item-pratos-title">Pratos do Chefe</strong>
                     <span id="item-pratos-desc">As nossas criações exclusivas e destaques gastronómicos.</span>
@@ -288,8 +292,8 @@
 
             <!-- Pasta 2: Esplanada -->
             <div class="gallery-item" data-category="esplanada">
-                <!-- Usando o thumbnail es1.jpg -->
-                <img src="es1.jpg" alt="Esplanada" onerror="this.onerror=null; this.src='https://placehold.co/400x200/ff7c00/ffffff?text=Esplanada';" />
+                <!-- Thumbnail: es1.jpg com fallback claro -->
+                <img src="es1.jpg" alt="Esplanada" onerror="this.onerror=null; this.src='https://placehold.co/400x200/ff7c00/ffffff?text=FALTA:+es1.jpg';" />
                 <div class="image-caption">
                     <strong id="item-esplanada-title">A Nossa Esplanada</strong>
                     <span id="item-esplanada-desc">O ambiente acolhedor e tranquilo no coração do parque.</span>
@@ -298,18 +302,18 @@
 
             <!-- Pasta 3: Cocktails Artesanais -->
             <div class="gallery-item" data-category="cocktails">
-                <!-- Usando o thumbnail ck1.jpg -->
-                <img src="ck1.jpg" alt="Cocktails Artesanais" onerror="this.onerror=null; this.src='https://placehold.co/400x200/89ff89/262019?text=Cocktails';" />
+                <!-- Thumbnail: ck1.jpg com fallback claro -->
+                <img src="ck1.jpg" alt="Cocktails Artesanais" onerror="this.onerror=null; this.src='https://placehold.co/400x200/89ff89/262019?text=FALTA:+ck1.jpg';" />
                 <div class="image-caption">
                     <strong id="item-cocktails-title">Cocktails Artesanais</strong>
                     <span id="item-cocktails-desc">Bebidas refrescantes e cheias de sabor para o seu final de tarde.</span>
                 </div>
             </div>
             
-            <!-- Pasta 4: Cozinha do Quiosque (Substitui Interior) -->
+            <!-- Pasta 4: Cozinha do Quiosque -->
             <div class="gallery-item" data-category="cozinha">
-                <!-- Usando o thumbnail cz1.jpg -->
-                <img src="cz1.jpg" alt="Cozinha do Quiosque" onerror="this.onerror=null; this.src='https://placehold.co/400x200/262019/ffffff?text=Cozinha+Quiosque';" />
+                <!-- Thumbnail: cz1.jpg com fallback claro -->
+                <img src="cz1.jpg" alt="Cozinha do Quiosque" onerror="this.onerror=null; this.src='https://placehold.co/400x200/262019/ffffff?text=FALTA:+cz1.jpg';" />
                 <div class="image-caption">
                     <strong id="item-cozinha-title">Cozinha do Quiosque</strong>
                     <span id="item-cozinha-desc">Onde a magia acontece: a preparação dos nossos pratos.</span>
@@ -319,11 +323,11 @@
         </div>
     </main>
     
-    <!-- Mapa Fixo -->
+    <!-- Mapa Fixo (Sem Alterações) -->
     <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
         <iframe
             id="map-fixed"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
             width="100%"
             height="100%"
             style="border:0;"
@@ -333,12 +337,17 @@
         </iframe>
     </div>
 
-    <!-- Novo Modal para Galeria Interativa -->
+    <!-- Modal de Galeria Interativa -->
     <div id="image-modal">
         <div id="modal-content">
             <!-- Botões de navegação serão controlados via JS -->
             <button id="modal-prev-button" class="modal-nav-button" disabled>&lt;</button>
-            <img id="enlarged-gallery-image" alt="Imagem da Galeria">
+            <!-- Imagem ampliada com onerror para debug -->
+            <img 
+                id="enlarged-gallery-image" 
+                alt="Imagem da Galeria"
+                onerror="this.src='https://placehold.co/800x600/CC0000/FFFFFF?text=ERRO:+IMAGEM+FALTA'; this.alt='Imagem em falta - Verifique o ficheiro';" 
+            >
             <button id="modal-next-button" class="modal-nav-button" disabled>&gt;</button>
         </div>
         <p id="modal-caption" class="caption-text"></p>
@@ -365,31 +374,32 @@
                 
                 galleryContent: {
                     pratos: [
-                        // Caminhos e nomes corrigidos: pcX.jpg
+                        // Caminhos corrigidos e expandidos até pc4.jpg
                         { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
                         { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
                         { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
-                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." }, // Item adicional
+                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." },
                     ],
                     esplanada: [
-                        // Caminhos e nomes corrigidos: esX.jpg
+                        // Caminhos corrigidos e expandidos até es4.jpg
                         { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
                         { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
                         { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
-                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." }, // Item adicional
+                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." },
                     ],
                     cocktails: [
-                        // Caminhos e nomes corrigidos: ckX.jpg
+                        // Caminhos corrigidos e expandidos até ck4.jpg
                         { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
                         { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
                         { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
-                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." }, // Item adicional
+                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." },
                     ],
                     cozinha: [
-                        // Caminhos e nomes corrigidos: czX.jpg
+                        // Caminhos corrigidos e expandidos até cz4.jpg
                         { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
                         { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
-                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." }, // Item adicional
+                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." },
+                        { src: "cz4.jpg", pt: "Pratos prontos a servir no balcão.", en: "Dishes ready to be served at the counter." },
                     ]
                 }
             },
@@ -407,31 +417,28 @@
 
                 galleryContent: {
                     pratos: [
-                        // Caminhos e nomes corrigidos: pcX.jpg
                         { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
                         { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
                         { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
-                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." }, // Item adicional
+                        { src: "pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." },
                     ],
                     esplanada: [
-                        // Caminhos e nomes corrigidos: esX.jpg
                         { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
                         { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
                         { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
-                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." }, // Item adicional
+                        { src: "es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." },
                     ],
                     cocktails: [
-                        // Caminhos e nomes corrigidos: ckX.jpg
                         { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
                         { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
                         { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
-                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." }, // Item adicional
+                        { src: "ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." },
                     ],
                     cozinha: [
-                        // Caminhos e nomes corrigidos: czX.jpg
                         { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
                         { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
-                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." }, // Item adicional
+                        { src: "cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." },
+                        { src: "cz4.jpg", pt: "Pratos prontos a servir no balcão.", en: "Dishes ready to be served at the counter." },
                     ]
                 }
             }
@@ -447,6 +454,13 @@
         // --- Funções de Galeria Interativa ---
         function updateModalNavigation() {
             const images = getLangText('galleryContent')[currentCategory];
+            if (!images || images.length === 0) {
+                // Se a categoria não tiver imagens (não deveria acontecer), feche o modal
+                closeImageModal();
+                console.error(`A categoria '${currentCategory}' não tem imagens definidas.`);
+                return;
+            }
+
             const totalImages = images.length;
             
             prevButton.disabled = currentImageIndex === 0;
@@ -455,7 +469,7 @@
             const lang = document.documentElement.lang || 'pt';
             const captionKey = lang === 'pt' ? 'pt' : 'en';
             
-            // Aqui é onde a imagem do modal é carregada
+            // Carrega a imagem e atualiza a legenda
             enlargedImage.src = images[currentImageIndex].src;
             modalCaption.innerText = images[currentImageIndex][captionKey];
         }
@@ -472,7 +486,7 @@
             modal.style.display = 'none';
             currentCategory = null;
             currentImageIndex = 0;
-            enlargedImage.src = '';
+            enlargedImage.src = ''; // Limpar a fonte da imagem
         }
 
         function navigateImage(direction) {
@@ -501,10 +515,12 @@
             nextButton.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(1); });
             
             // Listener para fechar o modal (clique no overlay)
-            modal.addEventListener('click', closeImageModal);
-            
-            // Previne que o clique na imagem ampliada feche o modal
-            enlargedImage.addEventListener('click', (e) => e.stopPropagation());
+            modal.addEventListener('click', (e) => {
+                // Só fecha se o clique não for na imagem ou nos botões
+                if (e.target === modal || e.target.id === 'modal-close-hint' || e.target.id === 'modal-caption') {
+                    closeImageModal();
+                }
+            });
             
             // Listener para a tecla ESC (fecha o modal)
             document.addEventListener('keydown', (e) => {

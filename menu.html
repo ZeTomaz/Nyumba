@@ -1,324 +1,403 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Menu | Nyumba Food Concept</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background: #fffbe6;
-    color: #262019;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu | Nyumba Food Concept</title>
 
-  header {
-    background-color: #4a2d1e;
-    background-image: url("images/friso1.png");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 160px;
-    width: 100%;
-    text-align: center;
-    padding: 0;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-  }
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: #fffbe6;
+      color: #262019;
+    }
 
-  #header-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 160px;
-    width: auto;
-    object-fit: contain;
-    z-index: 20;
-    margin-left: 10px;
-    background: rgba(0,0,0,0.2);
-  }
+    header {
+      background-color: #4a2d1e;
+      background-image: url("images/friso1.png");
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 160px;
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      z-index: 10;
+    }
 
-  nav { margin: 0.5em 0 1em 0; }
+    #header-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 160px;
+      width: auto;
+      object-fit: contain;
+      z-index: 20;
+      margin-left: 10px;
+      background: rgba(0, 0, 0, 0.2);
+    }
 
-  /* BOTÕES VERDES COM TEXTO LARANJA */
-  nav a {
-    display: inline-block;
-    margin: 0 1em;
-    padding: 0.45em 1.15em;
-    background: #008000;
-    color: #ff7c00;
-    font-size: 1.15em;
-    font-weight: 800;
-    border-radius: 6px;
-    border: none;
-    text-decoration: none;
-    text-shadow: none;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.16);
-    transition: background 0.25s, transform 0.15s;
-  }
-  nav a:hover {
-    background: #006e00;
-    color: #ffa64d;
-    transform: scale(1.08);
-  }
+    nav { margin: 0.5em 0 1em 0; }
 
-  .lang-selector { margin-bottom: 0.8em; }
-  .lang-selector button {
-    background: #000;
-    border: none;
-    border-radius: 6px;
-    margin: 0 0.25em;
-    padding: 0.3em 1em;
-    font-weight: bold;
-    cursor: pointer;
-    color: #fff;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    transition: background 0.25s, transform 0.15s;
-  }
-  .lang-selector button:hover { background: #222; transform: scale(1.05); }
+    /* BOTÕES VERDES COM TEXTO LARANJA */
+    nav a {
+      display: inline-block;
+      margin: 0 1em;
+      padding: 0.45em 1.15em;
+      background: #008000;
+      color: #ff7c00;
+      font-size: 1.15em;
+      font-weight: 800;
+      border-radius: 6px;
+      border: none;
+      text-decoration: none;
+      text-shadow: none;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.16);
+      transition: background 0.25s, transform 0.15s;
+    }
 
-  #date-time {
-    position: absolute;
-    top: 8px;
-    right: 20px;
-    color: #fffdf5;
-    font-size: 0.95em;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
-    font-weight: 500;
-  }
+    nav a:hover {
+      background: #006e00;
+      color: #ffa64d;
+      transform: scale(1.08);
+    }
 
-  main {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 2em;
-    text-align: center;
-    background: url("images/background2.png") center center / cover no-repeat;
-    min-height: 600px;
-    border-radius: 18px;
-    box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
-    z-index: 1;
-  }
-  main::before {
-    content: "";
-    position: absolute;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    z-index: 0;
-    background: rgba(30, 30, 30, 0.55);
-    pointer-events: none;
-    border-radius: 18px;
-  }
+    .lang-selector { margin-bottom: 0.8em; }
+    .lang-selector button {
+      background: #000000;
+      border: none;
+      border-radius: 6px;
+      margin: 0 0.25em;
+      padding: 0.3em 1em;
+      font-weight: bold;
+      cursor: pointer;
+      color: #ffffff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      transition: background 0.25s, transform 0.15s;
+    }
 
-  main > * {
-    position: relative;
-    z-index: 1;
-    color: #fafafa;
-    text-shadow: 0 2px 6px #000;
-  }
+    .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
-  .page-title {
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-    text-transform: uppercase;
-    color: #89ff89;
-  }
+    #date-time {
+      position: absolute;
+      top: 8px;
+      right: 20px;
+      color: #fffdf5;
+      font-size: 0.95em;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+      font-weight: 500;
+    }
 
-  #daily-menu-container { margin-bottom: 2em; }
-  #daily-menu-subtitle {
-    font-size: 1.2em;
-    font-weight: 500;
-    margin-bottom: 1.5em;
-    color: #ff7c00;
-  }
+    main {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em;
+      text-align: center;
+      background: url("images/background2.png") center center / cover no-repeat;
+      min-height: 600px;
+      border-radius: 18px;
+      box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+      z-index: 1;
+    }
 
-  .daily-menu-images {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 2em;
-    overflow-x: auto;
-    padding-bottom: 10px;
-  }
-  .daily-menu-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 120px;
-    flex-shrink: 0;
-  }
-  .daily-menu-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 3px solid transparent;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    transition: border-color 0.3s, transform 0.3s;
-    cursor: pointer;
-  }
-  .daily-menu-item.highlighted img {
-    border-color: #ff7c00;
-    transform: scale(1.1);
-  }
+    main::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: rgba(30, 30, 30, 0.55);
+      pointer-events: none;
+      border-radius: 18px;
+    }
 
-  #alacarte-toggle-button {
-    padding: 10px 25px;
-    font-size: 1.1em;
-    background-color: #ff7c00;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    box-shadow: 0 4px 15px rgba(255,124,0,0.3);
-    transition: background 0.2s, transform 0.2s;
-    margin-bottom: 3em;
-  }
-  #alacarte-toggle-button:hover {
-    background-color: #ffa64d;
-    transform: translateY(-2px);
-  }
+    main > * {
+      position: relative;
+      z-index: 1;
+      color: #fafafa;
+      text-shadow: 0 2px 6px #000;
+    }
 
-  #alacarte-menu-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-in-out;
-    padding-top: 0;
-  }
-  #alacarte-menu-content.open {
-    max-height: 2000px;
-    padding-top: 20px;
-  }
+    .page-title {
+      font-size: 2.5em; 
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      color: #89ff89;
+    }
 
-  .menu-section {
-    background: rgba(0,0,0,0.7);
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-    text-align: left;
-  }
+    #daily-menu-container { margin-bottom: 2em; }
 
-  .menu-section h2 {
-    color: #89ff89;
-    font-size: 1.8em;
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #89ff89;
-    padding-bottom: 5px;
-    text-align: center;
-  }
+    #daily-menu-subtitle {
+      font-size: 1.2em;
+      font-weight: 500;
+      margin-bottom: 1.5em;
+      color: #ff7c00;
+    }
 
-  .menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px dashed rgba(255,255,255,0.3);
-  }
+    .daily-menu-images {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2em;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
 
-  .menu-item:last-child { border-bottom: none; }
-  .item-details h3 {
-    margin: 0 0 5px 0;
-    color: #ff7c00;
-    font-size: 1.2em;
-  }
-  .item-details p { margin: 0; font-size: 0.9em; color: #ccc; }
-  .item-price {
-    font-weight: bold;
-    font-size: 1.3em;
-    color: #89ff89;
-    margin-left: 20px;
-    white-space: nowrap;
-  }
+    .daily-menu-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 120px;
+      flex-shrink: 0;
+    }
 
-  #image-modal {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.95);
-    z-index: 1000;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-    cursor: pointer;
-  }
-  #modal-close-hint { color: #fff; font-size: 1.1em; margin-bottom: 15px; text-shadow: 0 0 5px #000; }
-  #enlarged-menu-image {
-    max-width: 95%;
-    max-height: 85%;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 0 50px rgba(255,124,0,0.5);
-  }
-</style>
+    .daily-menu-item img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 3px solid transparent;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .daily-menu-item.highlighted img {
+      border-color: #ff7c00;
+      transform: scale(1.1);
+    }
+
+    .daily-menu-item p {
+      margin-top: 8px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    #alacarte-toggle-button {
+      padding: 10px 25px;
+      font-size: 1.1em;
+      background-color: #ff7c00;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(255,124,0,0.3);
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 3em;
+    }
+
+    #alacarte-toggle-button:hover {
+      background-color: #ffa64d;
+      transform: translateY(-2px);
+    }
+
+    #alacarte-menu-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      padding-top: 0;
+    }
+
+    #alacarte-menu-content.open {
+      max-height: 2000px;
+      padding-top: 20px;
+    }
+
+    .menu-section {
+      background: rgba(0,0,0,0.7);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      text-align: left;
+    }
+
+    .menu-section h2 {
+      color: #89ff89;
+      font-size: 1.8em;
+      margin-top: 0;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #89ff89;
+      padding-bottom: 5px;
+      text-align: center;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.3);
+    }
+
+    .menu-item:last-child { border-bottom: none; }
+
+    .item-details h3 {
+      margin: 0 0 5px 0;
+      color: #ff7c00;
+      font-size: 1.2em;
+    }
+
+    .item-details p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+
+    .item-price {
+      font-weight: bold;
+      font-size: 1.3em;
+      color: #89ff89;
+      margin-left: 20px;
+      white-space: nowrap;
+    }
+
+    #image-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      cursor: pointer;
+    }
+
+    #modal-close-hint {
+      color: #fff; 
+      font-size: 1.1em; 
+      margin-bottom: 15px;
+      text-shadow: 0 0 5px #000;
+    }
+
+    #enlarged-menu-image {
+      max-width: 95%;
+      max-height: 85%;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 0 50px rgba(255,124,0,0.5);
+      cursor: default;
+    }
+  </style>
 </head>
 
 <body>
-<header>
-  <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
-  <nav>
-    <a href="index.html">Principal</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="menu.html">Menu</a>
-    <a href="contactos.html">Contactos</a>
-  </nav>
-  <div class="lang-selector">
-    <button onclick="setLang('pt')">Português</button>
-    <button onclick="setLang('en')">English</button>
-  </div>
-  <div id="date-time"></div>
-</header>
+  <header>
+    <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+    <nav>
+      <a href="index.html" id="nav-home">Principal</a>
+      <a href="galeria.html" id="nav-gallery">Galeria</a>
+      <a href="menu.html" id="nav-menu">Menu</a>
+      <a href="contactos.html" id="nav-contact">Contactos</a>
+    </nav>
+    <div class="lang-selector">
+      <button onclick="setLang('pt')">Português</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+    <div id="date-time"></div>
+  </header>
 
-<main>
-  <h1 class="page-title">Menu À La Carte</h1>
-  <div id="daily-menu-container">
-    <h2>Menu Semanal de Almoço</h2>
-    <p id="daily-menu-subtitle">Destaque de Hoje: 4ª Feira</p>
-  </div>
-  <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">Ver Menu Completo</button>
-  <div id="alacarte-menu-content">
-    <section class="menu-section">
-      <h2>Entradas</h2>
-      <div class="menu-item">
-        <div class="item-details">
-          <h3>Camarões ao Alho</h3>
-          <p>Camarões salteados com azeite, alho e piri‑piri.</p>
+  <main>
+    <h1 class="page-title">Menu À La Carte</h1>
+
+    <div id="daily-menu-container">
+      <h2>Menu Semanal de Almoço</h2>
+      <p id="daily-menu-subtitle">Destaque de Hoje: Quarta-Feira</p>
+
+      <div class="daily-menu-images">
+        <div class="daily-menu-item highlighted">
+          <img src="images/4a.jpg" alt="Menu do Dia" />
+          <p>4ª Feira</p>
         </div>
-        <span class="item-price">750 MT</span>
       </div>
-    </section>
+    </div>
+
+    <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">Ver Menu Completo</button>
+
+    <div id="alacarte-menu-content">
+      <section class="menu-section">
+        <h2>Entradas</h2>
+        <div class="menu-item">
+          <div class="item-details">
+            <h3>Camarões ao Alho</h3>
+            <p>Camarões salteados com azeite, alho e piri‑piri.</p>
+          </div>
+          <span class="item-price">750 MT</span>
+        </div>
+      </section>
+
+      <section class="menu-section">
+        <h2>Pratos Principais</h2>
+        <div class="menu-item">
+          <div class="item-details">
+            <h3>Frango com Amendoim</h3>
+            <p>Frango cozido em molho rico de amendoim, servido com arroz.</p>
+          </div>
+          <span class="item-price">1200 MT</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="image-modal" onclick="closeImageModal()">
+    <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
+    <img id="enlarged-menu-image" alt="Imagem ampliada" />
   </div>
-</main>
 
-<div id="image-modal">
-  <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
-  <img id="enlarged-menu-image" alt="Menu ampliado" />
-</div>
+  <script>
+    function toggleAlacarteMenu() {
+      const content = document.getElementById('alacarte-menu-content');
+      const button = document.getElementById('alacarte-toggle-button');
+      const isOpen = content.classList.toggle('open');
+      button.innerText = isOpen ? 'Ocultar Menu' : 'Ver Menu Completo';
+    }
 
-<script>
-function toggleAlacarteMenu() {
-  const content = document.getElementById('alacarte-menu-content');
-  const btn = document.getElementById('alacarte-toggle-button');
-  const isOpen = content.classList.toggle('open');
-  btn.innerText = isOpen ? 'Ocultar Menu' : 'Ver Menu Completo';
-}
+    function openImageModal(src) {
+      document.getElementById('enlarged-menu-image').src = src;
+      document.getElementById('image-modal').style.display = 'flex';
+    }
 
-function updateDateTime() {
-  const now = new Date();
-  const date = now.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-  const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('date-time').textContent = `${date} | ${time}`;
-}
-window.onload = updateDateTime;
-setInterval(updateDateTime, 60000);
-</script>
+    function closeImageModal() {
+      document.getElementById('image-modal').style.display = 'none';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeImageModal();
+    });
+
+    function updateDateTime() {
+      const now = new Date();
+      const date = now.toLocaleDateString('pt-PT', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+      const time = now.toLocaleTimeString('pt-PT', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      document.getElementById('date-time').textContent = `${date} | ${time}`;
+    }
+
+    window.onload = updateDateTime;
+    setInterval(updateDateTime, 60000);
+  </script>
 </body>
 </html>
 

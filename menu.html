@@ -158,6 +158,7 @@
             border: 3px solid transparent;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             transition: border-color 0.3s, transform 0.3s;
+            cursor: pointer; /* Adicionado para indicar interatividade */
         }
 
         .daily-menu-item.highlighted img {
@@ -253,6 +254,41 @@
             white-space: nowrap;
         }
         
+        /* ---------- Modal para Imagem Ampliada (NOVO) ---------- */
+        #image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none; /* Controlado pelo JS */
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            cursor: pointer; /* Indica que clicar fecha */
+        }
+        
+        #modal-close-hint {
+            color: #fff; 
+            font-size: 1.1em; 
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #000;
+        }
+
+        #enlarged-menu-image {
+            max-width: 95%;
+            max-height: 85%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255,124,0,0.5);
+            cursor: default; /* Remove o cursor de fechar na imagem */
+        }
+
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
@@ -304,6 +340,7 @@
             <div class="daily-menu-images">
                 <!-- Dia da Semana (1-5) e Imagem (2a-6a) -->
                 <div class="daily-menu-item" id="day-1">
+                    <!-- Note: A imagem agora é clicável via JavaScript -->
                     <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
                     <p id="day-1-label">2ª Feira</p>
                 </div>
@@ -404,16 +441,18 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
+    
+    <!-- Novo Modal para Imagem Ampliada (NOVO) -->
+    <div id="image-modal">
+        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
+        <img id="enlarged-menu-image" alt="Menu ampliado">
+    </div>
 
     <script>
         const langData = {
             pt: {
                 // Universal Nav
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                // Index Page (Manter para consistência)
-                siteTitle: "Nyumba Food Concept", siteSchedule: "Aberto todos os dias das 09:00 às 22:30", filosofiaTitle: "A nossa filosofia", filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.", menuButtonText: "Ver Menu Completo",
-                // Gallery Page (Manter para consistência)
-                galleryTitle: "A Nossa Galeria de Sabores", image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
                 // Menu Page (Atualizado)
                 menuTitle: "Especialidades do Dia", 
                 dailyMenuTitle: "Menu Semanal de Almoço",
@@ -424,16 +463,15 @@
                 alacarteTitle: "Menu À La Carte",
                 menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
                 item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.", item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" }
-                // Contacts Page (Manter para consistência)
+                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+                modalCloseHint: "Clique ou prima ESC para fechar.", // NOVO
+                // Resto do langData mantido por consistência
+                siteTitle: "Nyumba Food Concept", siteSchedule: "Aberto todos os dias das 09:00 às 22:30", filosofiaTitle: "A nossa filosofia", filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.", menuButtonText: "Ver Menu Completo",
+                galleryTitle: "A Nossa Galeria de Sabores", image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
             },
             en: {
                 // Universal Nav
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                // Index Page (Manter para consistência)
-                siteTitle: "Nyumba Food Concept", siteSchedule: "Open daily from 9:00 AM to 10:30 PM", filosofiaTitle: "Our Philosophy", filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.", menuButtonText: "View Full Menu",
-                // Gallery Page (Manter para consistência)
-                galleryTitle: "Our Gallery of Flavours", image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
                 // Menu Page (Atualizado)
                 menuTitle: "Daily Specials",
                 dailyMenuTitle: "Weekly Lunch Menu",
@@ -444,8 +482,11 @@
                 alacarteTitle: "À La Carte Menu",
                 menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
                 item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.", item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
-                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" }
-                // Contacts Page (Manter para consistência)
+                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
+                modalCloseHint: "Click or press ESC to close.", // NOVO
+                // Resto do langData mantido por consistência
+                siteTitle: "Nyumba Food Concept", siteSchedule: "Open daily from 9:00 AM to 10:30 PM", filosofiaTitle: "Our Philosophy", filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.", menuButtonText: "View Full Menu",
+                galleryTitle: "Our Gallery of Flavours", image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
             }
         };
 
@@ -456,6 +497,11 @@
             4: { id: "day-4", labelKey: "day-4-label", imageFile: "5a.jpg" }, // Quinta-feira (Thursday)
             5: { id: "day-5", labelKey: "day-5-label", imageFile: "6a.jpg" }  // Sexta-feira (Friday)
         };
+        
+        // --- Referências ao Modal (NOVO) ---
+        const modal = document.getElementById('image-modal');
+        const enlargedImage = document.getElementById('enlarged-menu-image');
+        const modalCloseHint = document.getElementById('modal-close-hint');
         
         // --- Funções de Ajuda ---
         function updateText(id, text) {
@@ -531,6 +577,42 @@
                 button.innerText = t.aLaCarteButtonClosed;
             }
         }
+        
+        // --- Lógica do Modal para Imagens (NOVO) ---
+        function openImageModal(imgSrc) {
+            enlargedImage.src = imgSrc;
+            modal.style.display = 'flex';
+            
+            const lang = document.documentElement.lang || 'pt';
+            const t = langData[lang];
+            modalCloseHint.innerText = t.modalCloseHint;
+        }
+
+        function closeImageModal() {
+            modal.style.display = 'none';
+            enlargedImage.src = ''; // Limpa o src
+        }
+        
+        // Configuração dos Event Listeners para as Imagens
+        function setupDailyMenuListeners() {
+            document.querySelectorAll('.daily-menu-item img').forEach(img => {
+                // Adiciona o listener para abrir o modal
+                img.addEventListener('click', () => openImageModal(img.src));
+            });
+            
+            // Listener para fechar o modal (clique no overlay)
+            modal.addEventListener('click', closeImageModal);
+            
+            // Previne que o clique na imagem ampliada feche o modal
+            enlargedImage.addEventListener('click', (e) => e.stopPropagation());
+            
+            // Listener para a tecla ESC (NOVO)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeImageModal();
+                }
+            });
+        }
 
 
         // --- Função de Tradução Global ---
@@ -569,9 +651,14 @@
             updateText("starters-section-title", t.menuStarters);
             updateText("main-section-title", t.menuMain);
             updateText("desserts-section-title", t.menuDesserts);
+            
+            // Atualiza a dica de fecho do modal (se estiver aberto)
+            if (modal.style.display === 'flex') {
+                 modalCloseHint.innerText = t.modalCloseHint;
+            }
+
 
             // Atualiza o conteúdo do menu à la carte
-            // item-1-title e item-1-desc já estão no HTML, se não houver ID global
             const item1Title = document.getElementById("item-1-title");
             if (item1Title) item1Title.innerText = t.item1Title;
             const item1Desc = document.getElementById("item-1-desc");
@@ -590,6 +677,7 @@
         // --- Inicialização ---
         window.onload = function() {
             setLang('pt');
+            setupDailyMenuListeners(); // Configura os eventos de clique e ESC
         }
         setInterval(updateDateTime, 60000);
     </script>

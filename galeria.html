@@ -13,10 +13,11 @@
             color: #262019;
         }
 
-        /* ---------- Header (Corrigido para corresponder a menu.html) ---------- */
+        /* ---------- Header (Corrigido e Padrão) ---------- */
         header {
             background-color: #4a2d1e; /* Cor escura do fundo */
-            background-image: url("images/friso1.png"); /* Imagem de padrão, se disponível */
+            /* Caminho corrigido para o ficheiro na raiz */
+            background-image: url("friso1.png"); 
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -88,7 +89,7 @@
             margin: 2em auto;
             padding: 2em;
             text-align: center;
-            background: #ffffff; /* Fundo branco/claro para o conteúdo da galeria */
+            background: #ffffff;
             border-radius: 18px;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
         }
@@ -104,44 +105,133 @@
         /* ---------- Gallery Grid (Content) ---------- */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             padding-bottom: 20px;
         }
 
         .gallery-item {
             background: #f7f7f7;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255,124,0,0.25);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255,124,0,0.35);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px; /* Altura fixa para consistência visual */
+            height: 200px; /* Altura fixa para consistência visual */
             object-fit: cover;
             display: block;
+            filter: brightness(0.9);
+            transition: filter 0.3s;
+        }
+        .gallery-item:hover img {
+            filter: brightness(1);
         }
 
         .image-caption {
             padding: 15px;
-            text-align: left;
-            font-size: 1em;
+            text-align: center;
             color: #262019;
+            width: 100%;
         }
 
         .image-caption strong {
-            color: #ff7c00;
+            color: #4a2d1e;
             display: block;
             margin-bottom: 5px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        /* ---------- Modal de Galeria Interativa (NOVO) ---------- */
+        #image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none; /* Controlado pelo JS */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #modal-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 85%;
+            position: relative;
+        }
+
+        #enlarged-gallery-image {
+            max-width: 95%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(255,124,0,0.5);
+        }
+
+        .modal-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 15px 10px;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 1010;
+            border-radius: 8px;
+            transition: background 0.2s;
+            line-height: 1;
+            width: 50px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        .modal-nav-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 1;
+        }
+        /* Esconder botões quando não aplicável ou em ecrãs pequenos */
+        .modal-nav-button:disabled { opacity: 0.4; cursor: default; background: rgba(255, 255, 255, 0.1); }
+        @media (max-width: 600px) {
+            .modal-nav-button { padding: 10px 5px; font-size: 1.5em; width: 40px; }
+        }
+
+        #modal-prev-button { left: 10px; }
+        #modal-next-button { right: 10px; }
+
+        #modal-caption {
+            color: #fff;
+            margin: 15px 0 5px 0;
             font-size: 1.1em;
+            text-shadow: 0 0 5px #000;
+        }
+
+        #modal-close-hint {
+            color: #ccc; 
+            font-size: 0.9em; 
+            margin-bottom: 0;
         }
 
         /* ---------- Responsividade ---------- */
@@ -150,8 +240,8 @@
             #header-logo { height: 130px; }
             nav a { font-size: 1em; }
             main { margin: 1em auto; padding: 1em; }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item img { height: 200px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+            .gallery-item img { height: 150px; }
         }
 
         @media (max-width: 700px) {
@@ -165,7 +255,8 @@
 </head>
 <body>
     <header>
-        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <!-- Caminho do logotipo corrigido para a raiz -->
+        <img src="logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -180,45 +271,55 @@
     </header>
 
     <main>
-        <h1 id="gallery-title" class="page-title">A Nossa Galeria de Sabores</h1>
+        <!-- Título atualizado para "Venha conhecer-nos" -->
+        <h1 id="gallery-title" class="page-title">Venha conhecer-nos</h1> 
         
         <div class="gallery-grid">
             
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x250/4a2d1e/ffffff?text=Prato+Chef" alt="Imagem de um prato especial" onerror="this.onerror=null; this.src='https://placehold.co/400x250/4a2d1e/ffffff?text=Prato+Chef';" />
+            <!-- Pasta 1: Pratos do Chefe -->
+            <div class="gallery-item" data-category="pratos">
+                <!-- Usando o thumbnail pc1.jpg -->
+                <img src="pc1.jpg" alt="Pratos do Chef" onerror="this.onerror=null; this.src='https://placehold.co/400x200/4a2d1e/ffffff?text=Pratos+Chef';" />
                 <div class="image-caption">
-                    <strong id="image-1-title">Um Prato Especial do Chefe</strong>
-                    <span id="image-1-desc">Uma combinação de sabores e cores que refletem a paixão pela gastronomia.</span>
+                    <strong id="item-pratos-title">Pratos do Chefe</strong>
+                    <span id="item-pratos-desc">As nossas criações exclusivas e destaques gastronómicos.</span>
                 </div>
             </div>
 
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x250/ff7c00/ffffff?text=Esplanada" alt="Imagem da esplanada do restaurante" onerror="this.onerror=null; this.src='https://placehold.co/400x250/ff7c00/ffffff?text=Esplanada';" />
+            <!-- Pasta 2: Esplanada -->
+            <div class="gallery-item" data-category="esplanada">
+                <!-- Usando o thumbnail es1.jpg -->
+                <img src="es1.jpg" alt="Esplanada" onerror="this.onerror=null; this.src='https://placehold.co/400x200/ff7c00/ffffff?text=Esplanada';" />
                 <div class="image-caption">
-                    <strong id="image-2-title">O Ambiente Acolhedor</strong>
-                    <span id="image-2-desc">A nossa esplanada, o local ideal para um final de tarde relaxante.</span>
+                    <strong id="item-esplanada-title">A Nossa Esplanada</strong>
+                    <span id="item-esplanada-desc">O ambiente acolhedor e tranquilo no coração do parque.</span>
                 </div>
             </div>
 
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x250/89ff89/262019?text=Cocktail+Artesanal" alt="Imagem de um cocktail artesanal" onerror="this.onerror=null; this.src='https://placehold.co/400x250/89ff89/262019?text=Cocktail+Artesanal';" />
+            <!-- Pasta 3: Cocktails Artesanais -->
+            <div class="gallery-item" data-category="cocktails">
+                <!-- Usando o thumbnail ck1.jpg -->
+                <img src="ck1.jpg" alt="Cocktails Artesanais" onerror="this.onerror=null; this.src='https://placehold.co/400x200/89ff89/262019?text=Cocktails';" />
                 <div class="image-caption">
-                    <strong id="image-3-title">Cocktails Artesanais</strong>
-                    <span id="image-3-desc">Bebidas refrescantes e criativas, perfeitas para acompanhar a sua refeição.</span>
+                    <strong id="item-cocktails-title">Cocktails Artesanais</strong>
+                    <span id="item-cocktails-desc">Bebidas refrescantes e cheias de sabor para o seu final de tarde.</span>
                 </div>
             </div>
             
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x250/4a2d1e/ffffff?text=Interior+Restaurante" alt="Imagem do interior do restaurante" onerror="this.onerror=null; this.src='https://placehold.co/400x250/4a2d1e/ffffff?text=Interior+Restaurante';" />
+            <!-- Pasta 4: Cozinha do Quiosque (Substitui Interior) -->
+            <div class="gallery-item" data-category="cozinha">
+                <!-- Usando o thumbnail cz1.jpg -->
+                <img src="cz1.jpg" alt="Cozinha do Quiosque" onerror="this.onerror=null; this.src='https://placehold.co/400x200/262019/ffffff?text=Cozinha+Quiosque';" />
                 <div class="image-caption">
-                    <strong id="image-4-title">Detalhes e Decoração</strong>
-                    <span id="image-4-desc">O toque gourmet e a atenção aos detalhes em cada canto do Nyumba.</span>
+                    <strong id="item-cozinha-title">Cozinha do Quiosque</strong>
+                    <span id="item-cozinha-desc">Onde a magia acontece: a preparação dos nossos pratos.</span>
                 </div>
             </div>
 
         </div>
     </main>
     
+    <!-- Mapa Fixo -->
     <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
         <iframe
             id="map-fixed"
@@ -232,32 +333,189 @@
         </iframe>
     </div>
 
+    <!-- Novo Modal para Galeria Interativa -->
+    <div id="image-modal">
+        <div id="modal-content">
+            <!-- Botões de navegação serão controlados via JS -->
+            <button id="modal-prev-button" class="modal-nav-button" disabled>&lt;</button>
+            <img id="enlarged-gallery-image" alt="Imagem da Galeria">
+            <button id="modal-next-button" class="modal-nav-button" disabled>&gt;</button>
+        </div>
+        <p id="modal-caption" class="caption-text"></p>
+        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
+    </div>
+
     <script>
+        // Variáveis de estado da galeria
+        let currentCategory = null;
+        let currentImageIndex = 0;
+        
         const langData = {
             pt: {
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                galleryTitle: "A Nossa Galeria de Sabores",
-                image1Title: "Um Prato Especial do Chefe", image1Desc: "Uma combinação de sabores e cores que refletem a paixão pela gastronomia.",
-                image2Title: "O Ambiente Acolhedor", image2Desc: "A nossa esplanada, o local ideal para um final de tarde relaxante.",
-                image3Title: "Cocktails Artesanais", image3Desc: "Bebidas refrescantes e criativas, perfeitas para acompanhar a sua refeição.",
-                image4Title: "Detalhes e Decoração", image4Desc: "O toque gourmet e a atenção aos detalhes em cada canto do Nyumba.",
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+                galleryTitle: "Venha conhecer-nos",
+                
+                itemPratosTitle: "Pratos do Chefe", itemPratosDesc: "As nossas criações exclusivas e destaques gastronómicos.",
+                itemEsplanadaTitle: "A Nossa Esplanada", itemEsplanadaDesc: "O ambiente acolhedor e tranquilo no coração do parque.",
+                itemCocktailsTitle: "Cocktails Artesanais", itemCocktailsDesc: "Bebidas refrescantes e cheias de sabor para o seu final de tarde.",
+                itemCozinhaTitle: "Cozinha do Quiosque", itemCozinhaDesc: "Onde a magia acontece: a preparação dos nossos pratos.",
+
+                modalCloseHint: "Prima ESC ou clique na área escura para fechar.",
+                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 4: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+                
+                galleryContent: {
+                    pratos: [
+                        // Caminhos e nomes corrigidos: pcX.jpg
+                        { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
+                        { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
+                        // Usando pc3.jpg (corrigido do erro de digitação original 'pg3.jpg')
+                        { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                    ],
+                    esplanada: [
+                        // Caminhos e nomes corrigidos: esX.jpg
+                        { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
+                        { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
+                        { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                    ],
+                    cocktails: [
+                        // Caminhos e nomes corrigidos: ckX.jpg
+                        { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
+                        { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
+                        { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                    ],
+                    cozinha: [
+                        // Caminhos e nomes corrigidos: czX.jpg
+                        { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
+                        { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                    ]
+                }
             },
             en: {
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                galleryTitle: "Our Gallery of Flavours",
-                image1Title: "A Special Chef's Dish", image1Desc: "A combination of flavors and colors reflecting our passion for gastronomy.",
-                image2Title: "The Cozy Atmosphere", image2Desc: "Our terrace, the perfect spot for a relaxing evening.",
-                image3Title: "Artisanal Cocktails", image3Desc: "Refreshing and creative drinks, perfect to accompany your meal.",
-                image4Title: "Details and Decor", image4Desc: "The gourmet touch and attention to detail in every corner of Nyumba.",
+                galleryTitle: "Come meet us",
+                
+                itemPratosTitle: "Chef's Dishes", itemPratosDesc: "Our exclusive creations and gastronomic highlights.",
+                itemEsplanadaTitle: "Our Terrace", itemEsplanadaDesc: "The cozy and peaceful atmosphere in the heart of the park.",
+                itemCocktailsTitle: "Artisanal Cocktails", itemCocktailsDesc: "Refreshing and creative drinks for your late afternoon.",
+                itemCozinhaTitle: "Kiosk Kitchen", itemCozinhaDesc: "Where the magic happens: the preparation of our dishes.",
+
+                modalCloseHint: "Press ESC or click dark area to close.",
                 dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
+
+                galleryContent: {
+                    pratos: [
+                        // Caminhos e nomes corrigidos: pcX.jpg
+                        { src: "pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
+                        { src: "pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
+                        // Usando pc3.jpg (corrigido do erro de digitação original 'pg3.jpg')
+                        { src: "pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                    ],
+                    esplanada: [
+                        // Caminhos e nomes corrigidos: esX.jpg
+                        { src: "es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
+                        { src: "es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
+                        { src: "es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                    ],
+                    cocktails: [
+                        // Caminhos e nomes corrigidos: ckX.jpg
+                        { src: "ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
+                        { src: "ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
+                        { src: "ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                    ],
+                    cozinha: [
+                        // Caminhos e nomes corrigidos: czX.jpg
+                        { src: "cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
+                        { src: "cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                    ]
+                }
             }
         };
 
-        // --- Funções de Ajuda ---
+        const modal = document.getElementById('image-modal');
+        const enlargedImage = document.getElementById('enlarged-gallery-image');
+        const prevButton = document.getElementById('modal-prev-button');
+        const nextButton = document.getElementById('modal-next-button');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalCloseHint = document.getElementById('modal-close-hint');
+
+        // --- Funções de Galeria Interativa ---
+        function updateModalNavigation() {
+            const images = getLangText('galleryContent')[currentCategory];
+            const totalImages = images.length;
+            
+            prevButton.disabled = currentImageIndex === 0;
+            nextButton.disabled = currentImageIndex === totalImages - 1;
+
+            const lang = document.documentElement.lang || 'pt';
+            const captionKey = lang === 'pt' ? 'pt' : 'en';
+            
+            enlargedImage.src = images[currentImageIndex].src;
+            modalCaption.innerText = images[currentImageIndex][captionKey];
+        }
+
+        function openImageModal(category) {
+            currentCategory = category;
+            currentImageIndex = 0;
+            updateModalNavigation();
+            modal.style.display = 'flex';
+            modalCloseHint.innerText = getLangText('modalCloseHint');
+        }
+
+        function closeImageModal() {
+            modal.style.display = 'none';
+            currentCategory = null;
+            currentImageIndex = 0;
+            enlargedImage.src = '';
+        }
+
+        function navigateImage(direction) {
+            const images = getLangText('galleryContent')[currentCategory];
+            const newIndex = currentImageIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < images.length) {
+                currentImageIndex = newIndex;
+                updateModalNavigation();
+            }
+        }
+        
+        function setupGalleryListeners() {
+            // Adiciona listener de clique a cada item da galeria (pasta)
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const category = item.getAttribute('data-category');
+                    if (category) {
+                        openImageModal(category);
+                    }
+                });
+            });
+            
+            // Listeners de navegação do modal
+            prevButton.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(-1); });
+            nextButton.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(1); });
+            
+            // Listener para fechar o modal (clique no overlay)
+            modal.addEventListener('click', closeImageModal);
+            
+            // Previne que o clique na imagem ampliada feche o modal
+            enlargedImage.addEventListener('click', (e) => e.stopPropagation());
+            
+            // Listener para a tecla ESC (fecha o modal)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeImageModal();
+                }
+            });
+        }
+        
+        // --- Funções de Ajuda e Tradução ---
         function updateText(id, text) {
             const el = document.getElementById(id);
             if (el) { el.innerText = text; }
+        }
+
+        function getLangText(key) {
+            const l = document.documentElement.lang || 'pt';
+            return langData[l][key] || "";
         }
 
         function updateDateTime() {
@@ -272,7 +530,6 @@
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
         
-        // --- Função de Tradução Global ---
         function setLang(l) {
             const t = langData[l];
             document.documentElement.lang = l; 
@@ -285,14 +542,20 @@
             
             // Gallery Page Content
             updateText("gallery-title", t.galleryTitle);
-            updateText("image-1-title", t.image1Title);
-            updateText("image-1-desc", t.image1Desc);
-            updateText("image-2-title", t.image2Title);
-            updateText("image-2-desc", t.image2Desc);
-            updateText("image-3-title", t.image3Title);
-            updateText("image-3-desc", t.image3Desc);
-            updateText("image-4-title", t.image4Title);
-            updateText("image-4-desc", t.image4Desc);
+            updateText("item-pratos-title", t.itemPratosTitle);
+            updateText("item-pratos-desc", t.itemPratosDesc);
+            updateText("item-esplanada-title", t.itemEsplanadaTitle);
+            updateText("item-esplanada-desc", t.itemEsplanadaDesc);
+            updateText("item-cocktails-title", t.itemCocktailsTitle);
+            updateText("item-cocktails-desc", t.itemCocktailsDesc);
+            updateText("item-cozinha-title", t.itemCozinhaTitle);
+            updateText("item-cozinha-desc", t.itemCozinhaDesc);
+
+            // Se o modal estiver aberto, atualiza a navegação e o caption
+            if (modal.style.display === 'flex') {
+                 updateModalNavigation();
+                 modalCloseHint.innerText = t.modalCloseHint;
+            }
 
             updateDateTime();
         }
@@ -300,6 +563,7 @@
         // --- Inicialização ---
         window.onload = function() {
             setLang('pt');
+            setupGalleryListeners();
         }
         setInterval(updateDateTime, 60000);
     </script>

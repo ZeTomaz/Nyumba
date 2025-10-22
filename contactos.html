@@ -4,28 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contactos | Nyumba Food Concept</title>
-    <!-- Incluindo Font Awesome para ícones de contacto -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #fffbe6; /* Fundo de cor creme clara */
+            background: #fffbe6;
             color: #262019;
         }
 
-        /* ---------- Header (Caminhos AGORA com 'images/') ---------- */
         header {
-            background-color: #4a2d1e; /* Cor escura do fundo */
-            background-image: url("images/friso1.png"); 
+            background-color: #4a2d1e;
+            background-image: url("images/friso1.png");
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
             height: 160px;
             width: 100%;
             text-align: center;
-            padding: 0;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -43,14 +40,14 @@
             object-fit: contain;
             z-index: 20;
             margin-left: 10px;
-            background: rgba(0, 0, 0, 0.2); 
+            background: rgba(0, 0, 0, 0.2);
         }
 
         nav { margin: 0.5em 0 1em 0; }
         nav a {
             margin: 0 1em;
             text-decoration: none;
-            color: #ff7c00; /* Cor Laranja/Âmbar */
+            color: #ff7c00;
             font-size: 1.15em;
             font-weight: 800;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
@@ -83,7 +80,6 @@
             font-weight: 500;
         }
 
-        /* ---------- Main Section ---------- */
         main {
             position: relative;
             max-width: 1100px;
@@ -96,14 +92,13 @@
         }
 
         .page-title {
-            font-size: 2.8em; 
-            margin-bottom: 0.5em; 
+            font-size: 2.8em;
+            margin-bottom: 0.5em;
             text-transform: uppercase;
             color: #4a2d1e;
             font-weight: 900;
         }
-        
-        /* ---------- Contact Grid Layout ---------- */
+
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -119,25 +114,21 @@
             text-align: center;
             transition: box-shadow 0.3s, transform 0.3s;
         }
-        
         .contact-item:hover {
             box-shadow: 0 8px 25px rgba(255,124,0,0.3);
             transform: translateY(-5px);
         }
-
         .contact-item i {
             color: #ff7c00;
             font-size: 3em;
             margin-bottom: 0.5em;
         }
-
         .contact-item h3 {
             color: #4a2d1e;
             margin-top: 0;
             font-size: 1.6em;
             font-weight: 700;
         }
-
         .contact-link {
             display: block;
             margin-top: 10px;
@@ -145,42 +136,32 @@
             color: #262019;
             text-decoration: none;
             font-weight: 500;
-            word-break: break-word; /* Para e-mails longos */
+            word-break: break-word;
             transition: color 0.3s;
         }
-
         .contact-link.primary {
             color: #ff7c00;
             font-weight: 600;
         }
-        
         .contact-link:hover {
             color: #4a2d1e;
             text-decoration: underline;
         }
-        
-        /* Estilo para links de WhatsApp e Telefone */
-        .contact-item.phone-block .contact-link {
-             margin-top: 5px; /* Espaço entre os links de telefone/whatsapp */
-        }
-        
-        /* Mapa */
+
         #map-container {
-            margin-top: 40px;
+            margin-top: 20px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 0 15px rgba(0,0,0,0.15);
             height: 450px;
             width: 100%;
         }
-
         #map-iframe {
             width: 100%;
             height: 100%;
             border: 0;
         }
 
-        /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
             #header-logo { height: 130px; }
@@ -200,13 +181,7 @@
 </head>
 <body>
     <header>
-        <!-- Logótipo: AGORA procura em 'images/logo-nyumba.png'. -->
-        <img 
-            src="images/logo-nyumba.png" 
-            alt="Logótipo Nyumba Food Concept" 
-            id="header-logo"
-            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
-        />
+        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -225,222 +200,89 @@
         <p id="contact-subtitle">Estamos ansiosos por recebê-lo e responder às suas questões.</p>
         
         <div class="contact-grid">
-            
-            <!-- Item 1: Telefone e WhatsApp -->
             <div class="contact-item phone-block">
                 <i class="fas fa-phone-alt"></i>
                 <h3 id="item-phone-title">Telefone e WhatsApp</h3>
                 <p id="item-phone-desc">Ligue-nos diretamente ou envie uma mensagem instantânea.</p>
-                
-                <!-- Link Telefone (Click-to-Call) -->
-                <a 
-                    href="tel:+258846695390" 
-                    class="contact-link primary" 
-                    id="phone-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    +258 846695390 (Ligar)
-                </a>
-                
-                <!-- Link WhatsApp (Click-to-Chat) -->
-                <a 
-                    href="https://wa.me/258846695390" 
-                    class="contact-link primary" 
-                    id="whatsapp-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    +258 846695390 (WhatsApp)
-                </a>
+                <a href="tel:+258846695390" class="contact-link primary" id="phone-link">+258 846695390 (Ligar)</a>
+                <a href="https://wa.me/258846695390" class="contact-link primary" id="whatsapp-link" target="_blank" rel="noopener noreferrer">+258 846695390 (WhatsApp)</a>
             </div>
 
-            <!-- Item 2: E-mail -->
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
                 <h3 id="item-email-title">E-mail</h3>
                 <p id="item-email-desc">Envie-nos um e-mail para pedidos de reserva ou informações gerais.</p>
-                
-                <!-- Link E-mail (mailto) -->
-                <a 
-                    href="mailto:nyumba.maputo@gmail.com" 
-                    class="contact-link primary" 
-                    id="email-link"
-                >
-                    nyumba.maputo@gmail.com
-                </a>
+                <a href="mailto:nyumba.maputo@gmail.com" class="contact-link primary" id="email-link">nyumba.maputo@gmail.com</a>
             </div>
 
-            <!-- Item 3: Instagram -->
             <div class="contact-item">
                 <i class="fab fa-instagram"></i>
                 <h3 id="item-instagram-title">Redes Sociais</h3>
                 <p id="item-instagram-desc">Siga-nos para ver as novidades e os pratos do dia.</p>
-                
-                <!-- Link Instagram -->
-                <a 
-                    href="https://www.instagram.com/nyumbafoodconcept" 
-                    class="contact-link primary" 
-                    id="instagram-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    @nyumbafoodconcept
-                </a>
+                <a href="https://www.instagram.com/nyumbafoodconcept" class="contact-link primary" id="instagram-link" target="_blank" rel="noopener noreferrer">@nyumbafoodconcept</a>
             </div>
-
-            <!-- Item 4: Localização (Endereço) -->
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3 id="item-location-title">A Nossa Localização</h3>
-                <p id="item-location-desc">Encontre-nos no centro do Parque dos Continuadores, Maputo.</p>
-                
-                <a 
-                    href="https://maps.app.goo.gl/uR47uN7Ww2G8hGgX6" 
-                    class="contact-link" 
-                    id="location-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Ver no Mapa
-                </a>
-            </div>
-
         </div>
-        
-        <!-- Mapa de Localização Integrado -->
+
+        <!-- Apenas o Google Maps -->
         <div id="map-container">
-            <iframe
-                id="map-iframe"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            <iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
 
     <script>
-        // --- Dados de Contacto Fixos ---
         const CONTACT_INFO = {
             email: "nyumba.maputo@gmail.com",
             phone: "+258 846695390",
-            phoneRaw: "258846695390", // Usado para links tel: e wa.me
+            phoneRaw: "258846695390",
             instagram: "@nyumbafoodconcept",
             instagramUrl: "https://www.instagram.com/nyumbafoodconcept"
         };
-        
-        // --- Dados de Tradução ---
+
         const langData = {
             pt: {
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
                 contactTitle: "Fale Connosco", contactSubtitle: "Estamos ansiosos por recebê-lo e responder às suas questões.",
-                
                 itemPhoneTitle: "Telefone e WhatsApp", itemPhoneDesc: "Ligue-nos diretamente ou envie uma mensagem instantânea.",
-                phoneLink: `${CONTACT_INFO.phone} (Ligar)`,
-                whatsappLink: `${CONTACT_INFO.phone} (WhatsApp)`,
-
-                itemEmailTitle: "E-mail", itemEmailDesc: "Envie-nos um e-mail para pedidos de reserva ou informações gerais.",
                 emailLink: CONTACT_INFO.email,
-                
                 itemInstagramTitle: "Redes Sociais", itemInstagramDesc: "Siga-nos para ver as novidades e os pratos do dia.",
-                instagramLink: CONTACT_INFO.instagram,
-                
-                itemLocationTitle: "A Nossa Localização", itemLocationDesc: "Encontre-nos no centro do Parque dos Continuadores, Maputo.",
-                locationLink: "Ver no Mapa",
-
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 4: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
             },
             en: {
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
                 contactTitle: "Contact Us", contactSubtitle: "We look forward to welcoming you and answering your questions.",
-                
                 itemPhoneTitle: "Phone and WhatsApp", itemPhoneDesc: "Call us directly or send an instant message.",
-                phoneLink: `${CONTACT_INFO.phone} (Call)`,
-                whatsappLink: `${CONTACT_INFO.phone} (WhatsApp)`,
-                
-                itemEmailTitle: "Email", itemEmailDesc: "Send us an email for reservation requests or general inquiries.",
                 emailLink: CONTACT_INFO.email,
-                
                 itemInstagramTitle: "Social Media", itemInstagramDesc: "Follow us to see news and daily specials.",
-                instagramLink: CONTACT_INFO.instagram,
-                
-                itemLocationTitle: "Our Location", itemLocationDesc: "Find us in the center of Continuadores Park, Maputo.",
-                locationLink: "View on Map",
-
-                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
             }
         };
 
-        // --- Funções de Ajuda e Tradução ---
-        function updateText(id, text) {
-            const el = document.getElementById(id);
-            if (el) { el.innerText = text; }
-        }
-
-        function getLangText(key) {
-            const l = document.documentElement.lang || 'pt';
-            return langData[l][key] || "";
-        }
-
+        function updateText(id, text) { const el = document.getElementById(id); if (el) el.innerText = text; }
         function updateDateTime() {
             const now = new Date();
             const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-            });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                hour: '2-digit', minute: '2-digit'
-            });
+            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
-        
         function setLang(l) {
             const t = langData[l];
-            document.documentElement.lang = l; 
-
-            // Universal Nav
+            document.documentElement.lang = l;
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
             updateText("nav-menu", t.navMenu);
             updateText("nav-contact", t.navContact);
-            
-            // Contact Page Content
             updateText("contact-title", t.contactTitle);
             updateText("contact-subtitle", t.contactSubtitle);
-            
             updateText("item-phone-title", t.itemPhoneTitle);
             updateText("item-phone-desc", t.itemPhoneDesc);
-            updateText("phone-link", t.phoneLink);
-            updateText("whatsapp-link", t.whatsappLink);
-
-            updateText("item-email-title", t.itemEmailTitle);
-            updateText("item-email-desc", t.itemEmailDesc);
+            updateText("item-email-title", "E-mail");
+            updateText("item-email-desc", l==='pt'?"Envie-nos um e-mail para pedidos de reserva ou informações gerais.":"Send us an email for reservations or inquiries.");
             updateText("email-link", t.emailLink);
-            
             updateText("item-instagram-title", t.itemInstagramTitle);
             updateText("item-instagram-desc", t.itemInstagramDesc);
-            updateText("instagram-link", t.instagramLink);
-
-            updateText("item-location-title", t.itemLocationTitle);
-            updateText("item-location-desc", t.itemLocationDesc);
-            updateText("location-link", t.locationLink);
-
             updateDateTime();
         }
-
-        // --- Inicialização ---
-        window.onload = function() {
-            // Define os URLs dos links de contacto uma vez que o DOM carrega
-            document.getElementById('phone-link').href = `tel:+${CONTACT_INFO.phoneRaw}`;
-            document.getElementById('whatsapp-link').href = `https://wa.me/${CONTACT_INFO.phoneRaw}`;
-            document.getElementById('email-link').href = `mailto:${CONTACT_INFO.email}`;
-            document.getElementById('instagram-link').href = CONTACT_INFO.instagramUrl;
-            
-            setLang('pt');
-        }
+        window.onload = () => { setLang('pt'); updateDateTime(); }
         setInterval(updateDateTime, 60000);
     </script>
 </body>
 </html>
-

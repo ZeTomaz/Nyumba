@@ -1,142 +1,378 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contactos | Nyumba Food Concept</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    /* Elementos fixos no canto inferior */
-    #logo-fixed {
-      position: fixed;
-      left: 25px;
-      bottom: 25px;
-      z-index: 22;
-      width: 320px;
-      height: 180px;
-      display: block;
-      border-radius: 12px;
-      box-shadow: 0 0 13px rgba(0,0,0,0.21);
-      background: #fffefc;
-      object-fit: contain;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactos | Nyumba Food Concept</title>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #fffbe6;
+            color: #262019;
+        }
 
-    #map-fixed-box {
-      position: fixed;
-      right: 25px;
-      bottom: 25px;
-      z-index: 22;
-      width: 320px;
-      height: 180px;
-      border-radius: 12px;
-      box-shadow: 0 0 14px rgba(0,0,0,0.25);
-      overflow: hidden;
-      background: #fffefc;
-      display: flex;
-    }
+        /* ---------- Header com imagem friso2 (IDENTICAL) ---------- */
+        header {
+            background-color: #4a2d1e; 
+            background-image: url("images/friso1.png");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+            height: 160px;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+        }
 
-    #map-fixed {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+        /* ---------- Logótipo sobre o header (IDENTICAL) ---------- */
+        #header-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            z-index: 20;
+            margin-left: 10px;
+            background: rgba(0, 0, 0, 0.2); 
+        }
 
-    @media (max-width: 900px) {
-      #logo-fixed, #map-fixed-box { width: 45vw; height: 25vw; min-width:140px; min-height:90px; }
-      #logo-fixed { left: 5vw; bottom: 5vw; }
-      #map-fixed-box { right: 5vw; bottom: 5vw;}
-    }
-    @media (max-width: 600px) {
-      #logo-fixed, #map-fixed-box { width: 40vw; height: 22vw; min-width:100px; min-height:60px;}
-      #logo-fixed { left: 4vw; bottom: 4vw;}
-      #map-fixed-box { right: 4vw; bottom: 4vw;}
-    }
-  </style>
+        /* ---------- Navegação e data/hora (IDENTICAL) ---------- */
+        nav {
+            margin: 0.5em 0 1em 0;
+        }
+
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #ff7c00;
+            font-size: 1.15em;
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffa64d;
+        }
+
+        .lang-selector {
+            margin-bottom: 0.8em;
+        }
+
+        .lang-selector button {
+            background: #000000;
+            border: none;
+            border-radius: 6px;
+            margin: 0 0.25em;
+            padding: 0.3em 1em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            transition: background 0.25s, transform 0.15s;
+        }
+
+        .lang-selector button:hover {
+            background: #222;
+            transform: scale(1.05);
+        }
+
+        #date-time {
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            color: #fffdf5;
+            font-size: 0.95em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            font-weight: 500;
+        }
+
+        /* ---------- Main section com overlay neutro (IDENTICAL) ---------- */
+        main {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2em;
+            text-align: center;
+            background: url("images/background2.png") center center / cover no-repeat;
+            min-height: 600px;
+            border-radius: 18px;
+            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+            z-index: 1;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: rgba(30, 30, 30, 0.55);
+            pointer-events: none;
+            border-radius: 18px;
+        }
+
+        main > * {
+            position: relative;
+            z-index: 1;
+            color: #fafafa;
+            text-shadow: 0 2px 6px #000;
+        }
+
+        /* ---------- Contactos Specific Styles ---------- */
+        .page-title {
+            font-size: 2.5em; 
+            margin-bottom: 1em; 
+            text-transform: uppercase;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+            padding: 20px 0;
+        }
+
+        .info-box {
+            background: rgba(0, 0, 0, 0.65);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+        }
+
+        .info-item label {
+            font-weight: bold;
+            color: #89ff89;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        .contact-form h2 {
+            color: #ff7c00;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ff7c00;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border: 1px solid #ff7c00;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #262019;
+            font-family: inherit;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #ff7c00;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.2s;
+        }
+
+        .contact-form button:hover {
+            background-color: #ffa64d;
+        }
+
+        /* ---------- Responsividade (IDENTICAL) ---------- */
+        @media (max-width: 900px) {
+            header { height: 130px; }
+            #header-logo { height: 130px; }
+            nav a { font-size: 1em; }
+        }
+
+        @media (max-width: 700px) {
+            main { padding: 1em; }
+            nav a { display: inline-block; margin: 0.3em; font-size: 1em; }
+            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
+            header { height: 110px; }
+            #header-logo { height: 110px; }
+            #map-fixed-box { display: none !important; }
+            .contact-content { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html" id="nav-home"></a>
-      <a href="galeria.html" id="nav-gallery"></a>
-      <a href="menu.html" id="nav-menu"></a>
-      <a href="contactos.html" id="nav-contact"></a>
-    </nav>
-    <div class="lang-selector">
-      <button onclick="setLang('pt')">Português</button>
-      <button onclick="setLang('en')">English</button>
+    <header>
+        <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" id="header-logo" />
+        <nav>
+            <a href="index.html" id="nav-home">Principal</a> 
+            <a href="galeria.html" id="nav-gallery">Galeria</a>
+            <a href="menu.html" id="nav-menu">Menu</a>
+            <a href="contactos.html" id="nav-contact">Contactos</a>
+        </nav>
+        <div class="lang-selector">
+            <button onclick="setLang('pt')">Português</button>
+            <button onclick="setLang('en')">English</button>
+        </div>
+        <div id="date-time"></div>
+    </header>
+
+    <main>
+        <h1 id="contact-title" class="page-title"></h1>
+
+        <div class="contact-content">
+            <!-- Contact Information Box -->
+            <div class="info-box">
+                <div class="info-item">
+                    <label id="phone-label"></label>
+                    <p>+258 84 123 4567</p>
+                </div>
+                <div class="info-item">
+                    <label id="email-label"></label>
+                    <p>contacto@nyumbafood.com</p>
+                </div>
+                <div class="info-item">
+                    <label id="address-label"></label>
+                    <p>Parque dos Continuadores (FEIMA), Maputo, Moçambique</p>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="info-box contact-form">
+                <h2 id="form-title"></h2>
+                <form action="#" method="POST">
+                    <input type="text" name="name" placeholder="Seu Nome / Your Name" required>
+                    <input type="email" name="email" placeholder="Seu Email / Your Email" required>
+                    <textarea name="message" placeholder="Sua Mensagem / Your Message" required></textarea>
+                    <button type="submit" id="send-button"></button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
+        <iframe
+            id="map-fixed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
     </div>
-    <div id="date-time"></div>
-  </header>
-  <main>
-    <h1 id="contact-title"></h1>
-    <ul class="contact-list">
-      <li id="contact-email"></li>
-      <li id="contact-whatsapp"></li>
-      <li id="contact-facebook"></li>
-      <li id="contact-instagram"></li>
-    </ul>
-  </main>
 
-  <!-- Logo e mapa iguais à página inicial -->
-  <img src="images/logo-nyumba.png" alt="Logo Nyumba" id="logo-fixed" />
-  <div id="map-fixed-box">
-    <iframe
-      id="map-fixed"
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-  </div>
+    <script>
+        const langData = {
+            pt: {
+                // Universal Nav
+                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
+                // Index Page
+                siteTitle: "Nyumba Food Concept", siteSchedule: "Aberto todos os dias das 09:00 às 22:30", filosofiaTitle: "A nossa filosofia", filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.", menuButtonText: "Ver Menu Completo",
+                // Gallery Page
+                galleryTitle: "A Nossa Galeria de Sabores",
+                image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
+                // Menu Page
+                menuTitle: "Nosso Menu", menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
+                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.", item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
+                // Contacts Page
+                contactTitle: "Contacte-nos", contactPhone: "Telefone:", contactEmail: "Email:", contactAddress: "Morada:", contactFormTitle: "Envie-nos uma mensagem", contactSend: "Enviar",
+            },
+            en: {
+                // Universal Nav
+                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
+                // Index Page
+                siteTitle: "Nyumba Food Concept", siteSchedule: "Open daily from 9:00 AM to 10:30 PM", filosofiaTitle: "Our Philosophy", filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.", menuButtonText: "View Full Menu",
+                // Gallery Page
+                galleryTitle: "Our Gallery of Flavours",
+                image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
+                // Menu Page
+                menuTitle: "Our Menu", menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
+                item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.", item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
+                // Contacts Page
+                contactTitle: "Contact Us", contactPhone: "Phone:", contactEmail: "Email:", contactAddress: "Address:", contactFormTitle: "Send us a message", contactSend: "Send",
+            }
+        };
 
-  <script>
-    const langData = {
-      pt: {
-        navHome: "Principal",
-        navGallery: "Galeria",
-        navMenu: "Menu",
-        navContact: "Contactos",
-        contactTitle: "Contactos",
-        contactEmail: "Email: <a href='mailto:nyumba.maputo@gmail.com'>nyumba.maputo@gmail.com</a>",
-        contactWhatsapp: "WhatsApp: <a href='https://wa.me/258864663788'>+258 864663788</a>",
-        contactFacebook: "Facebook: <a href='https://m.me/nyumbafoodconcept' target='_blank'>Nyumba Food Concept</a>",
-        contactInstagram: "Instagram: <a href='https://instagram.com/nyumbafoodconcept' target='_blank'>@nyumbafoodconcept</a>"
-      },
-      en: {
-        navHome: "Home",
-        navGallery: "Gallery",
-        navMenu: "Menu",
-        navContact: "Contacts",
-        contactTitle: "Contacts",
-        contactEmail: "Email: <a href='mailto:nyumba.maputo@gmail.com'>nyumba.maputo@gmail.com</a>",
-        contactWhatsapp: "WhatsApp: <a href='https://wa.me/258864663788'>+258 864663788</a>",
-        contactFacebook: "Facebook: <a href='https://m.me/nyumbafoodconcept' target='_blank'>Nyumba Food Concept</a>",
-        contactInstagram: "Instagram: <a href='https://instagram.com/nyumbafoodconcept' target='_blank'>@nyumbafoodconcept</a>"
-      }
-    };
+        function updateText(id, text) {
+            const el = document.getElementById(id);
+            if (el) { el.innerText = text; }
+        }
 
-    function updateDateTime() {
-      const now = new Date();
-      const date = now.toLocaleDateString('pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
-      document.getElementById('date-time').textContent = `${date} | ${time}`;
-    }
-    setInterval(updateDateTime, 60000);
-    updateDateTime();
+        function getLangText(key) {
+            const l = document.documentElement.lang || 'pt';
+            return langData[l][key] || "";
+        }
 
-    function setLang(l) {
-      const t = langData[l];
-      document.getElementById("nav-home").innerText = t.navHome;
-      document.getElementById("nav-gallery").innerText = t.navGallery;
-      document.getElementById("nav-menu").innerText = t.navMenu;
-      document.getElementById("nav-contact").innerText = t.navContact;
-      document.getElementById("contact-title").innerText = t.contactTitle;
-      document.getElementById("contact-email").innerHTML = t.contactEmail;
-      document.getElementById("contact-whatsapp").innerHTML = t.contactWhatsapp;
-      document.getElementById("contact-facebook").innerHTML = t.contactFacebook;
-      document.getElementById("contact-instagram").innerHTML = t.contactInstagram;
-    }
-    setLang('pt');
-  </script>
+        function updateDateTime() {
+            const now = new Date();
+            const langCode = document.documentElement.lang || 'pt';
+            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', {
+                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
+            });
+            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', {
+                hour: '2-digit', minute: '2-digit'
+            });
+            document.getElementById('date-time').textContent = `${date} | ${time}`;
+        }
+        
+        function setLang(l) {
+            const t = langData[l];
+            document.documentElement.lang = l; 
+
+            // Universal Nav
+            updateText("nav-home", t.navHome);
+            updateText("nav-gallery", t.navGallery);
+            updateText("nav-menu", t.navMenu);
+            updateText("nav-contact", t.navContact);
+            
+            // Contacts Page Content
+            updateText("contact-title", t.contactTitle);
+            updateText("phone-label", t.contactPhone);
+            updateText("email-label", t.contactEmail);
+            updateText("address-label", t.contactAddress);
+            updateText("form-title", t.contactFormTitle);
+            updateText("send-button", t.contactSend);
+
+
+            updateDateTime();
+        }
+
+        // Initialize and set language
+        setInterval(updateDateTime, 60000);
+        setLang('pt');
+    </script>
 </body>
 </html>

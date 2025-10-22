@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contactos | Nyumba Food Concept</title>
+    <title>Galeria | Nyumba Food Concept</title>
     
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #fffbe6;
+            background: #fffbe6; /* Fundo de cor creme clara */
             color: #262019;
         }
 
-        /* ---------- Header com imagem friso2 (IDENTICAL) ---------- */
+        /* ---------- Header (Caminhos AGORA com 'images/') ---------- */
         header {
-            background-color: #4a2d1e; 
-            background-image: url("images/friso1.png");
+            background-color: #4a2d1e; /* Cor escura do fundo */
+            /* CAMINHO CORRIGIDO: Assumindo 'images/friso1.png' */
+            background-image: url("images/friso1.png"); 
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            
             height: 160px;
             width: 100%;
             text-align: center;
@@ -30,9 +30,9 @@
             flex-direction: column;
             justify-content: flex-end;
             box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            z-index: 10;
         }
 
-        /* ---------- Logótipo sobre o header (IDENTICAL) ---------- */
         #header-logo {
             position: absolute;
             top: 0;
@@ -45,29 +45,19 @@
             background: rgba(0, 0, 0, 0.2); 
         }
 
-        /* ---------- Navegação e data/hora (IDENTICAL) ---------- */
-        nav {
-            margin: 0.5em 0 1em 0;
-        }
-
+        nav { margin: 0.5em 0 1em 0; }
         nav a {
             margin: 0 1em;
             text-decoration: none;
-            color: #ff7c00;
+            color: #ff7c00; /* Cor Laranja/Âmbar */
             font-size: 1.15em;
             font-weight: 800;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
             transition: color 0.3s;
         }
+        nav a:hover { color: #ffa64d; }
 
-        nav a:hover {
-            color: #ffa64d;
-        }
-
-        .lang-selector {
-            margin-bottom: 0.8em;
-        }
-
+        .lang-selector { margin-bottom: 0.8em; }
         .lang-selector button {
             background: #000000;
             border: none;
@@ -80,11 +70,7 @@
             box-shadow: 0 1px 4px rgba(0,0,0,0.3);
             transition: background 0.25s, transform 0.15s;
         }
-
-        .lang-selector button:hover {
-            background: #222;
-            transform: scale(1.05);
-        }
+        .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
         #date-time {
             position: absolute;
@@ -96,145 +82,186 @@
             font-weight: 500;
         }
 
-        /* ---------- Main section com overlay neutro (IDENTICAL) ---------- */
+        /* ---------- Main Section ---------- */
         main {
             position: relative;
-            max-width: 900px;
-            margin: 0 auto;
+            max-width: 1100px;
+            margin: 2em auto;
             padding: 2em;
             text-align: center;
-            background: url("images/background2.png") center center / cover no-repeat;
-            min-height: 600px;
+            background: #ffffff;
             border-radius: 18px;
-            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
-            z-index: 1;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
         }
 
-        main::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            background: rgba(30, 30, 30, 0.55);
-            pointer-events: none;
-            border-radius: 18px;
-        }
-
-        main > * {
-            position: relative;
-            z-index: 1;
-            color: #fafafa;
-            text-shadow: 0 2px 6px #000;
-        }
-
-        /* ---------- Contactos Specific Styles ---------- */
         .page-title {
-            font-size: 2.5em; 
+            font-size: 2.8em; 
             margin-bottom: 1em; 
             text-transform: uppercase;
+            color: #4a2d1e;
+            font-weight: 900;
         }
 
-        .contact-content {
+        /* ---------- Gallery Grid (Content) ---------- */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            text-align: left;
-            padding: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding-bottom: 20px;
         }
 
-        .info-box {
-            background: rgba(0, 0, 0, 0.65);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .info-item {
-            margin-bottom: 15px;
-        }
-
-        .info-item label {
-            font-weight: bold;
-            color: #89ff89;
-            font-size: 1.1em;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .info-item p {
-            margin: 0;
-            color: #ccc;
-        }
-
-        .contact-form h2 {
-            color: #ff7c00;
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #ff7c00;
-            padding-bottom: 5px;
-            text-align: center;
-        }
-
-        .contact-form form {
+        .gallery-item {
+            background: #f7f7f7;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            align-items: center;
         }
 
-        .contact-form input, .contact-form textarea {
-            padding: 12px;
-            border: 1px solid #ff7c00;
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.9);
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(255,124,0,0.35);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px; /* Altura fixa para consistência visual */
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+            transition: filter 0.3s;
+        }
+        .gallery-item:hover img {
+            filter: brightness(1);
+        }
+
+        .image-caption {
+            padding: 15px;
+            text-align: center;
             color: #262019;
-            font-family: inherit;
+            width: 100%;
         }
 
-        .contact-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .contact-form button {
-            padding: 12px;
-            background-color: #ff7c00;
-            color: #ffffff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
+        .image-caption strong {
+            color: #4a2d1e;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.3em;
             font-weight: bold;
-            font-size: 1.1em;
+        }
+
+        /* ---------- Modal de Galeria Interativa (NOVO) ---------- */
+        #image-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            display: none; /* Controlado pelo JS */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #modal-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 85%;
+            position: relative;
+        }
+
+        #enlarged-gallery-image {
+            max-width: 95%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(255,124,0,0.5);
+        }
+
+        .modal-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 15px 10px;
+            font-size: 2em;
+            cursor: pointer;
+            z-index: 1010;
+            border-radius: 8px;
             transition: background 0.2s;
+            line-height: 1;
+            width: 50px;
+            text-align: center;
+            opacity: 0.8;
+        }
+        .modal-nav-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            opacity: 1;
+        }
+        /* Esconder botões quando não aplicável ou em ecrãs pequenos */
+        .modal-nav-button:disabled { opacity: 0.4; cursor: default; background: rgba(255, 255, 255, 0.1); }
+        @media (max-width: 600px) {
+            .modal-nav-button { padding: 10px 5px; font-size: 1.5em; width: 40px; }
         }
 
-        .contact-form button:hover {
-            background-color: #ffa64d;
+        #modal-prev-button { left: 10px; }
+        #modal-next-button { right: 10px; }
+
+        #modal-caption {
+            color: #fff;
+            margin: 15px 0 5px 0;
+            font-size: 1.1em;
+            text-shadow: 0 0 5px #000;
         }
 
-        /* ---------- Responsividade (IDENTICAL) ---------- */
+        #modal-close-hint {
+            color: #ccc; 
+            font-size: 0.9em; 
+            margin-bottom: 0;
+        }
+
+        /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
             #header-logo { height: 130px; }
             nav a { font-size: 1em; }
+            main { margin: 1em auto; padding: 1em; }
+            .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+            .gallery-item img { height: 150px; }
         }
 
         @media (max-width: 700px) {
-            main { padding: 1em; }
-            nav a { display: inline-block; margin: 0.3em; font-size: 1em; }
-            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
             header { height: 110px; }
             #header-logo { height: 110px; }
+            nav a { display: block; margin: 0.3em; font-size: 1em; }
+            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
             #map-fixed-box { display: none !important; }
-            .contact-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" id="header-logo" />
+        <!-- Logótipo: AGORA procura em 'images/logo-nyumba.png'. -->
+        <img 
+            src="images/logo-nyumba.png" 
+            alt="Logótipo Nyumba Food Concept" 
+            id="header-logo"
+            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
+        />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -249,42 +276,58 @@
     </header>
 
     <main>
-        <h1 id="contact-title" class="page-title"></h1>
-
-        <div class="contact-content">
-            <!-- Contact Information Box -->
-            <div class="info-box">
-                <div class="info-item">
-                    <label id="phone-label"></label>
-                    <p>+258 84 123 4567</p>
-                </div>
-                <div class="info-item">
-                    <label id="email-label"></label>
-                    <p>contacto@nyumbafood.com</p>
-                </div>
-                <div class="info-item">
-                    <label id="address-label"></label>
-                    <p>Parque dos Continuadores (FEIMA), Maputo, Moçambique</p>
+        <h1 id="gallery-title" class="page-title">Venha conhecer-nos</h1> 
+        
+        <div class="gallery-grid">
+            
+            <!-- Pasta 1: Pratos do Chefe -->
+            <div class="gallery-item" data-category="pratos">
+                <!-- Thumbnail: AGORA procura em 'images/pc1.jpg' -->
+                <img src="images/pc1.jpg" alt="Pratos do Chef" onerror="this.onerror=null; this.src='https://placehold.co/400x200/4a2d1e/ffffff?text=FALTA:+pc1.jpg';" />
+                <div class="image-caption">
+                    <strong id="item-pratos-title">Pratos do Chefe</strong>
+                    <span id="item-pratos-desc">As nossas criações exclusivas e destaques gastronómicos.</span>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="info-box contact-form">
-                <h2 id="form-title"></h2>
-                <form action="#" method="POST">
-                    <input type="text" name="name" placeholder="Seu Nome / Your Name" required>
-                    <input type="email" name="email" placeholder="Seu Email / Your Email" required>
-                    <textarea name="message" placeholder="Sua Mensagem / Your Message" required></textarea>
-                    <button type="submit" id="send-button"></button>
-                </form>
+            <!-- Pasta 2: Esplanada -->
+            <div class="gallery-item" data-category="esplanada">
+                <!-- Thumbnail: AGORA procura em 'images/es1.jpg' -->
+                <img src="images/es1.jpg" alt="Esplanada" onerror="this.onerror=null; this.src='https://placehold.co/400x200/ff7c00/ffffff?text=FALTA:+es1.jpg';" />
+                <div class="image-caption">
+                    <strong id="item-esplanada-title">A Nossa Esplanada</strong>
+                    <span id="item-esplanada-desc">O ambiente acolhedor e tranquilo no coração do parque.</span>
+                </div>
             </div>
+
+            <!-- Pasta 3: Cocktails Artesanais -->
+            <div class="gallery-item" data-category="cocktails">
+                <!-- Thumbnail: AGORA procura em 'images/ck1.jpg' -->
+                <img src="images/ck1.jpg" alt="Cocktails Artesanais" onerror="this.onerror=null; this.src='https://placehold.co/400x200/89ff89/262019?text=FALTA:+ck1.jpg';" />
+                <div class="image-caption">
+                    <strong id="item-cocktails-title">Cocktails Artesanais</strong>
+                    <span id="item-cocktails-desc">Bebidas refrescantes e cheias de sabor para o seu final de tarde.</span>
+                </div>
+            </div>
+            
+            <!-- Pasta 4: Cozinha do Quiosque -->
+            <div class="gallery-item" data-category="cozinha">
+                <!-- Thumbnail: AGORA procura em 'images/cz1.jpg' -->
+                <img src="images/cz1.jpg" alt="Cozinha do Quiosque" onerror="this.onerror=null; this.src='https://placehold.co/400x200/262019/ffffff?text=FALTA:+cz1.jpg';" />
+                <div class="image-caption">
+                    <strong id="item-cozinha-title">Cozinha do Quiosque</strong>
+                    <span id="item-cozinha-desc">Onde a magia acontece: a preparação dos nossos pratos.</span>
+                </div>
+            </div>
+
         </div>
     </main>
     
+    <!-- Mapa Fixo (Sem Alterações) -->
     <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
         <iframe
             id="map-fixed"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
             width="100%"
             height="100%"
             style="border:0;"
@@ -294,38 +337,200 @@
         </iframe>
     </div>
 
+    <!-- Modal de Galeria Interativa -->
+    <div id="image-modal">
+        <div id="modal-content">
+            <!-- Botões de navegação serão controlados via JS -->
+            <button id="modal-prev-button" class="modal-nav-button" disabled>&lt;</button>
+            <!-- Imagem ampliada com onerror para debug -->
+            <img 
+                id="enlarged-gallery-image" 
+                alt="Imagem da Galeria"
+                onerror="this.src='https://placehold.co/800x600/CC0000/FFFFFF?text=ERRO:+IMAGEM+FALTA'; this.alt='Imagem em falta - Verifique o ficheiro';" 
+            >
+            <button id="modal-next-button" class="modal-nav-button" disabled>&gt;</button>
+        </div>
+        <p id="modal-caption" class="caption-text"></p>
+        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
+    </div>
+
     <script>
+        // Variáveis de estado da galeria
+        let currentCategory = null;
+        let currentImageIndex = 0;
+        
         const langData = {
             pt: {
-                // Universal Nav
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                // Index Page
-                siteTitle: "Nyumba Food Concept", siteSchedule: "Aberto todos os dias das 09:00 às 22:30", filosofiaTitle: "A nossa filosofia", filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.", menuButtonText: "Ver Menu Completo",
-                // Gallery Page
-                galleryTitle: "A Nossa Galeria de Sabores",
-                image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
-                // Menu Page
-                menuTitle: "Nosso Menu", menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
-                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.", item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
-                // Contacts Page
-                contactTitle: "Contacte-nos", contactPhone: "Telefone:", contactEmail: "Email:", contactAddress: "Morada:", contactFormTitle: "Envie-nos uma mensagem", contactSend: "Enviar",
+                galleryTitle: "Venha conhecer-nos",
+                
+                itemPratosTitle: "Pratos do Chefe", itemPratosDesc: "As nossas criações exclusivas e destaques gastronómicos.",
+                itemEsplanadaTitle: "A Nossa Esplanada", itemEsplanadaDesc: "O ambiente acolhedor e tranquilo no coração do parque.",
+                itemCocktailsTitle: "Cocktails Artesanais", itemCocktailsDesc: "Bebidas refrescantes e cheias de sabor para o seu final de tarde.",
+                itemCozinhaTitle: "Cozinha do Quiosque", itemCozinhaDesc: "Onde a magia acontece: a preparação dos nossos pratos.",
+
+                modalCloseHint: "Prima ESC ou clique na área escura para fechar.",
+                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 4: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+                
+                galleryContent: {
+                    pratos: [
+                        // Caminhos AGORA com 'images/'
+                        { src: "images/pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
+                        { src: "images/pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
+                        { src: "images/pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                        { src: "images/pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." },
+                    ],
+                    esplanada: [
+                        // Caminhos AGORA com 'images/'
+                        { src: "images/es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
+                        { src: "images/es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
+                        { src: "images/es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                        { src: "images/es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." },
+                    ],
+                    cocktails: [
+                        // Caminhos AGORA com 'images/'
+                        { src: "images/ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
+                        { src: "images/ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
+                        { src: "images/ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                        { src: "images/ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." },
+                    ],
+                    cozinha: [
+                        // Caminhos AGORA com 'images/'
+                        { src: "images/cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
+                        { src: "images/cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                        { src: "images/cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." },
+                        { src: "images/cz4.jpg", pt: "Pratos prontos a servir no balcão.", en: "Dishes ready to be served at the counter." },
+                    ]
+                }
             },
             en: {
-                // Universal Nav
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                // Index Page
-                siteTitle: "Nyumba Food Concept", siteSchedule: "Open daily from 9:00 AM to 10:30 PM", filosofiaTitle: "Our Philosophy", filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.", menuButtonText: "View Full Menu",
-                // Gallery Page
-                galleryTitle: "Our Gallery of Flavours",
-                image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
-                // Menu Page
-                menuTitle: "Our Menu", menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
-                item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.", item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
-                // Contacts Page
-                contactTitle: "Contact Us", contactPhone: "Phone:", contactEmail: "Email:", contactAddress: "Address:", contactFormTitle: "Send us a message", contactSend: "Send",
+                galleryTitle: "Come meet us",
+                
+                itemPratosTitle: "Chef's Dishes", itemPratosDesc: "Our exclusive creations and gastronomic highlights.",
+                itemEsplanadaTitle: "Our Terrace", itemEsplanadaDesc: "The cozy and peaceful atmosphere in the heart of the park.",
+                itemCocktailsTitle: "Artisanal Cocktails", itemCocktailsDesc: "Refreshing and creative drinks for your late afternoon.",
+                itemCozinhaTitle: "Kiosk Kitchen", itemCozinhaDesc: "Where the magic happens: the preparation of our dishes.",
+
+                modalCloseHint: "Press ESC or click dark area to close.",
+                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
+
+                galleryContent: {
+                    pratos: [
+                        { src: "images/pc1.jpg", pt: "Primeiro prato em destaque: Cores e frescura.", en: "First featured dish: Colors and freshness." },
+                        { src: "images/pc2.jpg", pt: "Nossa especialidade de Marisco, um clássico Nyumba.", en: "Our Seafood specialty, a Nyumba classic." },
+                        { src: "images/pc3.jpg", pt: "Opção vegetariana com vegetais da época.", en: "Vegetarian option with seasonal vegetables." },
+                        { src: "images/pc4.jpg", pt: "Prato da semana: carne grelhada com legumes.", en: "Dish of the week: grilled meat with vegetables." },
+                    ],
+                    esplanada: [
+                        { src: "images/es1.jpg", pt: "Vista geral da esplanada ao pôr do sol.", en: "General view of the terrace at sunset." },
+                        { src: "images/es2.jpg", pt: "Detalhe das mesas e decoração, ideal para grupos.", en: "Detail of the tables and decor, ideal for groups." },
+                        { src: "images/es3.jpg", pt: "Ambiente calmo e rodeado de natureza.", en: "Calm environment surrounded by nature." },
+                        { src: "images/es4.jpg", pt: "Detalhe do quiosque a partir da esplanada.", en: "Detail of the kiosk from the terrace." },
+                    ],
+                    cocktails: [
+                        { src: "images/ck1.jpg", pt: "Cocktail Verde da Casa, muito refrescante.", en: "House Green Cocktail, very refreshing." },
+                        { src: "images/ck2.jpg", pt: "Clássico com um toque Nyumba: a nossa melhor bebida.", en: "Classic with a Nyumba twist: our best drink." },
+                        { src: "images/ck3.jpg", pt: "Bebida de frutas exóticas da nossa região.", en: "Exotic fruit drink from our region." },
+                        { src: "images/ck4.jpg", pt: "Gin Tónico com especiarias e frutas vermelhas.", en: "Gin Tonic with spices and red berries." },
+                    ],
+                    cozinha: [
+                        { src: "images/cz1.jpg", pt: "Vista da área de preparação: higiene e ordem.", en: "View of the preparation area: hygiene and order." },
+                        { src: "images/cz2.jpg", pt: "O nosso chefe em ação, a preparar a sua refeição.", en: "Our chef in action, preparing your meal." },
+                        { src: "images/cz3.jpg", pt: "Detlhes dos utensílios de cozinha, sempre limpos.", en: "Details of kitchen utensils, always clean." },
+                        { src: "images/cz4.jpg", pt: "Pratos prontos a servir no balcão.", en: "Dishes ready to be served at the counter." },
+                    ]
+                }
             }
         };
 
+        const modal = document.getElementById('image-modal');
+        const enlargedImage = document.getElementById('enlarged-gallery-image');
+        const prevButton = document.getElementById('modal-prev-button');
+        const nextButton = document.getElementById('modal-next-button');
+        const modalCaption = document.getElementById('modal-caption');
+        const modalCloseHint = document.getElementById('modal-close-hint');
+
+        // --- Funções de Galeria Interativa ---
+        function updateModalNavigation() {
+            const images = getLangText('galleryContent')[currentCategory];
+            if (!images || images.length === 0) {
+                // Se a categoria não tiver imagens (não deveria acontecer), feche o modal
+                closeImageModal();
+                console.error(`A categoria '${currentCategory}' não tem imagens definidas.`);
+                return;
+            }
+
+            const totalImages = images.length;
+            
+            prevButton.disabled = currentImageIndex === 0;
+            nextButton.disabled = currentImageIndex === totalImages - 1;
+
+            const lang = document.documentElement.lang || 'pt';
+            const captionKey = lang === 'pt' ? 'pt' : 'en';
+            
+            // Carrega a imagem e atualiza a legenda
+            enlargedImage.src = images[currentImageIndex].src;
+            modalCaption.innerText = images[currentImageIndex][captionKey];
+        }
+
+        function openImageModal(category) {
+            currentCategory = category;
+            currentImageIndex = 0;
+            updateModalNavigation();
+            modal.style.display = 'flex';
+            modalCloseHint.innerText = getLangText('modalCloseHint');
+        }
+
+        function closeImageModal() {
+            modal.style.display = 'none';
+            currentCategory = null;
+            currentImageIndex = 0;
+            enlargedImage.src = ''; // Limpar a fonte da imagem
+        }
+
+        function navigateImage(direction) {
+            const images = getLangText('galleryContent')[currentCategory];
+            const newIndex = currentImageIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < images.length) {
+                currentImageIndex = newIndex;
+                updateModalNavigation();
+            }
+        }
+        
+        function setupGalleryListeners() {
+            // Adiciona listener de clique a cada item da galeria (pasta)
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const category = item.getAttribute('data-category');
+                    if (category) {
+                        openImageModal(category);
+                    }
+                });
+            });
+            
+            // Listeners de navegação do modal
+            prevButton.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(-1); });
+            nextButton.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(1); });
+            
+            // Listener para fechar o modal (clique no overlay)
+            modal.addEventListener('click', (e) => {
+                // Só fecha se o clique não for na imagem ou nos botões
+                if (e.target === modal || e.target.id === 'modal-close-hint' || e.target.id === 'modal-caption') {
+                    closeImageModal();
+                }
+            });
+            
+            // Listener para a tecla ESC (fecha o modal)
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeImageModal();
+                }
+            });
+        }
+        
+        // --- Funções de Ajuda e Tradução ---
         function updateText(id, text) {
             const el = document.getElementById(id);
             if (el) { el.innerText = text; }
@@ -358,21 +563,33 @@
             updateText("nav-menu", t.navMenu);
             updateText("nav-contact", t.navContact);
             
-            // Contacts Page Content
-            updateText("contact-title", t.contactTitle);
-            updateText("phone-label", t.contactPhone);
-            updateText("email-label", t.contactEmail);
-            updateText("address-label", t.contactAddress);
-            updateText("form-title", t.contactFormTitle);
-            updateText("send-button", t.contactSend);
+            // Gallery Page Content
+            updateText("gallery-title", t.galleryTitle);
+            updateText("item-pratos-title", t.itemPratosTitle);
+            updateText("item-pratos-desc", t.itemPratosDesc);
+            updateText("item-esplanada-title", t.itemEsplanadaTitle);
+            updateText("item-esplanada-desc", t.itemEsplanadaDesc);
+            updateText("item-cocktails-title", t.itemCocktailsTitle);
+            updateText("item-cocktails-desc", t.itemCocktailsDesc);
+            updateText("item-cozinha-title", t.itemCozinhaTitle);
+            updateText("item-cozinha-desc", t.itemCozinhaDesc);
 
+            // Se o modal estiver aberto, atualiza a navegação e o caption
+            if (modal.style.display === 'flex') {
+                 updateModalNavigation();
+                 modalCloseHint.innerText = t.modalCloseHint;
+            }
 
             updateDateTime();
         }
 
-        // Initialize and set language
+        // --- Inicialização ---
+        window.onload = function() {
+            setLang('pt');
+            setupGalleryListeners();
+        }
         setInterval(updateDateTime, 60000);
-        setLang('pt');
     </script>
 </body>
 </html>
+

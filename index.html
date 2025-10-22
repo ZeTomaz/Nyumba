@@ -1,26 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nyumba Food Concept | Principal</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
   <style>
-
-    <script src="script.js"></script>
-
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
       margin: 0;
-      background-image: url("images/background2.png");
-      background-size: cover;
-      background-attachment: fixed;
-      background-color: #fffbe6;
+      background: linear-gradient(180deg, #fffdf6 0%, #fff9e9 100%);
       color: #262019;
     }
 
+    /* ---------- Header ---------- */
     header {
       background-color: #4a2d1e;
       background-image: url("images/friso1.png");
@@ -36,7 +29,6 @@
       flex-direction: column;
       justify-content: flex-end;
       box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-      z-index: 10;
     }
 
     #header-logo {
@@ -44,18 +36,16 @@
       top: 0;
       left: 0;
       height: 160px;
-      width: auto;
       object-fit: contain;
       z-index: 20;
       margin-left: 10px;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0,0,0,0.15);
     }
 
+    /* ---------- Navegação (botões verdes com texto laranja) ---------- */
     nav {
       margin: 0.5em 0 1em 0;
     }
-
-    /* BOTÕES VERDES COM TEXTO LARANJA */
     nav a {
       display: inline-block;
       margin: 0 1em;
@@ -71,17 +61,14 @@
       box-shadow: 0 1px 5px rgba(0,0,0,0.16);
       transition: background 0.25s, transform 0.15s;
     }
-
     nav a:hover {
       background: #006e00;
       color: #ffa64d;
       transform: scale(1.08);
     }
 
-    .lang-selector {
-      margin-bottom: 0.8em;
-    }
-
+    /* ---------- Idioma e Data ---------- */
+    .lang-selector { margin-bottom: 0.8em; }
     .lang-selector button {
       background: #000000;
       border: none;
@@ -94,11 +81,7 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.3);
       transition: background 0.25s, transform 0.15s;
     }
-
-    .lang-selector button:hover {
-      background: #222;
-      transform: scale(1.05);
-    }
+    .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
     #date-time {
       position: absolute;
@@ -110,15 +93,15 @@
       font-weight: 500;
     }
 
+    /* ---------- Main ---------- */
     main {
-      position: relative;
       max-width: 900px;
       margin: 2em auto;
       padding: 3em 2em;
       text-align: center;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255,255,255,0.95);
       border-radius: 18px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 0 30px rgba(0,0,0,0.15);
     }
 
     h1 {
@@ -131,15 +114,15 @@
     h2 {
       font-size: 1.8em;
       color: #4a2d1e;
-      margin-top: 0;
-      margin-bottom: 1.5em;
+      margin-bottom: 1.2em;
     }
 
     p {
       font-size: 1.1em;
-      line-height: 1.6;
+      line-height: 1.7;
       text-align: justify;
       margin-bottom: 1.5em;
+      color: #312620;
     }
 
     .cta-button {
@@ -150,23 +133,22 @@
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
-      margin-top: 1em;
+      margin-top: 1.2em;
       transition: background-color 0.3s, transform 0.1s;
     }
-
     .cta-button:hover {
       background-color: #e06c00;
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
     }
 
+    /* ---------- Responsividade ---------- */
     @media (max-width: 900px) {
       header { height: 130px; }
       #header-logo { height: 130px; }
       nav a { font-size: 1em; }
       main { margin: 1em auto; padding: 1.5em; }
     }
-
     @media (max-width: 700px) {
       header { height: 110px; }
       #header-logo { height: 110px; }
@@ -203,20 +185,66 @@
       Explore o nosso menu e descubra os nossos Pratos do Chefe exclusivos, ou visite a nossa Galeria para ver a atmosfera acolhedora que nos define. Estamos abertos todos os dias para recebê-lo.
     </p>
 
-    <a href="menu.html" class="cta-button">Explorar o Menu</a>
-    <a href="galeria.html" class="cta-button">Ver Galeria</a>
+    <a href="menu.html" class="cta-button" id="cta-menu">Explorar o Menu</a>
+    <a href="galeria.html" class="cta-button" id="cta-gallery">Ver Galeria</a>
   </main>
 
   <script>
+    const langData = {
+      pt: {
+        navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
+        mainWelcome: "Bem-vindo ao Nyumba Food Concept",
+        mainSubtitle: "Onde a Tradição Encontra a Inovação em Maputo",
+        mainP1: "Nyumba, que significa 'Casa' em Swahili, é mais do que um restaurante; é um espaço de encontro onde a riqueza da culinária moçambicana se harmoniza com influências internacionais. Localizado no coração vibrante do Parque dos Continuadores, oferecemos uma experiência gastronómica única, seja para um almoço descontraído na nossa esplanada, um jantar especial ou um cocktail ao final do dia.",
+        mainP2: "Explore o nosso menu e descubra os nossos Pratos do Chefe exclusivos, ou visite a nossa Galeria para ver a atmosfera acolhedora que nos define. Estamos abertos todos os dias para recebê-lo.",
+        ctaMenu: "Explorar o Menu", ctaGallery: "Ver Galeria"
+      },
+      en: {
+        navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
+        mainWelcome: "Welcome to Nyumba Food Concept",
+        mainSubtitle: "Where Tradition Meets Innovation in Maputo",
+        mainP1: "Nyumba, meaning 'House' in Swahili, is more than a restaurant; it is a place where the richness of Mozambican cuisine harmonizes with international influences. Located in the vibrant heart of Continuadores Park, we offer a unique dining experience for a relaxed lunch, a special dinner, or an evening cocktail.",
+        mainP2: "Explore our menu to discover our exclusive Chef's Specials, or visit our Gallery to experience the warm atmosphere that defines us. We are open every day to welcome you.",
+        ctaMenu: "Explore Menu", ctaGallery: "View Gallery"
+      }
+    };
+
+    function updateText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = text;
+    }
+
+    function setLang(l) {
+      const t = langData[l];
+      document.documentElement.lang = l;
+      updateText("nav-home", t.navHome);
+      updateText("nav-gallery", t.navGallery);
+      updateText("nav-menu", t.navMenu);
+      updateText("nav-contact", t.navContact);
+      updateText("main-welcome", t.mainWelcome);
+      updateText("main-subtitle", t.mainSubtitle);
+      updateText("main-p1", t.mainP1);
+      updateText("main-p2", t.mainP2);
+      updateText("cta-menu", t.ctaMenu);
+      updateText("cta-gallery", t.ctaGallery);
+      updateDateTime();
+    }
+
     function updateDateTime() {
       const now = new Date();
-      const date = now.toLocaleDateString('pt-PT', {
+      const langCode = document.documentElement.lang || 'pt';
+      const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', {
         weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
       });
-      const time = now.toLocaleTimeString('pt-PT', { hour: '2-digit', minute: '2-digit' });
+      const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', {
+        hour: '2-digit', minute: '2-digit'
+      });
       document.getElementById('date-time').textContent = `${date} | ${time}`;
     }
-    window.onload = updateDateTime;
+
+    window.onload = function() {
+      setLang('pt');
+    }
     setInterval(updateDateTime, 60000);
   </script>
 </body>

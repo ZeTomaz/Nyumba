@@ -15,9 +15,7 @@
 
         /* ---------- Header com imagem friso2 ---------- */
         header {
-            /* Fallback color added here so the header box is visible if the image is missing */
             background-color: #4a2d1e; 
-            /* Assuming images/friso1.png is a valid path or placeholder */
             background-image: url("images/friso1.png");
             background-position: center center;
             background-size: cover;
@@ -34,17 +32,16 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.25);
         }
 
-        /* ---------- Logótipo sobre o header (RENAMED to #header-logo) ---------- */
+        /* ---------- Logótipo sobre o header ---------- */
         #header-logo {
             position: absolute;
             top: 0;
             left: 0;
-            height: 160px; /* igual ao cabeçalho */
+            height: 160px;
             width: auto;
             object-fit: contain;
             z-index: 20;
             margin-left: 10px;
-            /* Added background to show the logo bounding box if image fails */
             background: rgba(0, 0, 0, 0.2); 
         }
 
@@ -106,7 +103,6 @@
             margin: 0 auto;
             padding: 2em;
             text-align: center;
-            /* Assuming images/background2.png is a valid path or placeholder */
             background: url("images/background2.png") center center / cover no-repeat;
             min-height: 600px;
             border-radius: 18px;
@@ -134,7 +130,7 @@
             text-shadow: 0 2px 6px #000;
         }
 
-        /* ---------- Secções ---------- */
+        /* ---------- Secções e Botões ---------- */
         .filosofia {
             text-align: justify;
             max-width: 640px;
@@ -148,7 +144,6 @@
             margin-bottom: 0.5em;
         }
 
-        /* ---------- Botões (Base style) ---------- */
         .button-back {
             padding: 0.8em 2em;
             font-size: 1.2em;
@@ -166,7 +161,6 @@
             background-color: #5ad95a;
         }
         
-        /* ---------- Menu Button on Home Page (CLEANED UP STYLES) ---------- */
         .menu-button-home {
             background: #ff7c00; 
             color: #fff;
@@ -190,7 +184,6 @@
             .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
             header { height: 110px; }
             #header-logo { height: 110px; }
-            /* Hide fixed map on small screens to prevent clutter */
             #map-fixed-box { display: none !important; }
         }
     </style>
@@ -199,11 +192,10 @@
     <header>
         <img src="images/logo-nyumba.png" alt="Nyumba Food Concept logo" id="header-logo" />
         <nav>
-            <!-- Added temporary text content for visibility before JS runs -->
-            <a href="index.html" id="nav-home">Home</a> 
-            <a href="galeria.html" id="nav-gallery">Gallery</a>
+            <a href="index.html" id="nav-home">Principal</a> 
+            <a href="galeria.html" id="nav-gallery">Galeria</a>
             <a href="menu.html" id="nav-menu">Menu</a>
-            <a href="contactos.html" id="nav-contact">Contacts</a>
+            <a href="contactos.html" id="nav-contact">Contactos</a>
         </nav>
         <div class="lang-selector">
             <button onclick="setLang('pt')">Português</button>
@@ -223,14 +215,13 @@
         
         <div style="margin-top: 4em;">
             <a href="menu.html">
-                <button class="button-back menu-button-home">
+                <button class="button-back menu-button-home" id="menu-button-text">
                     Ver Menu Completo
                 </button>
             </a>
         </div>
     </main>
     
-    <!-- Fixed map box remains on the bottom right -->
     <div id="map-fixed-box" style="position: fixed; right: 25px; bottom: 25px; z-index: 22; width: 120px; height: 67.5px; border-radius: 12px; box-shadow: 0 0 14px rgba(0,0,0,0.25); overflow: hidden; background: #fffefc; display: flex;">
         <iframe
             id="map-fixed"
@@ -244,64 +235,109 @@
         </iframe>
     </div>
 
-    <!-- SCRIPT REMAINS CORRECTLY PLACED AT THE END OF THE BODY -->
     <script>
         const langData = {
             pt: {
-                navHome: "Principal",
-                navGallery: "Galeria",
-                navMenu: "Menu",
-                navContact: "Contactos",
+                // Universal Nav
+                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
+                // Index Page
                 siteTitle: "Nyumba Food Concept",
                 siteSchedule: "Aberto todos os dias das 09:00 às 22:30",
                 filosofiaTitle: "A nossa filosofia",
-                filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar."
+                filosofiaText: "No coração da FEIMA, o Quiosque NYUMBA – food concept – é um espaço onde o ritmo calmo que emana do ambiente convida a uma viagem de sabores. Entre árvores e flores, cada prato, requintadamente confeccionado pela nossa equipa e guiado pela presença atenta da sua criadora, revela a paixão pela gastronomia feita com alma. No Parque dos Continuadores, este é o destino ideal para viver uma experiência culinária inesquecível, com toque gourmet e preços que convidam a regressar.",
+                menuButtonText: "Ver Menu Completo",
+                // Gallery Page
+                galleryTitle: "A Nossa Galeria de Sabores",
+                image1Text: "Um prato especial do nosso chefe, cheio de cor e frescura.", image2Text: "O ambiente acolhedor da nossa esplanada ao pôr do sol.", image3Text: "Cocktails artesanais perfeitos para um final de tarde.", image4Text: "Detalhes arquitetónicos do nosso quiosque no parque.",
+                // Menu Page
+                menuTitle: "Nosso Menu", menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
+                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.", item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
+                // Contacts Page
+                contactTitle: "Contacte-nos", contactPhone: "Telefone:", contactEmail: "Email:", contactAddress: "Morada:", contactFormTitle: "Envie-nos uma mensagem", contactSend: "Enviar",
             },
             en: {
-                navHome: "Home",
-                navGallery: "Gallery",
-                navMenu: "Menu",
-                navContact: "Contacts",
+                // Universal Nav
+                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
+                // Index Page
                 siteTitle: "Nyumba Food Concept",
                 siteSchedule: "Open daily from 9:00 AM to 10:30 PM",
                 filosofiaTitle: "Our Philosophy",
-                filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return."
+                filosofiaText: "In the heart of FEIMA, the NYUMBA Kiosk – food concept – is a space where the calm rhythm that emanates from its surroundings invites you on a journey of flavours. Among trees and flowers, each dish, exquisitely crafted by our team and guided by the attentive presence of its creator, reflects a passion for gastronomy made with soul. Located in the Parque dos Continuadores, it is the ideal destination for an unforgettable culinary experience, combining a gourmet touch with prices that make you want to return.",
+                menuButtonText: "View Full Menu",
+                // Gallery Page
+                galleryTitle: "Our Gallery of Flavours",
+                image1Text: "A special dish from our chef, full of color and freshness.", image2Text: "The cozy atmosphere of our terrace at sunset.", image3Text: "Handcrafted cocktails perfect for a late afternoon.", image4Text: "Architectural details of our kiosk in the park.",
+                // Menu Page
+                menuTitle: "Our Menu", menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
+                item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.", item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
+                // Contacts Page
+                contactTitle: "Contact Us", contactPhone: "Phone:", contactEmail: "Email:", contactAddress: "Address:", contactFormTitle: "Send us a message", contactSend: "Send",
             }
         };
+
+        function updateText(id, text) {
+            const el = document.getElementById(id);
+            if (el) { el.innerText = text; }
+        }
+
+        function getLangText(key) {
+            const l = document.documentElement.lang || 'pt';
+            return langData[l][key] || "";
+        }
 
         function updateDateTime() {
             const now = new Date();
             const langCode = document.documentElement.lang || 'pt';
             const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                weekday: 'long',
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric'
+                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
             });
             const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                hour: '2-digit',
-                minute: '2-digit'
+                hour: '2-digit', minute: '2-digit'
             });
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
         
-        // Minor fix: ensure date-time updates based on current language
         function setLang(l) {
             const t = langData[l];
-            document.getElementById("nav-home").innerText = t.navHome;
-            document.getElementById("nav-gallery").innerText = t.navGallery;
-            document.getElementById("nav-menu").innerText = t.navMenu;
-            document.getElementById("nav-contact").innerText = t.navContact;
-            document.getElementById("site-title").innerText = t.siteTitle;
-            document.getElementById("site-schedule").innerText = t.siteSchedule;
-            document.getElementById("filosofia-title").innerText = t.filosofiaTitle;
-            document.getElementById("filosofia-text").innerText = t.filosofiaText;
-            document.documentElement.lang = l; // Update HTML language attribute
-            updateDateTime(); // Update date/time display with new language format
+            document.documentElement.lang = l; 
+
+            // Universal Nav
+            updateText("nav-home", t.navHome);
+            updateText("nav-gallery", t.navGallery);
+            updateText("nav-menu", t.navMenu);
+            updateText("nav-contact", t.navContact);
+            
+            // Index Page Content
+            updateText("site-title", t.siteTitle);
+            updateText("site-schedule", t.siteSchedule);
+            updateText("filosofia-title", t.filosofiaTitle);
+            updateText("filosofia-text", t.filosofiaText);
+            updateText("menu-button-text", t.menuButtonText);
+
+            // Menu Page Content
+            updateText("menu-title", t.menuTitle);
+            updateText("starters-section-title", t.menuStarters);
+            updateText("main-section-title", t.menuMain);
+            updateText("desserts-section-title", t.menuDesserts);
+            updateText("item-1-title", t.item1Title);
+            updateText("item-1-desc", t.item1Desc);
+            updateText("item-2-title", t.item2Title);
+            updateText("item-2-desc", t.item2Desc);
+
+            // Contacts Page Content
+            updateText("contact-title", t.contactTitle);
+            updateText("phone-label", t.contactPhone);
+            updateText("email-label", t.contactEmail);
+            updateText("address-label", t.contactAddress);
+            updateText("form-title", t.contactFormTitle);
+            updateText("send-button", t.contactSend);
+
+
+            updateDateTime();
         }
 
         setInterval(updateDateTime, 60000);
-        setLang('pt'); // Initial language setup
+        setLang('pt');
     </script>
 </body>
 </html>

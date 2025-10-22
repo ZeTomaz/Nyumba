@@ -13,7 +13,6 @@
             color: #262019;
         }
 
-        /* ---------- Header (Padrão) ---------- */
         header {
             background-color: #4a2d1e; 
             background-image: url("images/friso1.png");
@@ -80,7 +79,6 @@
             font-weight: 500;
         }
 
-        /* ---------- Main Section (Padrão) ---------- */
         main {
             position: relative;
             max-width: 900px;
@@ -121,7 +119,6 @@
             color: #89ff89;
         }
 
-        /* ---------- Menu Diário (Novidade) ---------- */
         #daily-menu-container {
             margin-bottom: 2em;
         }
@@ -138,7 +135,7 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 2em;
-            overflow-x: auto; /* Permite scroll em mobile se necessário */
+            overflow-x: auto;
             padding-bottom: 10px;
         }
         
@@ -158,11 +155,11 @@
             border: 3px solid transparent;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
             transition: border-color 0.3s, transform 0.3s;
-            cursor: pointer; /* Adicionado para indicar interatividade */
+            cursor: pointer;
         }
 
         .daily-menu-item.highlighted img {
-            border-color: #ff7c00; /* Cor de destaque */
+            border-color: #ff7c00;
             transform: scale(1.1);
         }
 
@@ -172,7 +169,6 @@
             font-weight: bold;
         }
 
-        /* ---------- Botão À La Carte ---------- */
         #alacarte-toggle-button {
             padding: 10px 25px;
             font-size: 1.1em;
@@ -201,7 +197,7 @@
         }
 
         #alacarte-menu-content.open {
-            max-height: 2000px; /* Suficiente para expandir */
+            max-height: 2000px;
             padding-top: 20px;
         }
 
@@ -263,12 +259,12 @@
             height: 100%;
             background: rgba(0,0,0,0.95);
             z-index: 1000;
-            display: none; /* Controlado pelo JS */
+            display: none;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             padding: 20px;
-            cursor: pointer; /* Indica que clicar fecha */
+            cursor: pointer;
         }
         
         #modal-close-hint {
@@ -286,10 +282,9 @@
             object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 0 50px rgba(255,124,0,0.5);
-            cursor: default; /* Remove o cursor de fechar na imagem */
+            cursor: default;
         }
 
-        /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
             #header-logo { height: 130px; }
@@ -305,7 +300,7 @@
             header { height: 110px; }
             #header-logo { height: 110px; }
             #map-fixed-box { display: none !important; }
-            .daily-menu-images { justify-content: flex-start; } /* Scroll to be the main mechanism */
+            .daily-menu-images { justify-content: flex-start; }
             .daily-menu-item img { width: 80px; height: 80px; }
             .daily-menu-item { min-width: 80px; }
             .menu-item { flex-direction: column; align-items: flex-start; }
@@ -315,12 +310,12 @@
 </head>
 <body>
     <header>
-        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <img src="images/logo-nyumba.png" alt="[translate:Logótipo Nyumba Food Concept]" id="header-logo" />
         <nav>
-            <a href="index.html" id="nav-home">Principal</a> 
-            <a href="galeria.html" id="nav-gallery">Galeria</a>
-            <a href="menu.html" id="nav-menu">Menu</a>
-            <a href="contactos.html" id="nav-contact">Contactos</a>
+            <a href="index.html" id="nav-home">[translate:Principal]</a> 
+            <a href="galeria.html" id="nav-gallery">[translate:Galeria]</a>
+            <a href="menu.html" id="nav-menu">[translate:Menu]</a>
+            <a href="contactos.html" id="nav-contact">[translate:Contactos]</a>
         </nav>
         <div class="lang-selector">
             <button onclick="setLang('pt')">Português</button>
@@ -332,54 +327,47 @@
     <main>
         <h1 id="menu-title" class="page-title"></h1>
         
-        <!-- Menu Diário Dinâmico -->
         <div id="daily-menu-container">
-            <h2 id="daily-menu-title">Menu Semanal de Almoço</h2>
+            <h2 id="daily-menu-title">[translate:Menu Semanal de Almoço]</h2>
             <p id="daily-menu-subtitle"></p>
             
             <div class="daily-menu-images">
-                <!-- Dia da Semana (1-5) e Imagem (2a-6a) -->
                 <div class="daily-menu-item" id="day-1">
-                    <!-- Note: A imagem agora é clicável via JavaScript -->
-                    <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
-                    <p id="day-1-label">2ª Feira</p>
+                    <img src="images/2a.jpg" alt="[translate:Menu Segunda-feira]" />
+                    <p id="day-1-label">[translate:2ª Feira]</p>
                 </div>
                 <div class="daily-menu-item" id="day-2">
-                    <img src="images/3a.jpg" alt="Menu Terça-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
-                    <p id="day-2-label">3ª Feira</p>
+                    <img src="images/3a.jpg" alt="[translate:Menu Terça-feira]" />
+                    <p id="day-2-label">[translate:3ª Feira]</p>
                 </div>
                 <div class="daily-menu-item" id="day-3">
-                    <img src="images/4a.jpg" alt="Menu Quarta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
-                    <p id="day-3-label">4ª Feira</p>
+                    <img src="images/4a.jpg" alt="[translate:Menu Quarta-feira]" />
+                    <p id="day-3-label">[translate:4ª Feira]</p>
                 </div>
                 <div class="daily-menu-item" id="day-4">
-                    <img src="images/5a.jpg" alt="Menu Quinta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
-                    <p id="day-4-label">5ª Feira</p>
+                    <img src="images/5a.jpg" alt="[translate:Menu Quinta-feira]" />
+                    <p id="day-4-label">[translate:5ª Feira]</p>
                 </div>
                 <div class="daily-menu-item" id="day-5">
-                    <img src="images/6a.jpg" alt="Menu Sexta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
-                    <p id="day-5-label">6ª Feira</p>
+                    <img src="images/6a.jpg" alt="[translate:Menu Sexta-feira]" />
+                    <p id="day-5-label">[translate:6ª Feira]</p>
                 </div>
             </div>
         </div>
 
-        <!-- Botão para Menu À La Carte -->
-        <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()">
-            Ver Menu À La Carte Completo
-        </button>
+        <button id="alacarte-toggle-button" onclick="toggleAlacarteMenu()"></button>
 
-        <!-- Menu À La Carte (Conteúdo Antigo, Agora Ocultável) -->
         <div id="alacarte-menu-content">
-            <h1 id="alacarte-title" class="page-title" style="color: #ff7c00; margin-top: 0;">Menu À La Carte</h1>
+            <h1 id="alacarte-title" class="page-title" style="color: #ff7c00; margin-top: 0;"></h1>
 
-            <!-- Starters Section -->
+            <!-- Old menu à la carte content -->
             <section class="menu-section">
                 <h2 id="starters-section-title"></h2>
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3 id="item-1-title">Camarões ao Alho</h3>
-                        <p id="item-1-desc">Camarões salteados com azeite, alho e piri-piri.</p>
+                        <h3 id="item-1-title"></h3>
+                        <p id="item-1-desc"></p>
                     </div>
                     <span class="item-price">750 MT</span>
                 </div>
@@ -393,14 +381,13 @@
                 </div>
             </section>
 
-            <!-- Main Courses Section -->
             <section class="menu-section">
                 <h2 id="main-section-title"></h2>
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3 id="item-2-title">Frango com Amendoim</h3>
-                        <p id="item-2-desc">Frango cozido em molho rico de amendoim, servido com arroz.</p>
+                        <h3 id="item-2-title"></h3>
+                        <p id="item-2-desc"></p>
                     </div>
                     <span class="item-price">1200 MT</span>
                 </div>
@@ -414,7 +401,6 @@
                 </div>
             </section>
 
-            <!-- Desserts Section -->
             <section class="menu-section">
                 <h2 id="desserts-section-title"></h2>
                 
@@ -441,39 +427,33 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
-    
-    <!-- Novo Modal para Imagem Ampliada (NOVO) -->
-    <div id="image-modal">
-        <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
-        <img id="enlarged-menu-image" alt="Menu ampliado">
-    </div>
 
     <script>
         const langData = {
             pt: {
-                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                menuTitle: "Especialidades do Dia", 
-                dailyMenuTitle: "Menu Semanal de Almoço",
-                dailyMenuSubtitleToday: "Destaque de Hoje:",
-                dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
-                aLaCarteButtonOpen: "Ocultar Menu À La Carte",
-                aLaCarteButtonClosed: "Ver Menu À La Carte Completo",
-                alacarteTitle: "Menu À La Carte",
-                menuStarters: "Entradas", menuMain: "Pratos Principais", menuDesserts: "Sobremesas",
-                item1Title: "Camarões ao Alho", item1Desc: "Camarões salteados com azeite, alho e piri-piri.",
-                item2Title: "Frango com Amendoim", item2Desc: "Frango cozido em molho rico de amendoim, servido com arroz.",
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
-                modalCloseHint: "Clique ou prima ESC para fechar.",
+                navHome: "[translate:Principal]", navGallery: "[translate:Galeria]", navMenu: "[translate:Menu]", navContact: "[translate:Contactos]",
+                menuTitle: "[translate:Especialidades do Dia]", 
+                dailyMenuTitle: "[translate:Menu Semanal de Almoço]",
+                dailyMenuSubtitleToday: "[translate:Destaque de Hoje:]",
+                dailyMenuWeekend: "[translate:Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.]",
+                aLaCarteButtonOpen: "[translate:Ocultar Menu Completo]",
+                aLaCarteButtonClosed: "[translate:Ver Menu Completo]",
+                alacarteTitle: "[translate:Menu Completo]",
+                menuStarters: "[translate:Entradas]", menuMain: "[translate:Pratos Principais]", menuDesserts: "[translate:Sobremesas]",
+                item1Title: "[translate:Camarões ao Alho]", item1Desc: "[translate:Camarões salteados com azeite, alho e piri-piri.]",
+                item2Title: "[translate:Frango com Amendoim]", item2Desc: "[translate:Frango cozido em molho rico de amendoim, servido com arroz.]",
+                dayNames: { 1: "[translate:2ª Feira]", 2: "[translate:3ª Feira]", 3: "[translate:4ª Feira]", 4: "[translate:5ª Feira]", 5: "[translate:6ª Feira]", 6: "[translate:Sábado]", 0: "[translate:Domingo]" },
+                modalCloseHint: "[translate:Clique ou prima ESC para fechar.]",
             },
             en: {
                 navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
                 menuTitle: "Daily Specials",
                 dailyMenuTitle: "Weekly Lunch Menu",
                 dailyMenuSubtitleToday: "Today's Highlight:",
-                dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
-                aLaCarteButtonOpen: "Hide À La Carte Menu",
-                aLaCarteButtonClosed: "View Full À La Carte Menu",
-                alacarteTitle: "À La Carte Menu",
+                dailyMenuWeekend: "Weekend: No special menu today. Please check the Full Menu.",
+                aLaCarteButtonOpen: "Hide Full Menu",
+                aLaCarteButtonClosed: "View Full Menu",
+                alacarteTitle: "Full Menu",
                 menuStarters: "Starters", menuMain: "Main Courses", menuDesserts: "Desserts",
                 item1Title: "Garlic Prawns", item1Desc: "Prawns sautéed with olive oil, garlic, and chili.",
                 item2Title: "Chicken with Peanut Sauce", item2Desc: "Chicken cooked in a rich peanut sauce, served with rice.",
@@ -570,14 +550,7 @@
             updateText("day-3-label", t.dayNames[3]);
             updateText("day-4-label", t.dayNames[4]);
             updateText("day-5-label", t.dayNames[5]);
-            const alacarteContent = document.getElementById('alacarte-menu-content');
-            const alacarteButton = document.getElementById('alacarte-toggle-button');
-            if (alacarteContent && alacarteButton) {
-                if (alacarteContent.classList.contains('open'))
-                    alacarteButton.innerText = t.aLaCarteButtonOpen;
-                else
-                    alacarteButton.innerText = t.aLaCarteButtonClosed;
-            }
+            updateText("alacarte-toggle-button", t.aLaCarteButtonClosed);
             updateText("alacarte-title", t.alacarteTitle);
             updateText("starters-section-title", t.menuStarters);
             updateText("main-section-title", t.menuMain);
@@ -607,3 +580,4 @@
     </script>
 </body>
 </html>
+

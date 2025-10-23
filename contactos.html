@@ -19,55 +19,39 @@
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            /* Background igual ao menu.html */
-            background-image: url("images/background2.png"); 
-            background-size: cover; 
-            background-attachment: fixed;
-            background-color: #fffbe6;
+            background: #fffbe6;
             color: #262019;
         }
 
-        /* ---------- Header (ATUALIZADO) ---------- */
+        /* ---------- Header com imagem friso1 ---------- */
         header {
-            background-color: #4a2d1e;
-            background-image: url("images/friso1.png");
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 140px;
+            background: url("images/friso1.png") center center / cover no-repeat;
+            height: 160px;
             width: 100%;
             text-align: center;
+            padding: 0;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-            z-index: 10;
         }
 
-        /* Logo circular e menor */
-        #header-logo {
+        /* ---------- Logótipo sobre o header ---------- */
+        #logo-fixed {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            height: 80px;
-            width: 80px;
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            height: 160px;
+            width: auto;
+            object-fit: contain;
             z-index: 20;
-            border-radius: 50%;
-            border: 3px solid #ff7c00;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-            background: rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+            margin-left: 10px;
         }
 
-        #header-logo:hover {
-            transform: scale(1.05);
-        }
-
-        /* Navegação - Botões mais visíveis */
-        nav { 
-            margin: 0.5em 0 1em 0; 
+        /* ---------- Navegação e data/hora ---------- */
+        nav {
+            margin: 0.5em 0 1em 0;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -75,212 +59,71 @@
         }
 
         nav a {
-            margin: 0 0.5em;
+            margin: 0 1em;
             text-decoration: none;
-            color: #ffffff;
-            font-size: 1.1em;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-            transition: all 0.3s;
+            color: #ff7c00;
+            font-size: 1.15em;
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            transition: color 0.3s;
             padding: 8px 16px;
-            background: rgba(255, 124, 0, 0.85);
-            border-radius: 25px;
-            border: 2px solid #ffffff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.4);
         }
 
-        nav a:hover { 
-            background: #ff7c00; 
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255,124,0,0.5);
+        nav a:hover {
+            color: #ffa64d;
         }
 
-        /* Selector de língua mais visível */
-        .lang-selector { 
-            margin-bottom: 0.8em; 
+        .lang-selector {
+            margin-bottom: 0.8em;
             display: flex;
             justify-content: center;
             gap: 10px;
         }
 
         .lang-selector button {
-            background: #ff7c00;
-            border: 2px solid #ffffff;
-            border-radius: 20px;
-            margin: 0;
-            padding: 8px 20px;
+            background: #000000;
+            border: none;
+            border-radius: 6px;
+            margin: 0 0.25em;
+            padding: 0.5em 1.2em;
             font-weight: bold;
             cursor: pointer;
             color: #ffffff;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            transition: all 0.25s;
-            font-size: 0.95em;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            transition: background 0.25s, transform 0.15s;
         }
 
-        .lang-selector button:hover { 
-            background: #ffa64d; 
+        .lang-selector button:hover {
+            background: #222;
             transform: scale(1.05);
-            box-shadow: 0 4px 10px rgba(255,124,0,0.4);
         }
 
-        /* Data e hora */
         #date-time {
             position: absolute;
-            top: 12px;
-            right: 15px;
-            color: #ffffff;
-            font-size: 0.9em;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-            font-weight: 600;
+            top: 8px;
+            right: 20px;
+            color: #fffdf5;
+            font-size: 0.95em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            font-weight: 500;
             background: rgba(0, 0, 0, 0.4);
             padding: 4px 8px;
             border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* ---------- Responsividade Melhorada ---------- */
-        @media (max-width: 900px) {
-            header { 
-                height: 120px; 
-                justify-content: center;
-            }
-            
-            #header-logo { 
-                height: 70px; 
-                width: 70px;
-                top: 5px;
-                left: 5px;
-            }
-            
-            nav { 
-                margin: 0.3em 0 0.5em 0;
-                gap: 6px;
-            }
-            
-            nav a { 
-                font-size: 1em;
-                padding: 6px 12px;
-                margin: 0 0.3em;
-            }
-            
-            .lang-selector { 
-                margin-bottom: 0.5em;
-                gap: 8px;
-            }
-            
-            .lang-selector button { 
-                padding: 6px 15px;
-                font-size: 0.9em;
-            }
-            
-            #date-time {
-                top: 8px;
-                right: 10px;
-                font-size: 0.8em;
-                padding: 3px 6px;
-            }
-        }
-
-        @media (max-width: 700px) {
-            header { 
-                height: auto;
-                min-height: 110px;
-                padding: 10px 0;
-            }
-            
-            #header-logo { 
-                position: relative;
-                height: 60px;
-                width: 60px;
-                top: auto;
-                left: auto;
-                margin: 0 auto 5px auto;
-                display: block;
-            }
-            
-            nav { 
-                flex-direction: column;
-                align-items: center;
-                gap: 5px;
-                margin: 0.5em 0;
-            }
-            
-            nav a { 
-                display: block;
-                width: 200px;
-                text-align: center;
-                margin: 2px 0;
-                font-size: 1em;
-                padding: 8px 0;
-            }
-            
-            .lang-selector { 
-                flex-direction: row;
-                gap: 10px;
-                margin-bottom: 0.5em;
-            }
-            
-            .lang-selector button { 
-                padding: 6px 15px;
-                font-size: 0.9em;
-            }
-            
-            #date-time {
-                position: relative;
-                top: auto;
-                right: auto;
-                margin: 5px auto;
-                text-align: center;
-                width: fit-content;
-                font-size: 0.8em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 8px 0;
-            }
-            
-            #header-logo {
-                height: 55px;
-                width: 55px;
-            }
-            
-            nav a {
-                width: 180px;
-                font-size: 0.95em;
-                padding: 7px 0;
-            }
-            
-            .lang-selector {
-                gap: 8px;
-            }
-            
-            .lang-selector button {
-                padding: 5px 12px;
-                font-size: 0.85em;
-            }
-            
-            #date-time {
-                font-size: 0.75em;
-                padding: 2px 6px;
-            }
-        }
-
-        /* ---------- Main Section (IGUAL AO MENU) ---------- */
+        /* ---------- Main section com overlay neutro ---------- */
         main {
             position: relative;
             max-width: 1100px;
             margin: 2em auto;
             padding: 2em;
             text-align: center;
-            /* Background igual ao menu.html */
             background: url("images/background2.png") center center / cover no-repeat;
             min-height: 600px;
             border-radius: 18px;
             box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
             z-index: 1;
+            animation: fadeInSmooth 1.6s ease-in-out;
         }
 
         main::before {
@@ -373,7 +216,17 @@
             border: 0;
         }
 
+        /* ---------- Fade‑in ---------- */
+        @keyframes fadeInSmooth {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
+            header { height: 130px; }
+            #logo-fixed { height: 130px; }
+            nav a { font-size: 1em; }
             main { 
                 margin: 1em auto; 
                 padding: 1em;
@@ -382,6 +235,89 @@
             .contact-grid { grid-template-columns: 1fr; }
             #map-container { height: 350px; }
         }
+
+        @media (max-width: 700px) {
+            main {
+                padding: 1em;
+                margin: 0.5em;
+            }
+            header { 
+                height: auto;
+                min-height: 110px;
+                padding: 10px 0;
+            }
+            #logo-fixed { 
+                position: relative;
+                height: 80px;
+                top: auto;
+                left: auto;
+                margin: 0 auto 5px auto;
+                display: block;
+            }
+            nav { 
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                margin: 0.5em 0;
+            }
+            nav a { 
+                display: block;
+                width: 200px;
+                text-align: center;
+                margin: 2px 0;
+                font-size: 1em;
+                padding: 8px 0;
+            }
+            .lang-selector { 
+                flex-direction: row;
+                gap: 10px;
+                margin-bottom: 0.5em;
+            }
+            .lang-selector button { 
+                padding: 6px 15px;
+                font-size: 0.9em;
+            }
+            #date-time {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 5px auto;
+                text-align: center;
+                width: fit-content;
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 8px 0;
+            }
+            #logo-fixed {
+                height: 70px;
+            }
+            nav a {
+                width: 180px;
+                font-size: 0.95em;
+                padding: 7px 0;
+            }
+            .lang-selector {
+                gap: 8px;
+            }
+            .lang-selector button {
+                padding: 5px 12px;
+                font-size: 0.85em;
+            }
+            #date-time {
+                font-size: 0.75em;
+                padding: 2px 6px;
+            }
+            .contact-item {
+                padding: 20px;
+            }
+            .contact-item i {
+                font-size: 2.5em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -389,7 +325,7 @@
         <img 
             src="images/logo-nyumba.png" 
             alt="Logótipo Nyumba Food Concept" 
-            id="header-logo"
+            id="logo-fixed"
             onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
         />
         <nav>

@@ -19,7 +19,7 @@
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            /* Fundo NOVO em todas as páginas */
+            /* Background igual ao menu.html */
             background-image: url("images/background2.png"); 
             background-size: cover; 
             background-attachment: fixed;
@@ -34,7 +34,7 @@
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            height: 140px; /* Reduzido ligeiramente */
+            height: 140px;
             width: 100%;
             text-align: center;
             padding: 0;
@@ -51,12 +51,12 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            height: 80px; /* Reduzido significativamente */
-            width: 80px; /* Tornado quadrado para o border-radius funcionar */
+            height: 80px;
+            width: 80px;
             object-fit: cover;
             z-index: 20;
-            border-radius: 50%; /* Torna circular */
-            border: 3px solid #ff7c00; /* Borda laranja para contraste */
+            border-radius: 50%;
+            border: 3px solid #ff7c00;
             box-shadow: 0 2px 8px rgba(0,0,0,0.5);
             background: rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
@@ -78,13 +78,13 @@
         nav a {
             margin: 0 0.5em;
             text-decoration: none;
-            color: #ffffff; /* Branco para maior contraste */
+            color: #ffffff;
             font-size: 1.1em;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
             transition: all 0.3s;
             padding: 8px 16px;
-            background: rgba(255, 124, 0, 0.85); /* Fundo laranja semi-transparente */
+            background: rgba(255, 124, 0, 0.85);
             border-radius: 25px;
             border: 2px solid #ffffff;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
@@ -269,38 +269,53 @@
             }
         }
 
-        /* ---------- Main Content Styling MUITO MAIS TRANSPARENTE ---------- */
+        /* ---------- Main Section (IGUAL AO MENU) ---------- */
         main {
             position: relative;
             max-width: 900px;
             margin: 2em auto;
             padding: 3em 2em;
             text-align: center;
-            /* Fundo MUITO mais transparente */
-            background: rgba(255, 255, 255, 0.65); 
+            /* Background igual ao menu.html */
+            background: url("images/background2.png") center center / cover no-repeat;
+            min-height: 600px;
             border-radius: 18px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-            /* Efeito de desfoque mais suave */
-            backdrop-filter: blur(1px);
-            -webkit-backdrop-filter: blur(1px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+            z-index: 1;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: rgba(30, 30, 30, 0.55);
+            pointer-events: none;
+            border-radius: 18px;
+        }
+
+        main > * {
+            position: relative;
+            z-index: 1;
+            color: #fafafa;
+            text-shadow: 0 2px 6px #000;
         }
         
         h1 {
             font-size: 3em;
-            color: #ff7c00;
+            color: #89ff89;
             margin-bottom: 0.2em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            font-weight: 800;
+            text-transform: uppercase;
         }
         
         h2 {
             font-size: 1.8em;
-            color: #4a2d1e;
+            color: #ff7c00;
             margin-top: 0;
             margin-bottom: 1.5em;
-            text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
-            font-weight: 600;
         }
         
         p {
@@ -308,38 +323,34 @@
             line-height: 1.6;
             text-align: justify;
             margin-bottom: 1.5em;
-            color: #262019;
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.7);
-            font-weight: 500;
+            color: #fafafa;
         }
 
         .cta-button {
             display: inline-block;
             padding: 12px 25px;
-            background-color: rgba(255, 124, 0, 0.9);
+            background-color: #ff7c00;
             color: white;
             text-decoration: none;
             font-weight: bold;
             border-radius: 8px;
             margin-top: 1em;
             margin-right: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 15px rgba(255,124,0,0.3);
         }
 
         .cta-button:hover {
-            background-color: rgba(224, 108, 0, 0.95);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            background-color: #ffa64d;
+            transform: translateY(-2px);
         }
 
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             main { 
                 margin: 1em auto; 
-                padding: 2em 1.5em;
-                background: rgba(255, 255, 255, 0.7); /* Um pouco mais opaco em mobile */
+                padding: 1.5em;
+                min-height: 500px;
             }
             h1 { font-size: 2.5em; }
             h2 { font-size: 1.5em; }
@@ -352,16 +363,13 @@
 
         @media (max-width: 600px) {
             main {
-                padding: 1.5em 1em;
+                padding: 1em;
                 margin: 0.5em;
-                background: rgba(255, 255, 255, 0.75); /* Mais opaco em ecrãs pequenos */
+                min-height: 400px;
             }
             h1 { font-size: 2.2em; }
             h2 { font-size: 1.3em; }
-            p { 
-                font-size: 1em;
-                text-align: left;
-            }
+            p { font-size: 1em; }
         }
     </style>
 </head>
@@ -402,7 +410,6 @@
     </main>
 
     <script>
-        // Placeholder para dados de tradução (simulando a funcionalidade)
         const langData = {
             pt: {
                 navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
@@ -429,13 +436,11 @@
             const t = langData[l];
             document.documentElement.lang = l; 
 
-            // Universal Nav
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
             updateText("nav-menu", t.navMenu);
             updateText("nav-contact", t.navContact);
             
-            // Main Page Content
             updateText("main-welcome", t.mainWelcome);
             updateText("main-subtitle", t.mainSubtitle);
             updateText("main-p1", t.mainP1);

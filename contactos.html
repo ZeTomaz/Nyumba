@@ -19,21 +19,24 @@
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            background: #fffbe6;
+            /* Background igual ao menu.html */
+            background-image: url("images/background2.png"); 
+            background-size: cover; 
+            background-attachment: fixed;
+            background-color: #fffbe6;
             color: #262019;
         }
 
         /* ---------- Header (ATUALIZADO) ---------- */
         header {
-            background-color: #4a2d1e; 
+            background-color: #4a2d1e;
             background-image: url("images/friso1.png");
             background-position: center center;
             background-size: cover;
             background-repeat: no-repeat;
-            height: 140px; /* Reduzido ligeiramente */
+            height: 140px;
             width: 100%;
             text-align: center;
-            padding: 0;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -47,12 +50,12 @@
             position: absolute;
             top: 10px;
             left: 10px;
-            height: 80px; /* Reduzido significativamente */
-            width: 80px; /* Tornado quadrado para o border-radius funcionar */
+            height: 80px;
+            width: 80px;
             object-fit: cover;
             z-index: 20;
-            border-radius: 50%; /* Torna circular */
-            border: 3px solid #ff7c00; /* Borda laranja para contraste */
+            border-radius: 50%;
+            border: 3px solid #ff7c00;
             box-shadow: 0 2px 8px rgba(0,0,0,0.5);
             background: rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
@@ -74,13 +77,13 @@
         nav a {
             margin: 0 0.5em;
             text-decoration: none;
-            color: #ffffff; /* Branco para maior contraste */
+            color: #ffffff;
             font-size: 1.1em;
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
             transition: all 0.3s;
             padding: 8px 16px;
-            background: rgba(255, 124, 0, 0.85); /* Fundo laranja semi-transparente */
+            background: rgba(255, 124, 0, 0.85);
             border-radius: 25px;
             border: 2px solid #ffffff;
             box-shadow: 0 2px 6px rgba(0,0,0,0.4);
@@ -265,23 +268,46 @@
             }
         }
 
+        /* ---------- Main Section (IGUAL AO MENU) ---------- */
         main {
             position: relative;
             max-width: 1100px;
             margin: 2em auto;
             padding: 2em;
             text-align: center;
-            background: #ffffff;
+            /* Background igual ao menu.html */
+            background: url("images/background2.png") center center / cover no-repeat;
+            min-height: 600px;
             border-radius: 18px;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 40px rgba(28, 60, 25, 0.15);
+            z-index: 1;
+        }
+
+        main::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: rgba(30, 30, 30, 0.55);
+            pointer-events: none;
+            border-radius: 18px;
+        }
+
+        main > * {
+            position: relative;
+            z-index: 1;
+            color: #fafafa;
+            text-shadow: 0 2px 6px #000;
         }
 
         .page-title {
             font-size: 2.8em;
             margin-bottom: 0.5em;
             text-transform: uppercase;
-            color: #4a2d1e;
-            font-weight: 900;
+            color: #89ff89;
         }
 
         .contact-grid {
@@ -292,15 +318,15 @@
         }
 
         .contact-item {
-            background: #f7f7f7;
+            background: rgba(0, 0, 0, 0.7);
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
             text-align: center;
             transition: box-shadow 0.3s, transform 0.3s;
         }
         .contact-item:hover {
-            box-shadow: 0 8px 25px rgba(255,124,0,0.3);
+            box-shadow: 0 8px 25px rgba(255,124,0,0.5);
             transform: translateY(-5px);
         }
         .contact-item i {
@@ -309,7 +335,7 @@
             margin-bottom: 0.5em;
         }
         .contact-item h3 {
-            color: #4a2d1e;
+            color: #ff7c00;
             margin-top: 0;
             font-size: 1.6em;
             font-weight: 700;
@@ -318,18 +344,18 @@
             display: block;
             margin-top: 10px;
             font-size: 1.1em;
-            color: #262019;
+            color: #fafafa;
             text-decoration: none;
             font-weight: 500;
             word-break: break-word;
             transition: color 0.3s;
         }
         .contact-link.primary {
-            color: #ff7c00;
+            color: #89ff89;
             font-weight: 600;
         }
         .contact-link:hover {
-            color: #4a2d1e;
+            color: #ffa64d;
             text-decoration: underline;
         }
 
@@ -348,7 +374,11 @@
         }
 
         @media (max-width: 900px) {
-            main { margin: 1em auto; padding: 1em; }
+            main { 
+                margin: 1em auto; 
+                padding: 1em;
+                min-height: 500px;
+            }
             .contact-grid { grid-template-columns: 1fr; }
             #map-container { height: 350px; }
         }
@@ -356,7 +386,12 @@
 </head>
 <body>
     <header>
-        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <img 
+            src="images/logo-nyumba.png" 
+            alt="Logótipo Nyumba Food Concept" 
+            id="header-logo"
+            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
+        />
         <nav>
             <a href="index.html" id="nav-home">Principal</a> 
             <a href="galeria.html" id="nav-gallery">Galeria</a>

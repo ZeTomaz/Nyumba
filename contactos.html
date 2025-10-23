@@ -401,17 +401,41 @@
             }
         };
 
-        function updateText(id, text) { const el = document.getElementById(id); if (el) el.innerText = text; }
+        // --- SISTEMA DE PERSISTÊNCIA ---
+        function getStoredLang() {
+            return localStorage.getItem('nyumba-lang') || 'pt';
+        }
+
+        function storeLang(l) {
+            localStorage.setItem('nyumba-lang', l);
+        }
+
+        function updateText(id, text) { 
+            const el = document.getElementById(id); 
+            if (el) el.innerText = text; 
+        }
+        
         function updateDateTime() {
             const now = new Date();
             const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
+            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { 
+                weekday: 'long', 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+            });
+            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
+        
         function setLang(l) {
             const t = langData[l];
             document.documentElement.lang = l;
+            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
+            
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
             updateText("nav-menu", t.navMenu);
@@ -427,7 +451,13 @@
             updateText("item-instagram-desc", t.itemInstagramDesc);
             updateDateTime();
         }
-        window.onload = () => { setLang('pt'); updateDateTime(); }
+        
+        // --- INICIALIZAÇÃO ---
+        window.onload = function() {
+            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
+            setLang(savedLang);
+            updateDateTime();
+        }
         setInterval(updateDateTime, 60000);
     </script>
 </body>

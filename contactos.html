@@ -1,262 +1,297 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPGCF8XV8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contactos | Nyumba Food Concept</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  gtag('config', 'G-2NPGCF8XV8');
+</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactos | Nyumba Food Concept</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-  <style>
-<script src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: #fffbe6;
+            color: #262019;
+        }
 
-    
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      background: #fffbe6;
-      color: #262019;
-    }
+        header {
+            background-color: #4a2d1e;
+            background-image: url("images/friso1.png");
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 160px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            z-index: 10;
+        }
 
-    header {
-      background-color: #4a2d1e;
-      background-image: url("images/friso1.png");
-      background-position: center center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 160px;
-      width: 100%;
-      text-align: center;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
-      z-index: 10;
-    }
+        #header-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            z-index: 20;
+            margin-left: 10px;
+            background: rgba(0, 0, 0, 0.2);
+        }
 
-    #header-logo {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 160px;
-      object-fit: contain;
-      z-index: 20;
-      margin-left: 10px;
-      background: rgba(0, 0, 0, 0.2);
-    }
+        nav { margin: 0.5em 0 1em 0; }
+        nav a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #ff7c00;
+            font-size: 1.15em;
+            font-weight: 800;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #ffa64d; }
 
-    nav { margin: 0.5em 0 1em 0; }
+        .lang-selector { margin-bottom: 0.8em; }
+        .lang-selector button {
+            background: #000000;
+            border: none;
+            border-radius: 6px;
+            margin: 0 0.25em;
+            padding: 0.3em 1em;
+            font-weight: bold;
+            cursor: pointer;
+            color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            transition: background 0.25s, transform 0.15s;
+        }
+        .lang-selector button:hover { background: #222; transform: scale(1.05); }
 
-    /* BOTÕES VERDES COM TEXTO LARANJA */
-    nav a {
-      display: inline-block;
-      margin: 0 1em;
-      padding: 0.45em 1.15em;
-      background: #008000;
-      color: #ff7c00;
-      font-size: 1.15em;
-      font-weight: 800;
-      border-radius: 6px;
-      border: none;
-      text-decoration: none;
-      text-shadow: none;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.16);
-      transition: background 0.25s, transform 0.15s;
-    }
-    nav a:hover {
-      background: #006e00;
-      color: #ffa64d;
-      transform: scale(1.08);
-    }
+        #date-time {
+            position: absolute;
+            top: 8px;
+            right: 20px;
+            color: #fffdf5;
+            font-size: 0.95em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            font-weight: 500;
+        }
 
-    .lang-selector { margin-bottom: 0.8em; }
-    .lang-selector button {
-      background: #000000;
-      border: none;
-      border-radius: 6px;
-      margin: 0 0.25em;
-      padding: 0.3em 1em;
-      font-weight: bold;
-      cursor: pointer;
-      color: #ffffff;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-      transition: background 0.25s, transform 0.15s;
-    }
-    .lang-selector button:hover { background: #222; transform: scale(1.05); }
+        main {
+            position: relative;
+            max-width: 1100px;
+            margin: 2em auto;
+            padding: 2em;
+            text-align: center;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+        }
 
-    #date-time {
-      position: absolute;
-      top: 8px;
-      right: 20px;
-      color: #fffdf5;
-      font-size: 0.95em;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
-      font-weight: 500;
-    }
+        .page-title {
+            font-size: 2.8em;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            color: #4a2d1e;
+            font-weight: 900;
+        }
 
-    main {
-      position: relative;
-      max-width: 1100px;
-      margin: 2em auto;
-      padding: 2em;
-      text-align: center;
-      background: #ffffff;
-      border-radius: 18px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-    }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
 
-    .page-title {
-      font-size: 2.8em;
-      margin-bottom: 0.5em;
-      text-transform: uppercase;
-      color: #4a2d1e;
-      font-weight: 900;
-    }
+        .contact-item {
+            background: #f7f7f7;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .contact-item:hover {
+            box-shadow: 0 8px 25px rgba(255,124,0,0.3);
+            transform: translateY(-5px);
+        }
+        .contact-item i {
+            color: #ff7c00;
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        .contact-item h3 {
+            color: #4a2d1e;
+            margin-top: 0;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+        .contact-link {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #262019;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-word;
+            transition: color 0.3s;
+        }
+        .contact-link.primary {
+            color: #ff7c00;
+            font-weight: 600;
+        }
+        .contact-link:hover {
+            color: #4a2d1e;
+            text-decoration: underline;
+        }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
+        #map-container {
+            margin-top: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            height: 450px;
+            width: 100%;
+        }
+        #map-iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
 
-    .contact-item {
-      background: #f7f7f7;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      transition: box-shadow 0.3s, transform 0.3s;
-    }
-    .contact-item:hover {
-      box-shadow: 0 8px 25px rgba(255,124,0,0.3);
-      transform: translateY(-5px);
-    }
-    .contact-item i {
-      color: #ff7c00;
-      font-size: 3em;
-      margin-bottom: 0.5em;
-    }
-    .contact-item h3 {
-      color: #4a2d1e;
-      margin-top: 0;
-      font-size: 1.6em;
-      font-weight: 700;
-    }
-    .contact-link {
-      display: block;
-      margin-top: 10px;
-      font-size: 1.1em;
-      color: #262019;
-      text-decoration: none;
-      font-weight: 500;
-      word-break: break-word;
-      transition: color 0.3s;
-    }
-    .contact-link.primary {
-      color: #ff7c00;
-      font-weight: 600;
-    }
-    .contact-link:hover {
-      color: #4a2d1e;
-      text-decoration: underline;
-    }
+        @media (max-width: 900px) {
+            header { height: 130px; }
+            #header-logo { height: 130px; }
+            nav a { font-size: 1em; }
+            main { margin: 1em auto; padding: 1em; }
+            .contact-grid { grid-template-columns: 1fr; }
+            #map-container { height: 350px; }
+        }
 
-    #map-container {
-      margin-top: 20px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
-      height: 450px;
-      width: 100%;
-    }
-
-    #map-iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    @media (max-width: 900px) {
-      header { height: 130px; }
-      #header-logo { height: 130px; }
-      nav a { font-size: 1em; }
-      main { margin: 1em auto; padding: 1em; }
-      .contact-grid { grid-template-columns: 1fr; }
-      #map-container { height: 350px; }
-    }
-
-    @media (max-width: 700px) {
-      header { height: 110px; }
-      #header-logo { height: 110px; }
-      nav a { display: block; margin: 0.3em; font-size: 1em; }
-      .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
-    }
-  </style>
+        @media (max-width: 700px) {
+            header { height: 110px; }
+            #header-logo { height: 110px; }
+            nav a { display: block; margin: 0.3em; font-size: 1em; }
+            .lang-selector button { padding: 0.3em 0.8em; font-size: 0.9em; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
-    <nav>
-      <a href="index.html" id="nav-home">Principal</a>
-      <a href="galeria.html" id="nav-gallery">Galeria</a>
-      <a href="menu.html" id="nav-menu">Menu</a>
-      <a href="contactos.html" id="nav-contact">Contactos</a>
-    </nav>
-    <div class="lang-selector">
-      <button onclick="setLang('pt')">Português</button>
-      <button onclick="setLang('en')">English</button>
-    </div>
-    <div id="date-time"></div>
-  </header>
+    <header>
+        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="header-logo" />
+        <nav>
+            <a href="index.html" id="nav-home">Principal</a> 
+            <a href="galeria.html" id="nav-gallery">Galeria</a>
+            <a href="menu.html" id="nav-menu">Menu</a>
+            <a href="contactos.html" id="nav-contact">Contactos</a>
+        </nav>
+        <div class="lang-selector">
+            <button onclick="setLang('pt')">Português</button>
+            <button onclick="setLang('en')">English</button>
+        </div>
+        <div id="date-time"></div>
+    </header>
 
-  <main>
-    <h1 class="page-title">Fale Connosco</h1>
-    <p>Estamos ansiosos por recebê-lo e responder às suas questões.</p>
+    <main>
+        <h1 id="contact-title" class="page-title">Fale Connosco</h1>
+        <p id="contact-subtitle">Estamos ansiosos por recebê-lo e responder às suas questões.</p>
+        
+        <div class="contact-grid">
+            <div class="contact-item phone-block">
+                <i class="fas fa-phone-alt"></i>
+                <h3 id="item-phone-title">Telefone e WhatsApp</h3>
+                <p id="item-phone-desc">Ligue-nos diretamente ou envie uma mensagem instantânea.</p>
+                <a href="tel:+258846695390" class="contact-link primary" id="phone-link">+258 846695390 (Ligar)</a>
+                <a href="https://wa.me/258846695390" class="contact-link primary" id="whatsapp-link" target="_blank" rel="noopener noreferrer">+258 846695390 (WhatsApp)</a>
+            </div>
 
-    <div class="contact-grid">
-      <div class="contact-item">
-        <i class="fas fa-phone-alt"></i>
-        <h3>Telefone e WhatsApp</h3>
-        <p>Ligue-nos diretamente ou envie uma mensagem instantânea.</p>
-        <a href="tel:+258846695390" class="contact-link primary">+258 846695390 (Ligar)</a>
-        <a href="https://wa.me/258846695390" target="_blank" class="contact-link primary">+258 846695390 (WhatsApp)</a>
-      </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3 id="item-email-title">E-mail</h3>
+                <p id="item-email-desc">Envie-nos um e-mail para pedidos de reserva ou informações gerais.</p>
+                <a href="mailto:nyumba.maputo@gmail.com" class="contact-link primary" id="email-link">nyumba.maputo@gmail.com</a>
+            </div>
 
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <h3>E‑mail</h3>
-        <p>Envie-nos um e‑mail para pedidos de reserva ou informações gerais.</p>
-        <a href="mailto:nyumba.maputo@gmail.com" class="contact-link primary">nyumba.maputo@gmail.com</a>
-      </div>
+            <div class="contact-item">
+                <i class="fab fa-instagram"></i>
+                <h3 id="item-instagram-title">Redes Sociais</h3>
+                <p id="item-instagram-desc">Siga-nos para ver as novidades e os pratos do dia.</p>
+                <a href="https://www.instagram.com/nyumbafoodconcept" class="contact-link primary" id="instagram-link" target="_blank" rel="noopener noreferrer">@nyumbafoodconcept</a>
+            </div>
+        </div>
 
-      <div class="contact-item">
-        <i class="fab fa-instagram"></i>
-        <h3>Redes Sociais</h3>
-        <p>Siga-nos para ver as novidades e os pratos do dia.</p>
-        <a href="https://www.instagram.com/nyumbafoodconcept" class="contact-link primary" target="_blank">@nyumbafoodconcept</a>
-      </div>
-    </div>
+        <!-- Apenas o Google Maps -->
+        <div id="map-container">
+            <iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </main>
 
-    <div id="map-container">
-      <iframe id="map-iframe"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-  </main>
+    <script>
+        const CONTACT_INFO = {
+            email: "nyumba.maputo@gmail.com",
+            phone: "+258 846695390",
+            phoneRaw: "258846695390",
+            instagram: "@nyumbafoodconcept",
+            instagramUrl: "https://www.instagram.com/nyumbafoodconcept"
+        };
 
-  <script>
-    function updateDateTime(){
-      const now = new Date();
-      const date = now.toLocaleDateString('pt-PT', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
-      const time = now.toLocaleTimeString('pt-PT', { hour:'2-digit', minute:'2-digit' });
-      document.getElementById('date-time').textContent = `${date} | ${time}`;
-    }
-    window.onload = updateDateTime;
-    setInterval(updateDateTime, 60000);
-  </script>
+        const langData = {
+            pt: {
+                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
+                contactTitle: "Fale Connosco", contactSubtitle: "Estamos ansiosos por recebê-lo e responder às suas questões.",
+                itemPhoneTitle: "Telefone e WhatsApp", itemPhoneDesc: "Ligue-nos diretamente ou envie uma mensagem instantânea.",
+                emailLink: CONTACT_INFO.email,
+                itemInstagramTitle: "Redes Sociais", itemInstagramDesc: "Siga-nos para ver as novidades e os pratos do dia.",
+            },
+            en: {
+                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
+                contactTitle: "Contact Us", contactSubtitle: "We look forward to welcoming you and answering your questions.",
+                itemPhoneTitle: "Phone and WhatsApp", itemPhoneDesc: "Call us directly or send an instant message.",
+                emailLink: CONTACT_INFO.email,
+                itemInstagramTitle: "Social Media", itemInstagramDesc: "Follow us to see news and daily specials.",
+            }
+        };
+
+        function updateText(id, text) { const el = document.getElementById(id); if (el) el.innerText = text; }
+        function updateDateTime() {
+            const now = new Date();
+            const langCode = document.documentElement.lang || 'pt';
+            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('date-time').textContent = `${date} | ${time}`;
+        }
+        function setLang(l) {
+            const t = langData[l];
+            document.documentElement.lang = l;
+            updateText("nav-home", t.navHome);
+            updateText("nav-gallery", t.navGallery);
+            updateText("nav-menu", t.navMenu);
+            updateText("nav-contact", t.navContact);
+            updateText("contact-title", t.contactTitle);
+            updateText("contact-subtitle", t.contactSubtitle);
+            updateText("item-phone-title", t.itemPhoneTitle);
+            updateText("item-phone-desc", t.itemPhoneDesc);
+            updateText("item-email-title", "E-mail");
+            updateText("item-email-desc", l==='pt'?"Envie-nos um e-mail para pedidos de reserva ou informações gerais.":"Send us an email for reservations or inquiries.");
+            updateText("email-link", t.emailLink);
+            updateText("item-instagram-title", t.itemInstagramTitle);
+            updateText("item-instagram-desc", t.itemInstagramDesc);
+            updateDateTime();
+        }
+        window.onload = () => { setLang('pt'); updateDateTime(); }
+        setInterval(updateDateTime, 60000);
+    </script>
 </body>
 </html>

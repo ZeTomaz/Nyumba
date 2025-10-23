@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html lang="pt">
 <head>
     <!-- Google tag (gtag.js) -->
@@ -269,23 +269,27 @@
             }
         }
 
-        /* ---------- Main Content Styling ---------- */
+        /* ---------- Main Content Styling ATUALIZADO ---------- */
         main {
             position: relative;
             max-width: 900px;
             margin: 2em auto;
             padding: 3em 2em;
             text-align: center;
-            background: rgba(255, 255, 255, 0.95); /* Fundo semi-transparente para destaque */
+            /* Fundo semi-transparente para ver o background */
+            background: rgba(255, 255, 255, 0.85); 
             border-radius: 18px;
             box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+            /* Garantir que o texto seja legível */
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
         }
         
         h1 {
             font-size: 3em;
             color: #ff7c00;
             margin-bottom: 0.2em;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
         
         h2 {
@@ -293,6 +297,7 @@
             color: #4a2d1e;
             margin-top: 0;
             margin-bottom: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         p {
@@ -300,6 +305,8 @@
             line-height: 1.6;
             text-align: justify;
             margin-bottom: 1.5em;
+            color: #262019;
+            text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
         }
 
         .cta-button {
@@ -311,20 +318,40 @@
             font-weight: bold;
             border-radius: 8px;
             margin-top: 1em;
+            margin-right: 15px;
             transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
             background-color: #e06c00;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
-            main { margin: 1em auto; padding: 1.5em; }
+            main { 
+                margin: 1em auto; 
+                padding: 1.5em;
+            }
             h1 { font-size: 2.5em; }
             h2 { font-size: 1.5em; }
+            .cta-button {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 1em;
+                margin: 0.5em;
+            }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.3em; }
+            p { font-size: 1em; }
         }
     </style>
 </head>

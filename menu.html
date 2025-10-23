@@ -210,7 +210,7 @@
         }
 
         #alacarte-menu-content.open {
-            max-height: 2000px; /* Suficiente para expandir */
+            max-height: 3000px; /* Aumentado para caber todo o conteúdo */
             padding-top: 20px;
         }
 
@@ -246,21 +246,24 @@
         .item-details h3 {
             margin: 0 0 5px 0;
             color: #ff7c00;
-            font-size: 1.2em;
+            font-size: 1.1em; /* Reduzido ligeiramente */
+            line-height: 1.3;
         }
 
         .item-details p {
             margin: 0;
-            font-size: 0.9em;
+            font-size: 0.85em; /* Reduzido para caber mais conteúdo */
             color: #ccc;
+            line-height: 1.3;
         }
 
         .item-price {
             font-weight: bold;
-            font-size: 1.3em;
+            font-size: 1.2em; /* Reduzido ligeiramente */
             color: #89ff89;
-            margin-left: 20px;
+            margin-left: 15px;
             white-space: nowrap;
+            flex-shrink: 0;
         }
         
         /* ---------- Modal para Imagem Ampliada (NOVO) ---------- */
@@ -305,6 +308,8 @@
             nav a { font-size: 1em; }
             .daily-menu-item img { width: 100px; height: 100px; }
             .daily-menu-item { min-width: 100px; }
+            .item-details h3 { font-size: 1em; }
+            .item-price { font-size: 1.1em; }
         }
 
         @media (max-width: 700px) {
@@ -319,6 +324,8 @@
             .daily-menu-item { min-width: 80px; }
             .menu-item { flex-direction: column; align-items: flex-start; }
             .item-price { margin-left: 0; margin-top: 5px; }
+            .item-details h3 { font-size: 0.95em; }
+            .item-details p { font-size: 0.8em; }
         }
     </style>
 </head>
@@ -387,49 +394,56 @@
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Rabada</h3>
+                        <h3 id="petisco-1-title">Rabada</h3>
+                        <p id="petisco-1-desc">Oxtail</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Amêijoas a Nyumba</h3>
+                        <h3 id="petisco-2-title">Amêijoas a Nyumba</h3>
+                        <p id="petisco-2-desc">Clams Nyumba Style</p>
                     </div>
                     <span class="item-price">400 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Cabeça de Salmão</h3>
+                        <h3 id="petisco-3-title">Cabeça de Salmão</h3>
+                        <p id="petisco-3-desc">Salmon Head</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Camarão Alhinho</h3>
+                        <h3 id="petisco-4-title">Camarão Alhinho</h3>
+                        <p id="petisco-4-desc">Garlic Prawns</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Chouriço (c/ Batata e Salada)</h3>
+                        <h3 id="petisco-5-title">Chouriço (c/ Batata e Salada)</h3>
+                        <p id="petisco-5-desc">Chouriço Sausage (with Potato and Salad)</p>
                     </div>
                     <span class="item-price">400 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Tábua de 7 Queijos e Broa</h3>
+                        <h3 id="petisco-6-title">Tábua de 7 Queijos e Broa</h3>
+                        <p id="petisco-6-desc">Platter of 7 Cheeses and Cornbread</p>
                     </div>
                     <span class="item-price">750 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Dobradinha</h3>
+                        <h3 id="petisco-7-title">Dobradinha</h3>
+                        <p id="petisco-7-desc">Tripe Stew</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
@@ -441,42 +455,48 @@
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Creme de Cenoura</h3>
+                        <h3 id="sopa-1-title">Creme de Cenoura</h3>
+                        <p id="sopa-1-desc">Carrot Cream Soup</p>
                     </div>
                     <span class="item-price">150 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Creme de Abóbora</h3>
+                        <h3 id="sopa-2-title">Creme de Abóbora</h3>
+                        <p id="sopa-2-desc">Pumpkin Cream Soup</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Sopa de Mandioca</h3>
+                        <h3 id="sopa-3-title">Sopa de Mandioca</h3>
+                        <p id="sopa-3-desc">Cassava Soup</p>
                     </div>
                     <span class="item-price">150 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Caldo Verde</h3>
+                        <h3 id="sopa-4-title">Caldo Verde</h3>
+                        <p id="sopa-4-desc">Portuguese Kale Soup</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Sopa de Feijão</h3>
+                        <h3 id="sopa-5-title">Sopa de Feijão</h3>
+                        <p id="sopa-5-desc">Bean Soup</p>
                     </div>
                     <span class="item-price">150 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Sopa de Legumes</h3>
+                        <h3 id="sopa-6-title">Sopa de Legumes</h3>
+                        <p id="sopa-6-desc">Vegetable Soup</p>
                     </div>
                     <span class="item-price">150 MT</span>
                 </div>
@@ -488,91 +508,104 @@
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Salgados (4)</h3>
+                        <h3 id="snack-1-title">Salgados (4)</h3>
+                        <p id="snack-1-desc">Savory Pastries (4)</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Hamburguer Simples (c/ Ovo ou Queijo e Batata)</h3>
+                        <h3 id="snack-2-title">Hamburguer Simples (c/ Ovo ou Queijo e Batata)</h3>
+                        <p id="snack-2-desc">Simple Burger (with Egg or Cheese and Potato)</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Hamburguer Completo (c/ Queijo, Ovo, Alface, Queijo Chedar, Mayonaisse Caseira, Alface, Cebola Caramelizada e Batata Frita)</h3>
+                        <h3 id="snack-3-title">Hamburguer Completo</h3>
+                        <p id="snack-3-desc">Complete Burger with cheese, egg, lettuce, cheddar, homemade mayonnaise, caramelized onion and fries</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Nyumba Burguer (c/ Mayonaisse Caseira, Fiambre ou Bacon, Queijo Mozzarella, Batatas Fritas, Cebola Caramelizada, Picles Rúcula)</h3>
+                        <h3 id="snack-4-title">Nyumba Burguer</h3>
+                        <p id="snack-4-desc">With homemade mayonnaise, ham or bacon, mozzarella, fries, caramelized onion, pickles, arugula</p>
                     </div>
                     <span class="item-price">500 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Hamburguer de Alheira (c/ Ovo, Rúcula, Queijo Mozzarela e Batata Frita)</h3>
+                        <h3 id="snack-5-title">Hamburguer de Alheira</h3>
+                        <p id="snack-5-desc">Alheira Sausage Burger with egg, arugula, mozzarella and fries</p>
                     </div>
                     <span class="item-price">600 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Hamburguer de Frango (c/ Ovo, Queijo Mozzarela, Alface e Batata)</h3>
+                        <h3 id="snack-6-title">Hamburguer de Frango</h3>
+                        <p id="snack-6-desc">Chicken Burger with egg, mozzarella, lettuce and potato</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Prego no Pão</h3>
+                        <h3 id="snack-7-title">Prego no Pão</h3>
+                        <p id="snack-7-desc">Steak Sandwich</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Cachorro quente (c/ Batatas)</h3>
+                        <h3 id="snack-8-title">Cachorro quente (c/ Batatas)</h3>
+                        <p id="snack-8-desc">Hot Dog (with Potatoes)</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Tosta Mista</h3>
+                        <h3 id="snack-9-title">Tosta Mista</h3>
+                        <p id="snack-9-desc">Grilled Ham and Cheese Sandwich</p>
                     </div>
                     <span class="item-price">280 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Tosta de Atum</h3>
+                        <h3 id="snack-10-title">Tosta de Atum</h3>
+                        <p id="snack-10-desc">Tuna Melt</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Tosta de Caranguejo</h3>
+                        <h3 id="snack-11-title">Tosta de Caranguejo</h3>
+                        <p id="snack-11-desc">Crab Melt</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Tosta de Frango</h3>
+                        <h3 id="snack-12-title">Tosta de Frango</h3>
+                        <p id="snack-12-desc">Chicken Melt</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Matabicho Thafo (c/ 2 ovos, Tomate, Salsichas, Torradas, Feijão Doce, Bacon)</h3>
+                        <h3 id="snack-13-title">Matabicho Thafo</h3>
+                        <p id="snack-13-desc">Breakfast with 2 eggs, tomato, sausages, toast, baked beans, bacon</p>
                     </div>
                     <span class="item-price">500 MT</span>
                 </div>
@@ -584,42 +617,48 @@
                 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Sorvete</h3>
+                        <h3 id="dessert-1-title">Sorvete</h3>
+                        <p id="dessert-1-desc">Ice Cream</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Salada de Fruta</h3>
+                        <h3 id="dessert-2-title">Salada de Fruta</h3>
+                        <p id="dessert-2-desc">Fruit Salad</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Pudim</h3>
+                        <h3 id="dessert-3-title">Pudim</h3>
+                        <p id="dessert-3-desc">Pudding</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Bolo de Chocolate</h3>
+                        <h3 id="dessert-4-title">Bolo de Chocolate</h3>
+                        <p id="dessert-4-desc">Chocolate Cake</p>
                     </div>
                     <span class="item-price">250 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Doce de Mandioca</h3>
+                        <h3 id="dessert-5-title">Doce de Mandioca</h3>
+                        <p id="dessert-5-desc">Cassava Sweet</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
 
                 <div class="menu-item">
                     <div class="item-details">
-                        <h3>Arroz Doce</h3>
+                        <h3 id="dessert-6-title">Arroz Doce</h3>
+                        <p id="dessert-6-desc">Rice Pudding</p>
                     </div>
                     <span class="item-price">180 MT</span>
                 </div>
@@ -661,6 +700,47 @@
                 sopasTitle: "Sopas",
                 snacksTitle: "Snacks",
                 dessertsTitle: "Sobremesas",
+                
+                // Petiscos
+                petisco1Title: "Rabada", petisco1Desc: "",
+                petisco2Title: "Amêijoas a Nyumba", petisco2Desc: "",
+                petisco3Title: "Cabeça de Salmão", petisco3Desc: "",
+                petisco4Title: "Camarão Alhinho", petisco4Desc: "",
+                petisco5Title: "Chouriço (c/ Batata e Salada)", petisco5Desc: "",
+                petisco6Title: "Tábua de 7 Queijos e Broa", petisco6Desc: "",
+                petisco7Title: "Dobradinha", petisco7Desc: "",
+                
+                // Sopas
+                sopa1Title: "Creme de Cenoura", sopa1Desc: "",
+                sopa2Title: "Creme de Abóbora", sopa2Desc: "",
+                sopa3Title: "Sopa de Mandioca", sopa3Desc: "",
+                sopa4Title: "Caldo Verde", sopa4Desc: "",
+                sopa5Title: "Sopa de Feijão", sopa5Desc: "",
+                sopa6Title: "Sopa de Legumes", sopa6Desc: "",
+                
+                // Snacks
+                snack1Title: "Salgados (4)", snack1Desc: "",
+                snack2Title: "Hamburguer Simples (c/ Ovo ou Queijo e Batata)", snack2Desc: "",
+                snack3Title: "Hamburguer Completo", snack3Desc: "Com queijo, ovo, alface, queijo cheddar, maionese caseira, alface, cebola caramelizada e batata frita",
+                snack4Title: "Nyumba Burguer", snack4Desc: "Com maionese caseira, fiambre ou bacon, queijo mozzarella, batatas fritas, cebola caramelizada, picles, rúcula",
+                snack5Title: "Hamburguer de Alheira", snack5Desc: "Com ovo, rúcula, queijo mozzarella e batata frita",
+                snack6Title: "Hamburguer de Frango", snack6Desc: "Com ovo, queijo mozzarella, alface e batata",
+                snack7Title: "Prego no Pão", snack7Desc: "",
+                snack8Title: "Cachorro quente (c/ Batatas)", snack8Desc: "",
+                snack9Title: "Tosta Mista", snack9Desc: "",
+                snack10Title: "Tosta de Atum", snack10Desc: "",
+                snack11Title: "Tosta de Caranguejo", snack11Desc: "",
+                snack12Title: "Tosta de Frango", snack12Desc: "",
+                snack13Title: "Matabicho Thafo", snack13Desc: "Com 2 ovos, tomate, salsichas, torradas, feijão doce, bacon",
+                
+                // Sobremesas
+                dessert1Title: "Sorvete", dessert1Desc: "",
+                dessert2Title: "Salada de Fruta", dessert2Desc: "",
+                dessert3Title: "Pudim", dessert3Desc: "",
+                dessert4Title: "Bolo de Chocolate", dessert4Desc: "",
+                dessert5Title: "Doce de Mandioca", dessert5Desc: "",
+                dessert6Title: "Arroz Doce", dessert6Desc: "",
+
                 dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
                 modalCloseHint: "Clique ou prima ESC para fechar.",
             },
@@ -677,6 +757,47 @@
                 sopasTitle: "Soups",
                 snacksTitle: "Snacks",
                 dessertsTitle: "Desserts",
+                
+                // Petiscos
+                petisco1Title: "Oxtail", petisco1Desc: "",
+                petisco2Title: "Clams Nyumba Style", petisco2Desc: "",
+                petisco3Title: "Salmon Head", petisco3Desc: "",
+                petisco4Title: "Garlic Prawns", petisco4Desc: "",
+                petisco5Title: "Chouriço (with Potato and Salad)", petisco5Desc: "",
+                petisco6Title: "Platter of 7 Cheeses and Cornbread", petisco6Desc: "",
+                petisco7Title: "Tripe Stew", petisco7Desc: "",
+                
+                // Sopas
+                sopa1Title: "Carrot Cream Soup", sopa1Desc: "",
+                sopa2Title: "Pumpkin Cream Soup", sopa2Desc: "",
+                sopa3Title: "Cassava Soup", sopa3Desc: "",
+                sopa4Title: "Portuguese Kale Soup", sopa4Desc: "",
+                sopa5Title: "Bean Soup", sopa5Desc: "",
+                sopa6Title: "Vegetable Soup", sopa6Desc: "",
+                
+                // Snacks
+                snack1Title: "Savory Pastries (4)", snack1Desc: "",
+                snack2Title: "Simple Burger (with Egg or Cheese and Potato)", snack2Desc: "",
+                snack3Title: "Complete Burger", snack3Desc: "With cheese, egg, lettuce, cheddar cheese, homemade mayonnaise, lettuce, caramelized onion and fries",
+                snack4Title: "Nyumba Burger", snack4Desc: "With homemade mayonnaise, ham or bacon, mozzarella cheese, fries, caramelized onion, pickles, arugula",
+                snack5Title: "Alheira Sausage Burger", snack5Desc: "With egg, arugula, mozzarella cheese and fries",
+                snack6Title: "Chicken Burger", snack6Desc: "With egg, mozzarella cheese, lettuce and potato",
+                snack7Title: "Steak Sandwich", snack7Desc: "",
+                snack8Title: "Hot Dog (with Potatoes)", snack8Desc: "",
+                snack9Title: "Grilled Ham and Cheese Sandwich", snack9Desc: "",
+                snack10Title: "Tuna Melt", snack10Desc: "",
+                snack11Title: "Crab Melt", snack11Desc: "",
+                snack12Title: "Chicken Melt", snack12Desc: "",
+                snack13Title: "Thafo Breakfast", snack13Desc: "With 2 eggs, tomato, sausages, toast, baked beans, bacon",
+                
+                // Sobremesas
+                dessert1Title: "Ice Cream", dessert1Desc: "",
+                dessert2Title: "Fruit Salad", dessert2Desc: "",
+                dessert3Title: "Pudding", dessert3Desc: "",
+                dessert4Title: "Chocolate Cake", dessert4Desc: "",
+                dessert5Title: "Cassava Sweet", dessert5Desc: "",
+                dessert6Title: "Rice Pudding", dessert6Desc: "",
+
                 dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
                 modalCloseHint: "Click or press ESC to close.",
             }
@@ -759,6 +880,8 @@
         function setLang(l) {
             const t = langData[l];
             document.documentElement.lang = l;
+            
+            // Navigation and main titles
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
             updateText("nav-menu", t.navMenu);
@@ -770,6 +893,8 @@
             updateText("day-3-label", t.dayNames[3]);
             updateText("day-4-label", t.dayNames[4]);
             updateText("day-5-label", t.dayNames[5]);
+            
+            // Menu sections
             const alacarteContent = document.getElementById('alacarte-menu-content');
             const alacarteButton = document.getElementById('alacarte-toggle-button');
             if (alacarteContent && alacarteButton) {
@@ -783,6 +908,79 @@
             updateText("sopas-section-title", t.sopasTitle);
             updateText("snacks-section-title", t.snacksTitle);
             updateText("desserts-section-title", t.dessertsTitle);
+            
+            // Petiscos items
+            updateText("petisco-1-title", t.petisco1Title);
+            updateText("petisco-1-desc", t.petisco1Desc);
+            updateText("petisco-2-title", t.petisco2Title);
+            updateText("petisco-2-desc", t.petisco2Desc);
+            updateText("petisco-3-title", t.petisco3Title);
+            updateText("petisco-3-desc", t.petisco3Desc);
+            updateText("petisco-4-title", t.petisco4Title);
+            updateText("petisco-4-desc", t.petisco4Desc);
+            updateText("petisco-5-title", t.petisco5Title);
+            updateText("petisco-5-desc", t.petisco5Desc);
+            updateText("petisco-6-title", t.petisco6Title);
+            updateText("petisco-6-desc", t.petisco6Desc);
+            updateText("petisco-7-title", t.petisco7Title);
+            updateText("petisco-7-desc", t.petisco7Desc);
+            
+            // Sopas items
+            updateText("sopa-1-title", t.sopa1Title);
+            updateText("sopa-1-desc", t.sopa1Desc);
+            updateText("sopa-2-title", t.sopa2Title);
+            updateText("sopa-2-desc", t.sopa2Desc);
+            updateText("sopa-3-title", t.sopa3Title);
+            updateText("sopa-3-desc", t.sopa3Desc);
+            updateText("sopa-4-title", t.sopa4Title);
+            updateText("sopa-4-desc", t.sopa4Desc);
+            updateText("sopa-5-title", t.sopa5Title);
+            updateText("sopa-5-desc", t.sopa5Desc);
+            updateText("sopa-6-title", t.sopa6Title);
+            updateText("sopa-6-desc", t.sopa6Desc);
+            
+            // Snacks items
+            updateText("snack-1-title", t.snack1Title);
+            updateText("snack-1-desc", t.snack1Desc);
+            updateText("snack-2-title", t.snack2Title);
+            updateText("snack-2-desc", t.snack2Desc);
+            updateText("snack-3-title", t.snack3Title);
+            updateText("snack-3-desc", t.snack3Desc);
+            updateText("snack-4-title", t.snack4Title);
+            updateText("snack-4-desc", t.snack4Desc);
+            updateText("snack-5-title", t.snack5Title);
+            updateText("snack-5-desc", t.snack5Desc);
+            updateText("snack-6-title", t.snack6Title);
+            updateText("snack-6-desc", t.snack6Desc);
+            updateText("snack-7-title", t.snack7Title);
+            updateText("snack-7-desc", t.snack7Desc);
+            updateText("snack-8-title", t.snack8Title);
+            updateText("snack-8-desc", t.snack8Desc);
+            updateText("snack-9-title", t.snack9Title);
+            updateText("snack-9-desc", t.snack9Desc);
+            updateText("snack-10-title", t.snack10Title);
+            updateText("snack-10-desc", t.snack10Desc);
+            updateText("snack-11-title", t.snack11Title);
+            updateText("snack-11-desc", t.snack11Desc);
+            updateText("snack-12-title", t.snack12Title);
+            updateText("snack-12-desc", t.snack12Desc);
+            updateText("snack-13-title", t.snack13Title);
+            updateText("snack-13-desc", t.snack13Desc);
+            
+            // Desserts items
+            updateText("dessert-1-title", t.dessert1Title);
+            updateText("dessert-1-desc", t.dessert1Desc);
+            updateText("dessert-2-title", t.dessert2Title);
+            updateText("dessert-2-desc", t.dessert2Desc);
+            updateText("dessert-3-title", t.dessert3Title);
+            updateText("dessert-3-desc", t.dessert3Desc);
+            updateText("dessert-4-title", t.dessert4Title);
+            updateText("dessert-4-desc", t.dessert4Desc);
+            updateText("dessert-5-title", t.dessert5Title);
+            updateText("dessert-5-desc", t.dessert5Desc);
+            updateText("dessert-6-title", t.dessert6Title);
+            updateText("dessert-6-desc", t.dessert6Desc);
+            
             if (modal.style.display === 'flex') modalCloseHint.innerText = t.modalCloseHint;
             highlightDailyMenu();
             updateDateTime();

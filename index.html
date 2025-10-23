@@ -347,6 +347,15 @@
             }
         };
 
+        // --- SISTEMA DE PERSISTÊNCIA ---
+        function getStoredLang() {
+            return localStorage.getItem('nyumba-lang') || 'pt';
+        }
+
+        function storeLang(l) {
+            localStorage.setItem('nyumba-lang', l);
+        }
+
         function updateText(id, text) {
             const el = document.getElementById(id);
             if (el) { el.innerText = text; }
@@ -355,6 +364,7 @@
         function setLang(l) {
             const t = langData[l];
             document.documentElement.lang = l; 
+            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
 
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
@@ -383,8 +393,10 @@
             document.getElementById('date-time').textContent = `${date} | ${time}`;
         }
 
+        // --- INICIALIZAÇÃO ---
         window.onload = function() {
-            setLang('pt');
+            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
+            setLang(savedLang);
         }
         setInterval(updateDateTime, 60000);
     </script>

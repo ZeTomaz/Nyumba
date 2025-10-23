@@ -36,40 +36,54 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.25);
         }
 
-        /* ---------- Logótipo sobre o header ---------- */
+        /* ---------- Logótipo Circular ---------- */
         #logo-fixed {
             position: absolute;
             top: 0;
             left: 0;
             height: 160px;
-            width: auto;
-            object-fit: contain;
+            width: 160px;
+            object-fit: cover;
             z-index: 20;
             margin-left: 10px;
+            border-radius: 50%;
+            border: 3px solid #ff7c00;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
         }
 
-        /* ---------- Navegação e data/hora ---------- */
+        /* ---------- Navegação com Botões ---------- */
         nav {
             margin: 0.5em 0 1em 0;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 15px;
         }
 
         nav a {
-            margin: 0 1em;
             text-decoration: none;
-            color: #ff7c00;
+            color: #ffffff;
             font-size: 1.15em;
-            font-weight: 800;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-            transition: color 0.3s;
-            padding: 8px 16px;
+            font-weight: 700;
+            padding: 12px 25px;
+            background: #ff7c00;
+            border-radius: 25px;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 12px rgba(255,124,0,0.4);
+            transition: all 0.3s ease;
+            min-width: 120px;
+            text-align: center;
         }
 
         nav a:hover {
-            color: #ffa64d;
+            background: #ffa64d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255,124,0,0.6);
+        }
+
+        /* --- Esconder link da página atual --- */
+        nav a.current-page {
+            display: none;
         }
 
         .lang-selector {
@@ -195,8 +209,15 @@
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
             header { height: 130px; }
-            #logo-fixed { height: 130px; }
-            nav a { font-size: 1em; }
+            #logo-fixed { 
+                height: 130px; 
+                width: 130px;
+            }
+            nav a {
+                padding: 10px 20px;
+                font-size: 1em;
+                min-width: 110px;
+            }
             main { 
                 margin: 1em auto; 
                 padding: 1.5em;
@@ -228,6 +249,7 @@
             #logo-fixed { 
                 position: relative;
                 height: 80px;
+                width: 80px;
                 top: auto;
                 left: auto;
                 margin: 0 auto 5px auto;
@@ -236,16 +258,16 @@
             nav { 
                 flex-direction: column;
                 align-items: center;
-                gap: 5px;
+                gap: 10px;
                 margin: 0.5em 0;
             }
             nav a { 
                 display: block;
                 width: 200px;
                 text-align: center;
-                margin: 2px 0;
+                margin: 0;
                 font-size: 1em;
-                padding: 8px 0;
+                padding: 12px 0;
             }
             .lang-selector { 
                 flex-direction: row;
@@ -273,11 +295,12 @@
             }
             #logo-fixed {
                 height: 70px;
+                width: 70px;
             }
             nav a {
                 width: 180px;
                 font-size: 0.95em;
-                padding: 7px 0;
+                padding: 10px 0;
             }
             .lang-selector {
                 gap: 8px;
@@ -302,7 +325,8 @@
             onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
         />
         <nav>
-            <a href="index.html" id="nav-home">Principal</a> 
+            <!-- O link "Principal" está escondido porque é a página atual -->
+            <a href="index.html" id="nav-home" class="current-page">Principal</a>
             <a href="galeria.html" id="nav-gallery">Galeria</a>
             <a href="menu.html" id="nav-menu">Menu</a>
             <a href="contactos.html" id="nav-contact">Contactos</a>

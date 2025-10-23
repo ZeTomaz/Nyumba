@@ -578,6 +578,15 @@
             }
         };
 
+        // --- SISTEMA DE PERSISTÊNCIA ---
+        function getStoredLang() {
+            return localStorage.getItem('nyumba-lang') || 'pt';
+        }
+
+        function storeLang(l) {
+            localStorage.setItem('nyumba-lang', l);
+        }
+
         const modal = document.getElementById('image-modal');
         const enlargedImage = document.getElementById('enlarged-gallery-image');
         const prevButton = document.getElementById('modal-prev-button');
@@ -682,7 +691,8 @@
         
         function setLang(l) {
             const t = langData[l];
-            document.documentElement.lang = l; 
+            document.documentElement.lang = l;
+            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
 
             updateText("nav-home", t.navHome);
             updateText("nav-gallery", t.navGallery);
@@ -707,9 +717,10 @@
             updateDateTime();
         }
 
-        // --- Inicialização ---
+        // --- INICIALIZAÇÃO ---
         window.onload = function() {
-            setLang('pt');
+            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
+            setLang(savedLang);
             setupGalleryListeners();
         }
         setInterval(updateDateTime, 60000);

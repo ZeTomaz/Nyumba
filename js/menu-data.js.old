@@ -1,0 +1,112 @@
+const menuLangData = {
+    pt: {
+        menuTitle: "Especialidades do Dia",
+        dailyMenuTitle: "Menu Semanal de Almoço",
+        dailyMenuSubtitleToday: "Destaque de Hoje:",
+        dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
+        aLaCarteButtonOpen: "Ocultar Menu",
+        aLaCarteButtonClosed: "Ver Menu Completo",
+        alacarteTitle: "Menu À La Carte",
+        petiscosTitle: "Petiscos",
+        sopasTitle: "Sopas",
+        snacksTitle: "Snacks",
+        dessertsTitle: "Sobremesas",
+
+        // Petiscos
+        petisco1Title: "Rabada", petisco1Desc: "",
+        petisco2Title: "Amêijoas a Nyumba", petisco2Desc: "",
+        petisco3Title: "Cabeça de Salmão", petisco3Desc: "",
+        petisco4Title: "Camarão Alhinho", petisco4Desc: "",
+        petisco5Title: "Chouriço (c/ Batata e Salada)", petisco5Desc: "",
+        petisco6Title: "Tábua de 7 Queijos e Broa", petisco6Desc: "",
+        petisco7Title: "Dobradinha", petisco7Desc: "",
+
+        // Sopas
+        sopa1Title: "Creme de Cenoura", sopa1Desc: "",
+        sopa2Title: "Creme de Abóbora", sopa2Desc: "",
+        sopa3Title: "Sopa de Mandioca", sopa3Desc: "",
+        sopa4Title: "Caldo Verde", sopa4Desc: "",
+        sopa5Title: "Sopa de Feijão", sopa5Desc: "",
+        sopa6Title: "Sopa de Legumes", sopa6Desc: "",
+
+        // Snacks
+        snack1Title: "Salgados (4)", snack1Desc: "",
+        snack2Title: "Hamburguer Simples (c/ Ovo ou Queijo e Batata)", snack2Desc: "",
+        snack3Title: "Hamburguer Completo", snack3Desc: "Com queijo, ovo, alface, queijo cheddar, maionese caseira, alface, cebola caramelizada e batata frita",
+        snack4Title: "Nyumba Burguer", snack4Desc: "Com maionese caseira, fiambre ou bacon, queijo mozzarella, batatas fritas, cebola caramelizada, picles, rúcula",
+        snack5Title: "Hamburguer de Alheira", snack5Desc: "Com ovo, rúcula, queijo mozzarella e batata frita",
+        snack6Title: "Hamburguer de Frango", snack6Desc: "Com ovo, queijo mozzarella, alface e batata",
+        snack7Title: "Prego no Pão", snack7Desc: "",
+        snack8Title: "Cachorro quente (c/ Batatas)", snack8Desc: "",
+        snack9Title: "Tosta Mista", snack9Desc: "",
+        snack10Title: "Tosta de Atum", snack10Desc: "",
+        snack11Title: "Tosta de Caranguejo", snack11Desc: "",
+        snack12Title: "Tosta de Frango", snack12Desc: "",
+        snack13Title: "Matabicho Thafo", snack13Desc: "Com 2 ovos, tomate, salsichas, torradas, feijão doce, bacon",
+
+        // Sobremesas
+        dessert1Title: "Sorvete", dessert1Desc: "",
+        dessert2Title: "Salada de Fruta", dessert2Desc: "",
+        dessert3Title: "Pudim", dessert3Desc: "",
+        dessert4Title: "Bolo de Chocolate", dessert4Desc: "",
+        dessert5Title: "Doce de Mandioca", dessert5Desc: "",
+        dessert6Title: "Arroz Doce", dessert6Desc: "",
+
+        dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
+    },
+    en: {
+        menuTitle: "Daily Specials",
+        dailyMenuTitle: "Weekly Lunch Menu",
+        dailyMenuSubtitleToday: "Today's Highlight:",
+        dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
+        aLaCarteButtonOpen: "Hide Menu",
+        aLaCarteButtonClosed: "View Full Menu",
+        alacarteTitle: "À La Carte Menu",
+        petiscosTitle: "Appetizers",
+        sopasTitle: "Soups",
+        snacksTitle: "Snacks",
+        dessertsTitle: "Desserts",
+
+        // Petiscos
+        petisco1Title: "Oxtail", petisco1Desc: "",
+        petisco2Title: "Clams Nyumba Style", petisco2Desc: "",
+        petisco3Title: "Salmon Head", petisco3Desc: "",
+        petisco4Title: "Garlic Prawns", petisco4Desc: "",
+        petisco5Title: "Chouriço (with Potato and Salad)", petisco5Desc: "",
+        petisco6Title: "Platter of 7 Cheeses and Cornbread", petisco6Desc: "",
+        petisco7Title: "Tripe Stew", petisco7Desc: "",
+
+        // Sopas
+        sopa1Title: "Carrot Cream Soup", sopa1Desc: "",
+        sopa2Title: "Pumpkin Cream Soup", sopa2Desc: "",
+        sopa3Title: "Cassava Soup", sopa3Desc: "",
+        sopa4Title: "Portuguese Kale Soup", sopa4Desc: "",
+        sopa5Title: "Bean Soup", sopa5Desc: "",
+        sopa6Title: "Vegetable Soup", sopa6Desc: "",
+
+        // Snacks
+        snack1Title: "Savory Pastries (4)", snack1Desc: "",
+        snack2Title: "Simple Burger (with Egg or Cheese and Potato)", snack2Desc: "",
+        snack3Title: "Complete Burger", snack3Desc: "With cheese, egg, lettuce, cheddar cheese, homemade mayonnaise, lettuce, caramelized onion and fries",
+        snack4Title: "Nyumba Burger", snack4Desc: "With homemade mayonnaise, ham or bacon, mozzarella cheese, fries, caramelized onion, pickles, arugula",
+        snack5Title: "Alheira Sausage Burger", snack5Desc: "With egg, arugula, mozzarella cheese and fries",
+        snack6Title: "Chicken Burger", snack6Desc: "With egg, mozzarella cheese, lettuce and potato",
+        snack7Title: "Steak Sandwich", snack7Desc: "",
+        snack8Title: "Hot Dog (with Potatoes)", snack8Desc: "",
+        snack9Title: "Grilled Ham and Cheese Sandwich", snack9Desc: "",
+        snack10Title: "Tuna Melt", snack10Desc: "",
+        snack11Title: "Crab Melt", snack11Desc: "",
+        snack12Title: "Chicken Melt", snack12Desc: "",
+        snack13Title: "Thafo Breakfast", snack13Desc: "With 2 eggs, tomato, sausages, toast, baked beans, bacon",
+
+        // Sobremesas
+        dessert1Title: "Ice Cream", dessert1Desc: "",
+        dessert2Title: "Fruit Salad", dessert2Desc: "",
+        dessert3Title: "Pudding", dessert3Desc: "",
+        dessert4Title: "Chocolate Cake", dessert4Desc: "",
+        dessert5Title: "Cassava Sweet", dessert5Desc: "",
+        dessert6Title: "Rice Pudding", dessert6Desc: "",
+
+        dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
+    }
+};

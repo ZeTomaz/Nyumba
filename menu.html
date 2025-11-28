@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPGCF8XV8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPGCF8XV8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-2NPGCF8XV8');
-</script>
+        gtag('config', 'G-2NPGCF8XV8');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Menu | Nyumba Food Concept</title>
-    
+
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -33,7 +34,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
         }
 
         /* ---------- Logótipo Circular ---------- */
@@ -48,7 +49,7 @@
             margin-left: 10px;
             border-radius: 50%;
             border: 3px solid #ff7c00;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* ---------- Navegação com Botões ---------- */
@@ -69,7 +70,7 @@
             background: #ff7c00;
             border-radius: 25px;
             border: 2px solid #ffffff;
-            box-shadow: 0 4px 12px rgba(255,124,0,0.4);
+            box-shadow: 0 4px 12px rgba(255, 124, 0, 0.4);
             transition: all 0.3s ease;
             min-width: 120px;
             text-align: center;
@@ -78,7 +79,7 @@
         nav a:hover {
             background: #ffa64d;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255,124,0,0.6);
+            box-shadow: 0 6px 18px rgba(255, 124, 0, 0.6);
         }
 
         /* --- Esconder link da página atual --- */
@@ -102,7 +103,7 @@
             font-weight: bold;
             cursor: pointer;
             color: #ffffff;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
             transition: background 0.25s, transform 0.15s;
         }
 
@@ -117,7 +118,7 @@
             right: 20px;
             color: #fffdf5;
             font-size: 0.95em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
             font-weight: 500;
             background: rgba(0, 0, 0, 0.4);
             padding: 4px 8px;
@@ -152,7 +153,7 @@
             border-radius: 18px;
         }
 
-        main > * {
+        main>* {
             position: relative;
             z-index: 1;
             color: #fafafa;
@@ -160,8 +161,8 @@
         }
 
         .page-title {
-            font-size: 2.5em; 
-            margin-bottom: 0.5em; 
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
             text-transform: uppercase;
             color: #89ff89;
         }
@@ -170,7 +171,7 @@
         #daily-menu-container {
             margin-bottom: 2em;
         }
-        
+
         #daily-menu-subtitle {
             font-size: 1.2em;
             font-weight: 500;
@@ -186,7 +187,7 @@
             overflow-x: auto;
             padding-bottom: 10px;
         }
-        
+
         .daily-menu-item {
             display: flex;
             flex-direction: column;
@@ -228,16 +229,16 @@
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255,124,0,0.3);
+            box-shadow: 0 4px 15px rgba(255, 124, 0, 0.3);
             transition: background 0.2s, transform 0.2s;
             margin-bottom: 3em;
         }
-        
+
         #alacarte-toggle-button:hover {
             background-color: #ffa64d;
             transform: translateY(-2px);
         }
-        
+
         /* ---------- Menu À La Carte ---------- */
         #alacarte-menu-content {
             max-height: 0;
@@ -278,7 +279,9 @@
             border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
         }
 
-        .menu-item:last-child { border-bottom: none; }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
 
         .item-details h3 {
             margin: 0 0 5px 0;
@@ -302,7 +305,7 @@
             white-space: nowrap;
             flex-shrink: 0;
         }
-        
+
         /* ---------- Modal para Imagem Ampliada ---------- */
         #image-modal {
             position: fixed;
@@ -310,7 +313,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.95);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 1000;
             display: none;
             justify-content: center;
@@ -319,10 +322,10 @@
             padding: 20px;
             cursor: pointer;
         }
-        
+
         #modal-close-hint {
-            color: #fff; 
-            font-size: 1.1em; 
+            color: #fff;
+            font-size: 1.1em;
             margin-bottom: 15px;
             text-shadow: 0 0 5px #000;
         }
@@ -334,34 +337,59 @@
             height: auto;
             object-fit: contain;
             border-radius: 10px;
-            box-shadow: 0 0 50px rgba(255,124,0,0.5);
+            box-shadow: 0 0 50px rgba(255, 124, 0, 0.5);
             cursor: default;
         }
 
         /* ---------- Fade‑in ---------- */
         @keyframes fadeInSmooth {
-            from { opacity: 0; transform: translateY(15px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
-            header { height: 130px; }
-            #logo-fixed { 
-                height: 130px; 
+            header {
+                height: 130px;
+            }
+
+            #logo-fixed {
+                height: 130px;
                 width: 130px;
             }
+
             nav a {
                 padding: 10px 20px;
                 font-size: 1em;
                 min-width: 110px;
             }
-            .daily-menu-item img { width: 100px; height: 100px; }
-            .daily-menu-item { min-width: 100px; }
-            .item-details h3 { font-size: 1em; }
-            .item-price { font-size: 1.1em; }
-            main { 
-                margin: 1em auto; 
+
+            .daily-menu-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .daily-menu-item {
+                min-width: 100px;
+            }
+
+            .item-details h3 {
+                font-size: 1em;
+            }
+
+            .item-price {
+                font-size: 1.1em;
+            }
+
+            main {
+                margin: 1em auto;
                 padding: 1em;
                 min-height: 500px;
             }
@@ -372,12 +400,14 @@
                 padding: 1em;
                 margin: 0.5em;
             }
-            header { 
+
+            header {
                 height: auto;
                 min-height: 110px;
                 padding: 10px 0;
             }
-            #logo-fixed { 
+
+            #logo-fixed {
                 position: relative;
                 height: 80px;
                 width: 80px;
@@ -386,13 +416,15 @@
                 margin: 0 auto 5px auto;
                 display: block;
             }
-            nav { 
+
+            nav {
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
                 margin: 0.5em 0;
             }
-            nav a { 
+
+            nav a {
                 display: block;
                 width: 200px;
                 text-align: center;
@@ -400,15 +432,18 @@
                 font-size: 1em;
                 padding: 12px 0;
             }
-            .lang-selector { 
+
+            .lang-selector {
                 flex-direction: row;
                 gap: 10px;
                 margin-bottom: 0.5em;
             }
-            .lang-selector button { 
+
+            .lang-selector button {
                 padding: 6px 15px;
                 font-size: 0.9em;
             }
+
             #date-time {
                 position: relative;
                 top: auto;
@@ -418,35 +453,64 @@
                 width: fit-content;
                 font-size: 0.8em;
             }
-            .daily-menu-images { justify-content: flex-start; }
-            .daily-menu-item img { width: 80px; height: 80px; }
-            .daily-menu-item { min-width: 80px; }
-            .menu-item { flex-direction: column; align-items: flex-start; }
-            .item-price { margin-left: 0; margin-top: 5px; }
-            .item-details h3 { font-size: 0.95em; }
-            .item-details p { font-size: 0.8em; }
+
+            .daily-menu-images {
+                justify-content: flex-start;
+            }
+
+            .daily-menu-item img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .daily-menu-item {
+                min-width: 80px;
+            }
+
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-price {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+
+            .item-details h3 {
+                font-size: 0.95em;
+            }
+
+            .item-details p {
+                font-size: 0.8em;
+            }
         }
 
         @media (max-width: 480px) {
             header {
                 padding: 8px 0;
             }
+
             #logo-fixed {
                 height: 70px;
                 width: 70px;
             }
+
             nav a {
                 width: 180px;
                 font-size: 0.95em;
                 padding: 10px 0;
             }
+
             .lang-selector {
                 gap: 8px;
             }
+
             .lang-selector button {
                 padding: 5px 12px;
                 font-size: 0.85em;
             }
+
             #date-time {
                 font-size: 0.75em;
                 padding: 2px 6px;
@@ -461,7 +525,7 @@
             width: 120px;
             height: 67.5px;
             border-radius: 12px;
-            box-shadow: 0 0 14px rgba(0,0,0,0.25);
+            box-shadow: 0 0 14px rgba(0, 0, 0, 0.25);
             overflow: hidden;
             background: #fffefc;
             display: flex;
@@ -477,6 +541,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="logo-fixed" />
@@ -496,32 +561,37 @@
 
     <main>
         <h1 id="menu-title" class="page-title"></h1>
-        
+
         <!-- Menu Diário Dinâmico -->
         <div id="daily-menu-container">
             <h2 id="daily-menu-title">Menu Semanal de Almoço</h2>
             <p id="daily-menu-subtitle"></p>
-            
+
             <div class="daily-menu-images">
                 <!-- Dias da Semana -->
                 <div class="daily-menu-item" id="day-1">
-                    <img src="images/2a.jpg" alt="Menu Segunda-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
+                    <img src="images/2a.jpg" alt="Menu Segunda-feira"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=2%C2%AA+FEIRA';" />
                     <p id="day-1-label">2ª Feira</p>
                 </div>
                 <div class="daily-menu-item" id="day-2">
-                    <img src="images/3a.jpg" alt="Menu Terça-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
+                    <img src="images/3a.jpg" alt="Menu Terça-feira"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=3%C2%AA+FEIRA';" />
                     <p id="day-2-label">3ª Feira</p>
                 </div>
                 <div class="daily-menu-item" id="day-3">
-                    <img src="images/4a.jpg" alt="Menu Quarta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
+                    <img src="images/4a.jpg" alt="Menu Quarta-feira"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=4%C2%AA+FEIRA';" />
                     <p id="day-3-label">4ª Feira</p>
                 </div>
                 <div class="daily-menu-item" id="day-4">
-                    <img src="images/5a.jpg" alt="Menu Quinta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
+                    <img src="images/5a.jpg" alt="Menu Quinta-feira"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=5%C2%AA+FEIRA';" />
                     <p id="day-4-label">5ª Feira</p>
                 </div>
                 <div class="daily-menu-item" id="day-5">
-                    <img src="images/6a.jpg" alt="Menu Sexta-feira" onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
+                    <img src="images/6a.jpg" alt="Menu Sexta-feira"
+                        onerror="this.onerror=null; this.src='https://placehold.co/120x120/4a2d1e/ffffff?text=6%C2%AA+FEIRA';" />
                     <p id="day-5-label">6ª Feira</p>
                 </div>
             </div>
@@ -539,7 +609,7 @@
             <!-- PETISCOS Section -->
             <section class="menu-section">
                 <h2 id="petiscos-section-title">Petiscos</h2>
-                
+
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="petisco-1-title">Rabada</h3>
@@ -600,7 +670,7 @@
             <!-- SOPAS Section -->
             <section class="menu-section">
                 <h2 id="sopas-section-title">Sopas</h2>
-                
+
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="sopa-1-title">Creme de Cenoura</h3>
@@ -653,7 +723,7 @@
             <!-- SNACKS Section -->
             <section class="menu-section">
                 <h2 id="snacks-section-title">Snacks</h2>
-                
+
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="snack-1-title">Salgados (4)</h3>
@@ -673,7 +743,8 @@
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="snack-3-title">Hamburguer Completo</h3>
-                        <p id="snack-3-desc">Complete Burger with cheese, egg, lettuce, cheddar, homemade mayonnaise, caramelized onion and fries</p>
+                        <p id="snack-3-desc">Complete Burger with cheese, egg, lettuce, cheddar, homemade mayonnaise,
+                            caramelized onion and fries</p>
                     </div>
                     <span class="item-price">350 MT</span>
                 </div>
@@ -681,7 +752,8 @@
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="snack-4-title">Nyumba Burguer</h3>
-                        <p id="snack-4-desc">With homemade mayonnaise, ham or bacon, mozzarella, fries, caramelized onion, pickles, arugula</p>
+                        <p id="snack-4-desc">With homemade mayonnaise, ham or bacon, mozzarella, fries, caramelized
+                            onion, pickles, arugula</p>
                     </div>
                     <span class="item-price">500 MT</span>
                 </div>
@@ -762,7 +834,7 @@
             <!-- SOBREMESAS Section -->
             <section class="menu-section">
                 <h2 id="desserts-section-title">Sobremesas</h2>
-                
+
                 <div class="menu-item">
                     <div class="item-details">
                         <h3 id="dessert-1-title">Sorvete</h3>
@@ -813,352 +885,23 @@
             </section>
         </div>
     </main>
-    
+
     <div id="map-fixed-box">
-        <iframe
-            id="map-fixed"
-            title="Localização do Nyumba Food Concept"
+        <iframe id="map-fixed" title="Localização do Nyumba Food Concept"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
-            width="100%"
-            height="100%"
-            allowfullscreen=""
-            loading="lazy"></iframe>
+            width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
     </div>
-    
+
     <!-- Modal para Imagem Ampliada -->
     <div id="image-modal">
         <p id="modal-close-hint">Clique ou prima ESC para fechar.</p>
         <img id="enlarged-menu-image" alt="Menu ampliado">
     </div>
 
-    <script>
-        const langData = {
-            pt: {
-                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                menuTitle: "Especialidades do Dia", 
-                dailyMenuTitle: "Menu Semanal de Almoço",
-                dailyMenuSubtitleToday: "Destaque de Hoje:",
-                dailyMenuWeekend: "Fim-de-semana: Hoje não há Menu Especial. Consulte o Menu À La Carte.",
-                aLaCarteButtonOpen: "Ocultar Menu",
-                aLaCarteButtonClosed: "Ver Menu Completo",
-                alacarteTitle: "Menu À La Carte",
-                petiscosTitle: "Petiscos",
-                sopasTitle: "Sopas",
-                snacksTitle: "Snacks",
-                dessertsTitle: "Sobremesas",
-                
-                // Petiscos
-                petisco1Title: "Rabada", petisco1Desc: "",
-                petisco2Title: "Amêijoas a Nyumba", petisco2Desc: "",
-                petisco3Title: "Cabeça de Salmão", petisco3Desc: "",
-                petisco4Title: "Camarão Alhinho", petisco4Desc: "",
-                petisco5Title: "Chouriço (c/ Batata e Salada)", petisco5Desc: "",
-                petisco6Title: "Tábua de 7 Queijos e Broa", petisco6Desc: "",
-                petisco7Title: "Dobradinha", petisco7Desc: "",
-                
-                // Sopas
-                sopa1Title: "Creme de Cenoura", sopa1Desc: "",
-                sopa2Title: "Creme de Abóbora", sopa2Desc: "",
-                sopa3Title: "Sopa de Mandioca", sopa3Desc: "",
-                sopa4Title: "Caldo Verde", sopa4Desc: "",
-                sopa5Title: "Sopa de Feijão", sopa5Desc: "",
-                sopa6Title: "Sopa de Legumes", sopa6Desc: "",
-                
-                // Snacks
-                snack1Title: "Salgados (4)", snack1Desc: "",
-                snack2Title: "Hamburguer Simples (c/ Ovo ou Queijo e Batata)", snack2Desc: "",
-                snack3Title: "Hamburguer Completo", snack3Desc: "Com queijo, ovo, alface, queijo cheddar, maionese caseira, alface, cebola caramelizada e batata frita",
-                snack4Title: "Nyumba Burguer", snack4Desc: "Com maionese caseira, fiambre ou bacon, queijo mozzarella, batatas fritas, cebola caramelizada, picles, rúcula",
-                snack5Title: "Hamburguer de Alheira", snack5Desc: "Com ovo, rúcula, queijo mozzarella e batata frita",
-                snack6Title: "Hamburguer de Frango", snack6Desc: "Com ovo, queijo mozzarella, alface e batata",
-                snack7Title: "Prego no Pão", snack7Desc: "",
-                snack8Title: "Cachorro quente (c/ Batatas)", snack8Desc: "",
-                snack9Title: "Tosta Mista", snack9Desc: "",
-                snack10Title: "Tosta de Atum", snack10Desc: "",
-                snack11Title: "Tosta de Caranguejo", snack11Desc: "",
-                snack12Title: "Tosta de Frango", snack12Desc: "",
-                snack13Title: "Matabicho Thafo", snack13Desc: "Com 2 ovos, tomate, salsichas, torradas, feijão doce, bacon",
-                
-                // Sobremesas
-                dessert1Title: "Sorvete", dessert1Desc: "",
-                dessert2Title: "Salada de Fruta", dessert2Desc: "",
-                dessert3Title: "Pudim", dessert3Desc: "",
-                dessert4Title: "Bolo de Chocolate", dessert4Desc: "",
-                dessert5Title: "Doce de Mandioca", dessert5Desc: "",
-                dessert6Title: "Arroz Doce", dessert6Desc: "",
-
-                dayNames: { 1: "2ª Feira", 2: "3ª Feira", 3: "4ª Feira", 4: "5ª Feira", 5: "6ª Feira", 6: "Sábado", 0: "Domingo" },
-                modalCloseHint: "Clique ou prima ESC para fechar.",
-            },
-            en: {
-                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                menuTitle: "Daily Specials",
-                dailyMenuTitle: "Weekly Lunch Menu",
-                dailyMenuSubtitleToday: "Today's Highlight:",
-                dailyMenuWeekend: "Weekend: No special menu today. Please check the À La Carte Menu.",
-                aLaCarteButtonOpen: "Hide Menu",
-                aLaCarteButtonClosed: "View Full Menu",
-                alacarteTitle: "À La Carte Menu",
-                petiscosTitle: "Appetizers",
-                sopasTitle: "Soups",
-                snacksTitle: "Snacks",
-                dessertsTitle: "Desserts",
-                
-                // Petiscos
-                petisco1Title: "Oxtail", petisco1Desc: "",
-                petisco2Title: "Clams Nyumba Style", petisco2Desc: "",
-                petisco3Title: "Salmon Head", petisco3Desc: "",
-                petisco4Title: "Garlic Prawns", petisco4Desc: "",
-                petisco5Title: "Chouriço (with Potato and Salad)", petisco5Desc: "",
-                petisco6Title: "Platter of 7 Cheeses and Cornbread", petisco6Desc: "",
-                petisco7Title: "Tripe Stew", petisco7Desc: "",
-                
-                // Sopas
-                sopa1Title: "Carrot Cream Soup", sopa1Desc: "",
-                sopa2Title: "Pumpkin Cream Soup", sopa2Desc: "",
-                sopa3Title: "Cassava Soup", sopa3Desc: "",
-                sopa4Title: "Portuguese Kale Soup", sopa4Desc: "",
-                sopa5Title: "Bean Soup", sopa5Desc: "",
-                sopa6Title: "Vegetable Soup", sopa6Desc: "",
-                
-                // Snacks
-                snack1Title: "Savory Pastries (4)", snack1Desc: "",
-                snack2Title: "Simple Burger (with Egg or Cheese and Potato)", snack2Desc: "",
-                snack3Title: "Complete Burger", snack3Desc: "With cheese, egg, lettuce, cheddar cheese, homemade mayonnaise, lettuce, caramelized onion and fries",
-                snack4Title: "Nyumba Burger", snack4Desc: "With homemade mayonnaise, ham or bacon, mozzarella cheese, fries, caramelized onion, pickles, arugula",
-                snack5Title: "Alheira Sausage Burger", snack5Desc: "With egg, arugula, mozzarella cheese and fries",
-                snack6Title: "Chicken Burger", snack6Desc: "With egg, mozzarella cheese, lettuce and potato",
-                snack7Title: "Steak Sandwich", snack7Desc: "",
-                snack8Title: "Hot Dog (with Potatoes)", snack8Desc: "",
-                snack9Title: "Grilled Ham and Cheese Sandwich", snack9Desc: "",
-                snack10Title: "Tuna Melt", snack10Desc: "",
-                snack11Title: "Crab Melt", snack11Desc: "",
-                snack12Title: "Chicken Melt", snack12Desc: "",
-                snack13Title: "Thafo Breakfast", snack13Desc: "With 2 eggs, tomato, sausages, toast, baked beans, bacon",
-                
-                // Sobremesas
-                dessert1Title: "Ice Cream", dessert1Desc: "",
-                dessert2Title: "Fruit Salad", dessert2Desc: "",
-                dessert3Title: "Pudding", dessert3Desc: "",
-                dessert4Title: "Chocolate Cake", dessert4Desc: "",
-                dessert5Title: "Cassava Sweet", dessert5Desc: "",
-                dessert6Title: "Rice Pudding", dessert6Desc: "",
-
-                dayNames: { 1: "Monday", 2: "Tuesday", 3: "Wednesday", 4: "Thursday", 5: "Friday", 6: "Saturday", 0: "Sunday" },
-                modalCloseHint: "Click or press ESC to close.",
-            }
-        };
-
-        // --- SISTEMA DE PERSISTÊNCIA ---
-        function getStoredLang() {
-            return localStorage.getItem('nyumba-lang') || 'pt';
-        }
-
-        function storeLang(l) {
-            localStorage.setItem('nyumba-lang', l);
-        }
-
-        const dailyMenuDayMapping = {
-            1: { id: "day-1" },
-            2: { id: "day-2" },
-            3: { id: "day-3" },
-            4: { id: "day-4" },
-            5: { id: "day-5" }
-        };
-        
-        const modal = document.getElementById('image-modal');
-        const enlargedImage = document.getElementById('enlarged-menu-image');
-        const modalCloseHint = document.getElementById('modal-close-hint');
-        
-        function updateText(id, text) {
-            const el = document.getElementById(id);
-            if (el) el.innerText = text;
-        }
-        
-        function highlightDailyMenu() {
-            const now = new Date();
-            let day = now.getDay();
-            document.querySelectorAll('.daily-menu-item').forEach(item => {
-                item.classList.remove('highlighted');
-            });
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            const dailySubtitle = document.getElementById('daily-menu-subtitle');
-            const todayDayOfWeek = (day === 0) ? 7 : day;
-            if (todayDayOfWeek >= 1 && todayDayOfWeek <= 5) {
-                const item = dailyMenuDayMapping[todayDayOfWeek];
-                const dayElement = document.getElementById(item.id);
-                if (dayElement) {
-                    dayElement.classList.add('highlighted');
-                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
-                } else {
-                    dailySubtitle.innerText = `${t.dailyMenuSubtitleToday} ${t.dayNames[todayDayOfWeek]}`;
-                }
-            } else {
-                dailySubtitle.innerText = t.dailyMenuWeekend;
-            }
-        }
-        
-        function toggleAlacarteMenu() {
-            const content = document.getElementById('alacarte-menu-content');
-            const button = document.getElementById('alacarte-toggle-button');
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            const isOpen = content.classList.toggle('open');
-            button.innerText = isOpen ? t.aLaCarteButtonOpen : t.aLaCarteButtonClosed;
-        }
-        
-        function openImageModal(imgSrc) {
-            enlargedImage.src = imgSrc;
-            modal.style.display = 'flex';
-            const lang = document.documentElement.lang || 'pt';
-            const t = langData[lang];
-            modalCloseHint.innerText = t.modalCloseHint;
-        }
-        
-        function closeImageModal() {
-            modal.style.display = 'none';
-            enlargedImage.src = '';
-        }
-        
-        function setupDailyMenuListeners() {
-            document.querySelectorAll('.daily-menu-item img').forEach(img => {
-                img.addEventListener('click', () => openImageModal(img.src));
-            });
-            modal.addEventListener('click', closeImageModal);
-            enlargedImage.addEventListener('click', e => e.stopPropagation());
-            document.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && modal.style.display === 'flex') closeImageModal();
-            });
-        }
-        
-        function setLang(l) {
-            const t = langData[l];
-            document.documentElement.lang = l;
-            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
-            
-            // Navigation and main titles
-            updateText("nav-home", t.navHome);
-            updateText("nav-gallery", t.navGallery);
-            updateText("nav-menu", t.navMenu);
-            updateText("nav-contact", t.navContact);
-            updateText("menu-title", t.menuTitle);
-            updateText("daily-menu-title", t.dailyMenuTitle);
-            updateText("day-1-label", t.dayNames[1]);
-            updateText("day-2-label", t.dayNames[2]);
-            updateText("day-3-label", t.dayNames[3]);
-            updateText("day-4-label", t.dayNames[4]);
-            updateText("day-5-label", t.dayNames[5]);
-            
-            // Menu sections
-            const alacarteContent = document.getElementById('alacarte-menu-content');
-            const alacarteButton = document.getElementById('alacarte-toggle-button');
-            if (alacarteContent && alacarteButton) {
-                if (alacarteContent.classList.contains('open'))
-                    alacarteButton.innerText = t.aLaCarteButtonOpen;
-                else
-                    alacarteButton.innerText = t.aLaCarteButtonClosed;
-            }
-            updateText("alacarte-title", t.alacarteTitle);
-            updateText("petiscos-section-title", t.petiscosTitle);
-            updateText("sopas-section-title", t.sopasTitle);
-            updateText("snacks-section-title", t.snacksTitle);
-            updateText("desserts-section-title", t.dessertsTitle);
-            
-            // Petiscos items
-            updateText("petisco-1-title", t.petisco1Title);
-            updateText("petisco-1-desc", t.petisco1Desc);
-            updateText("petisco-2-title", t.petisco2Title);
-            updateText("petisco-2-desc", t.petisco2Desc);
-            updateText("petisco-3-title", t.petisco3Title);
-            updateText("petisco-3-desc", t.petisco3Desc);
-            updateText("petisco-4-title", t.petisco4Title);
-            updateText("petisco-4-desc", t.petisco4Desc);
-            updateText("petisco-5-title", t.petisco5Title);
-            updateText("petisco-5-desc", t.petisco5Desc);
-            updateText("petisco-6-title", t.petisco6Title);
-            updateText("petisco-6-desc", t.petisco6Desc);
-            updateText("petisco-7-title", t.petisco7Title);
-            updateText("petisco-7-desc", t.petisco7Desc);
-            
-            // Sopas items
-            updateText("sopa-1-title", t.sopa1Title);
-            updateText("sopa-1-desc", t.sopa1Desc);
-            updateText("sopa-2-title", t.sopa2Title);
-            updateText("sopa-2-desc", t.sopa2Desc);
-            updateText("sopa-3-title", t.sopa3Title);
-            updateText("sopa-3-desc", t.sopa3Desc);
-            updateText("sopa-4-title", t.sopa4Title);
-            updateText("sopa-4-desc", t.sopa4Desc);
-            updateText("sopa-5-title", t.sopa5Title);
-            updateText("sopa-5-desc", t.sopa5Desc);
-            updateText("sopa-6-title", t.sopa6Title);
-            updateText("sopa-6-desc", t.sopa6Desc);
-            
-            // Snacks items
-            updateText("snack-1-title", t.snack1Title);
-            updateText("snack-1-desc", t.snack1Desc);
-            updateText("snack-2-title", t.snack2Title);
-            updateText("snack-2-desc", t.snack2Desc);
-            updateText("snack-3-title", t.snack3Title);
-            updateText("snack-3-desc", t.snack3Desc);
-            updateText("snack-4-title", t.snack4Title);
-            updateText("snack-4-desc", t.snack4Desc);
-            updateText("snack-5-title", t.snack5Title);
-            updateText("snack-5-desc", t.snack5Desc);
-            updateText("snack-6-title", t.snack6Title);
-            updateText("snack-6-desc", t.snack6Desc);
-            updateText("snack-7-title", t.snack7Title);
-            updateText("snack-7-desc", t.snack7Desc);
-            updateText("snack-8-title", t.snack8Title);
-            updateText("snack-8-desc", t.snack8Desc);
-            updateText("snack-9-title", t.snack9Title);
-            updateText("snack-9-desc", t.snack9Desc);
-            updateText("snack-10-title", t.snack10Title);
-            updateText("snack-10-desc", t.snack10Desc);
-            updateText("snack-11-title", t.snack11Title);
-            updateText("snack-11-desc", t.snack11Desc);
-            updateText("snack-12-title", t.snack12Title);
-            updateText("snack-12-desc", t.snack12Desc);
-            updateText("snack-13-title", t.snack13Title);
-            updateText("snack-13-desc", t.snack13Desc);
-            
-            // Desserts items
-            updateText("dessert-1-title", t.dessert1Title);
-            updateText("dessert-1-desc", t.dessert1Desc);
-            updateText("dessert-2-title", t.dessert2Title);
-            updateText("dessert-2-desc", t.dessert2Desc);
-            updateText("dessert-3-title", t.dessert3Title);
-            updateText("dessert-3-desc", t.dessert3Desc);
-            updateText("dessert-4-title", t.dessert4Title);
-            updateText("dessert-4-desc", t.dessert4Desc);
-            updateText("dessert-5-title", t.dessert5Title);
-            updateText("dessert-5-desc", t.dessert5Desc);
-            updateText("dessert-6-title", t.dessert6Title);
-            updateText("dessert-6-desc", t.dessert6Desc);
-            
-            if (modal.style.display === 'flex') modalCloseHint.innerText = t.modalCloseHint;
-            highlightDailyMenu();
-            updateDateTime();
-        }
-        
-        function updateDateTime() {
-            const now = new Date();
-            const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { hour: '2-digit', minute: '2-digit' });
-            document.getElementById('date-time').textContent = `${date} | ${time}`;
-        }
-        
-        // --- INICIALIZAÇÃO ---
-        window.onload = function() {
-            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
-            setLang(savedLang);
-            setupDailyMenuListeners();
-        }
-        setInterval(updateDateTime, 60000);
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
 </body>
+
 </html>
 <div class="copyright">
     <small><em>&copy; 2025 José Freire. Website design and development. All rights reserved.</em></small>

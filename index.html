@@ -353,77 +353,8 @@
         <a href="galeria.html" class="cta-button" id="cta-gallery">Ver Galeria</a>
     </main>
 
-    <script>
-        const langData = {
-            pt: {
-                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                mainWelcome: "Bem-vindo ao Nyumba Food Concept", mainSubtitle: "Onde a Tradição Encontra a Inovação em Maputo",
-                mainP1: "Nyumba, que significa 'Casa' em Swahili, é mais do que um restaurante; é um espaço de encontro onde a riqueza da culinária moçambicana se harmoniza com influências internacionais. Localizado no coração vibrante do Parque dos Continuadores, oferecemos uma experiência gastronómica única, seja para um almoço descontraído na nossa esplanada, um jantar especial ou um cocktail ao final do dia.",
-                mainP2: "Explore o nosso menu e descubra os nossos Pratos do Chefe exclusivos, ou visite a nossa Galeria para ver a atmosfera acolhedora que nos define. Estamos abertos todos os dias para recebê-lo.",
-                ctaMenu: "Explorar o Menu", ctaGallery: "Ver Galeria",
-            },
-            en: {
-                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                mainWelcome: "Welcome to Nyumba Food Concept", mainSubtitle: "Where Tradition Meets Innovation in Maputo",
-                mainP1: "Nyumba, meaning 'House' in Swahili, is more than a restaurant; it is a meeting place where the richness of Mozambican cuisine harmonizes with international influences. Located in the vibrant heart of Continuadores Park, we offer a unique gastronomic experience, whether for a relaxed lunch on our terrace, a special dinner, or a cocktail at the end of the day.",
-                mainP2: "Explore our menu and discover our exclusive Chef's Dishes, or visit our Gallery to see the welcoming atmosphere that defines us. We are open every day to welcome you.",
-                ctaMenu: "Explore Menu", ctaGallery: "View Gallery",
-            }
-        };
-
-        // --- SISTEMA DE PERSISTÊNCIA ---
-        function getStoredLang() {
-            return localStorage.getItem('nyumba-lang') || 'pt';
-        }
-
-        function storeLang(l) {
-            localStorage.setItem('nyumba-lang', l);
-        }
-
-        function updateText(id, text) {
-            const el = document.getElementById(id);
-            if (el) { el.innerText = text; }
-        }
-        
-        function setLang(l) {
-            const t = langData[l];
-            document.documentElement.lang = l; 
-            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
-
-            updateText("nav-home", t.navHome);
-            updateText("nav-gallery", t.navGallery);
-            updateText("nav-menu", t.navMenu);
-            updateText("nav-contact", t.navContact);
-            
-            updateText("main-welcome", t.mainWelcome);
-            updateText("main-subtitle", t.mainSubtitle);
-            updateText("main-p1", t.mainP1);
-            updateText("main-p2", t.mainP2);
-            updateText("cta-menu", t.ctaMenu);
-            updateText("cta-gallery", t.ctaGallery);
-
-            updateDateTime();
-        }
-
-        function updateDateTime() {
-            const now = new Date();
-            const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
-            });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', {
-                hour: '2-digit', minute: '2-digit'
-            });
-            document.getElementById('date-time').textContent = `${date} | ${time}`;
-        }
-
-        // --- INICIALIZAÇÃO ---
-        window.onload = function() {
-            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
-            setLang(savedLang);
-        }
-        setInterval(updateDateTime, 60000);
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
 <div class="copyright">

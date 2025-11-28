@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPGCF8XV8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2NPGCF8XV8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-2NPGCF8XV8');
-</script>
+        gtag('config', 'G-2NPGCF8XV8');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Contactos | Nyumba Food Concept</title>
@@ -34,7 +35,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
         }
 
         /* ---------- Logótipo Circular ---------- */
@@ -49,7 +50,7 @@
             margin-left: 10px;
             border-radius: 50%;
             border: 3px solid #ff7c00;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* ---------- Navegação com Botões ---------- */
@@ -70,7 +71,7 @@
             background: #ff7c00;
             border-radius: 25px;
             border: 2px solid #ffffff;
-            box-shadow: 0 4px 12px rgba(255,124,0,0.4);
+            box-shadow: 0 4px 12px rgba(255, 124, 0, 0.4);
             transition: all 0.3s ease;
             min-width: 120px;
             text-align: center;
@@ -79,7 +80,7 @@
         nav a:hover {
             background: #ffa64d;
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255,124,0,0.6);
+            box-shadow: 0 6px 18px rgba(255, 124, 0, 0.6);
         }
 
         /* --- Esconder link da página atual --- */
@@ -103,7 +104,7 @@
             font-weight: bold;
             cursor: pointer;
             color: #ffffff;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
             transition: background 0.25s, transform 0.15s;
         }
 
@@ -118,7 +119,7 @@
             right: 20px;
             color: #fffdf5;
             font-size: 0.95em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.85);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.85);
             font-weight: 500;
             background: rgba(0, 0, 0, 0.4);
             padding: 4px 8px;
@@ -153,7 +154,7 @@
             border-radius: 18px;
         }
 
-        main > * {
+        main>* {
             position: relative;
             z-index: 1;
             color: #fafafa;
@@ -182,21 +183,25 @@
             text-align: center;
             transition: box-shadow 0.3s, transform 0.3s;
         }
+
         .contact-item:hover {
-            box-shadow: 0 8px 25px rgba(255,124,0,0.5);
+            box-shadow: 0 8px 25px rgba(255, 124, 0, 0.5);
             transform: translateY(-5px);
         }
+
         .contact-item i {
             color: #ff7c00;
             font-size: 3em;
             margin-bottom: 0.5em;
         }
+
         .contact-item h3 {
             color: #ff7c00;
             margin-top: 0;
             font-size: 1.6em;
             font-weight: 700;
         }
+
         .contact-link {
             display: block;
             margin-top: 10px;
@@ -207,10 +212,12 @@
             word-break: break-word;
             transition: color 0.3s;
         }
+
         .contact-link.primary {
             color: #89ff89;
             font-weight: 600;
         }
+
         .contact-link:hover {
             color: #ffa64d;
             text-decoration: underline;
@@ -220,10 +227,11 @@
             margin-top: 20px;
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
             height: 450px;
             width: 100%;
         }
+
         #map-iframe {
             width: 100%;
             height: 100%;
@@ -232,29 +240,47 @@
 
         /* ---------- Fade‑in ---------- */
         @keyframes fadeInSmooth {
-            from { opacity: 0; transform: translateY(15px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* ---------- Responsividade ---------- */
         @media (max-width: 900px) {
-            header { height: 130px; }
-            #logo-fixed { 
-                height: 130px; 
+            header {
+                height: 130px;
+            }
+
+            #logo-fixed {
+                height: 130px;
                 width: 130px;
             }
+
             nav a {
                 padding: 10px 20px;
                 font-size: 1em;
                 min-width: 110px;
             }
-            main { 
-                margin: 1em auto; 
+
+            main {
+                margin: 1em auto;
                 padding: 1em;
                 min-height: 500px;
             }
-            .contact-grid { grid-template-columns: 1fr; }
-            #map-container { height: 350px; }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #map-container {
+                height: 350px;
+            }
         }
 
         @media (max-width: 700px) {
@@ -262,12 +288,14 @@
                 padding: 1em;
                 margin: 0.5em;
             }
-            header { 
+
+            header {
                 height: auto;
                 min-height: 110px;
                 padding: 10px 0;
             }
-            #logo-fixed { 
+
+            #logo-fixed {
                 position: relative;
                 height: 80px;
                 width: 80px;
@@ -276,13 +304,15 @@
                 margin: 0 auto 5px auto;
                 display: block;
             }
-            nav { 
+
+            nav {
                 flex-direction: column;
                 align-items: center;
                 gap: 10px;
                 margin: 0.5em 0;
             }
-            nav a { 
+
+            nav a {
                 display: block;
                 width: 200px;
                 text-align: center;
@@ -290,15 +320,18 @@
                 font-size: 1em;
                 padding: 12px 0;
             }
-            .lang-selector { 
+
+            .lang-selector {
                 flex-direction: row;
                 gap: 10px;
                 margin-bottom: 0.5em;
             }
-            .lang-selector button { 
+
+            .lang-selector button {
                 padding: 6px 15px;
                 font-size: 0.9em;
             }
+
             #date-time {
                 position: relative;
                 top: auto;
@@ -314,43 +347,47 @@
             header {
                 padding: 8px 0;
             }
+
             #logo-fixed {
                 height: 70px;
                 width: 70px;
             }
+
             nav a {
                 width: 180px;
                 font-size: 0.95em;
                 padding: 10px 0;
             }
+
             .lang-selector {
                 gap: 8px;
             }
+
             .lang-selector button {
                 padding: 5px 12px;
                 font-size: 0.85em;
             }
+
             #date-time {
                 font-size: 0.75em;
                 padding: 2px 6px;
             }
+
             .contact-item {
                 padding: 20px;
             }
+
             .contact-item i {
                 font-size: 2.5em;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
-        <img 
-            src="images/logo-nyumba.png" 
-            alt="Logótipo Nyumba Food Concept" 
-            id="logo-fixed"
-            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';"
-        />
+        <img src="images/logo-nyumba.png" alt="Logótipo Nyumba Food Concept" id="logo-fixed"
+            onerror="this.onerror=null; this.src='https://placehold.co/160x160/4A2D1E/FFFFFF?text=Logo+Falta';" />
         <nav>
             <a href="index.html" id="nav-home">Principal</a>
             <a href="galeria.html" id="nav-gallery">Galeria</a>
@@ -368,123 +405,46 @@
     <main>
         <h1 id="contact-title" class="page-title">Fale Connosco</h1>
         <p id="contact-subtitle">Estamos ansiosos por recebê-lo e responder às suas questões.</p>
-        
+
         <div class="contact-grid">
             <div class="contact-item phone-block">
                 <i class="fas fa-phone-alt"></i>
                 <h3 id="item-phone-title">Telefone e WhatsApp</h3>
                 <p id="item-phone-desc">Ligue-nos diretamente ou envie uma mensagem instantânea.</p>
                 <a href="tel:+258846695390" class="contact-link primary" id="phone-link">+258 846695390 (Ligar)</a>
-                <a href="https://wa.me/258846695390" class="contact-link primary" id="whatsapp-link" target="_blank" rel="noopener noreferrer">+258 846695390 (WhatsApp)</a>
+                <a href="https://wa.me/258846695390" class="contact-link primary" id="whatsapp-link" target="_blank"
+                    rel="noopener noreferrer">+258 846695390 (WhatsApp)</a>
             </div>
 
             <div class="contact-item">
                 <i class="fas fa-envelope"></i>
                 <h3 id="item-email-title">E-mail</h3>
                 <p id="item-email-desc">Envie-nos um e-mail para pedidos de reserva ou informações gerais.</p>
-                <a href="mailto:nyumba.maputo@gmail.com" class="contact-link primary" id="email-link">nyumba.maputo@gmail.com</a>
+                <a href="mailto:nyumba.maputo@gmail.com" class="contact-link primary"
+                    id="email-link">nyumba.maputo@gmail.com</a>
             </div>
 
             <div class="contact-item">
                 <i class="fab fa-instagram"></i>
                 <h3 id="item-instagram-title">Redes Sociais</h3>
                 <p id="item-instagram-desc">Siga-nos para ver as novidades e os pratos do dia.</p>
-                <a href="https://www.instagram.com/nyumbafoodconcept" class="contact-link primary" id="instagram-link" target="_blank" rel="noopener noreferrer">@nyumbafoodconcept</a>
+                <a href="https://www.instagram.com/nyumbafoodconcept" class="contact-link primary" id="instagram-link"
+                    target="_blank" rel="noopener noreferrer">@nyumbafoodconcept</a>
             </div>
         </div>
 
         <!-- Apenas o Google Maps -->
         <div id="map-container">
-            <iframe id="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe id="map-iframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14347.907490512956!2d32.57662558035456!3d-25.968798838359636!2m3!1f0!2f0!0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee69bfe2dccc6a7%3A0xe72f04de0d760ff5!2sNYUMBA%20Food%20Concept!5e0!3m2!1sen!2spt!4v1760917264718!5m2!1sen!2spt"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
 
-    <script>
-        const CONTACT_INFO = {
-            email: "nyumba.maputo@gmail.com",
-            phone: "+258 846695390",
-            phoneRaw: "258846695390",
-            instagram: "@nyumbafoodconcept",
-            instagramUrl: "https://www.instagram.com/nyumbafoodconcept"
-        };
-
-        const langData = {
-            pt: {
-                navHome: "Principal", navGallery: "Galeria", navMenu: "Menu", navContact: "Contactos",
-                contactTitle: "Fale Connosco", contactSubtitle: "Estamos ansiosos por recebê-lo e responder às suas questões.",
-                itemPhoneTitle: "Telefone e WhatsApp", itemPhoneDesc: "Ligue-nos diretamente ou envie uma mensagem instantânea.",
-                emailLink: CONTACT_INFO.email,
-                itemInstagramTitle: "Redes Sociais", itemInstagramDesc: "Siga-nos para ver as novidades e os pratos do dia.",
-            },
-            en: {
-                navHome: "Home", navGallery: "Gallery", navMenu: "Menu", navContact: "Contacts",
-                contactTitle: "Contact Us", contactSubtitle: "We look forward to welcoming you and answering your questions.",
-                itemPhoneTitle: "Phone and WhatsApp", itemPhoneDesc: "Call us directly or send an instant message.",
-                emailLink: CONTACT_INFO.email,
-                itemInstagramTitle: "Social Media", itemInstagramDesc: "Follow us to see news and daily specials.",
-            }
-        };
-
-        // --- SISTEMA DE PERSISTÊNCIA ---
-        function getStoredLang() {
-            return localStorage.getItem('nyumba-lang') || 'pt';
-        }
-
-        function storeLang(l) {
-            localStorage.setItem('nyumba-lang', l);
-        }
-
-        function updateText(id, text) { 
-            const el = document.getElementById(id); 
-            if (el) el.innerText = text; 
-        }
-        
-        function updateDateTime() {
-            const now = new Date();
-            const langCode = document.documentElement.lang || 'pt';
-            const date = now.toLocaleDateString(langCode === 'en' ? 'en-US' : 'pt-PT', { 
-                weekday: 'long', 
-                day: 'numeric', 
-                month: 'long', 
-                year: 'numeric' 
-            });
-            const time = now.toLocaleTimeString(langCode === 'en' ? 'en-US' : 'pt-PT', { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
-            document.getElementById('date-time').textContent = `${date} | ${time}`;
-        }
-        
-        function setLang(l) {
-            const t = langData[l];
-            document.documentElement.lang = l;
-            storeLang(l); // 🔥 GUARDA A LÍNGUA SELECIONADA
-            
-            updateText("nav-home", t.navHome);
-            updateText("nav-gallery", t.navGallery);
-            updateText("nav-menu", t.navMenu);
-            updateText("nav-contact", t.navContact);
-            updateText("contact-title", t.contactTitle);
-            updateText("contact-subtitle", t.contactSubtitle);
-            updateText("item-phone-title", t.itemPhoneTitle);
-            updateText("item-phone-desc", t.itemPhoneDesc);
-            updateText("item-email-title", "E-mail");
-            updateText("item-email-desc", l==='pt'?"Envie-nos um e-mail para pedidos de reserva ou informações gerais.":"Send us an email for reservations or inquiries.");
-            updateText("email-link", t.emailLink);
-            updateText("item-instagram-title", t.itemInstagramTitle);
-            updateText("item-instagram-desc", t.itemInstagramDesc);
-            updateDateTime();
-        }
-        
-        // --- INICIALIZAÇÃO ---
-        window.onload = function() {
-            const savedLang = getStoredLang(); // 🔥 CARREGA A LÍNGUA GUARDADA
-            setLang(savedLang);
-            updateDateTime();
-        }
-        setInterval(updateDateTime, 60000);
-    </script>
+    <script src="js/main.js"></script>
+    <script src="js/contactos.js"></script>
 </body>
+
 </html>
 <div class="copyright">
     <small><em>&copy; 2025 José Freire. Website design and development. All rights reserved.</em></small>

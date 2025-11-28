@@ -81,7 +81,7 @@ const galleryLangData = {
                 },
                 {
                     "src": "images/es4.jpg",
-                    "pt": "Detalhe do quiosque a partir da esplanada.",
+                    "pt": "Detalhe do quiosque a partir do balcão.",
                     "en": "Detail of the kiosk from the terrace."
                 },
                 {
@@ -118,7 +118,7 @@ const galleryLangData = {
             "cocktails": [
                 {
                     "src": "images/ck1.jpg",
-                    "pt": "Cocktail Verde da Casa, muito refrescante.",
+                    "pt": "Cocktail de Maracujá da Casa, muito refrescante.",
                     "en": "House Green Cocktail, very refreshing."
                 },
                 {
@@ -170,22 +170,22 @@ const galleryLangData = {
             "cozinha": [
                 {
                     "src": "images/cz1.jpg",
-                    "pt": "Vista da área de preparação: higiene e ordem.",
+                    "pt": "A Luciana convida a entrar...",
                     "en": "View of the preparation area: hygiene and order."
                 },
                 {
                     "src": "images/cz2.jpg",
-                    "pt": "O nosso chefe em ação, a preparar a sua refeição.",
+                    "pt": "",
                     "en": "Our chef in action, preparing your meal."
                 },
                 {
                     "src": "images/cz3.jpg",
-                    "pt": "Detlhes dos utensílios de cozinha, sempre limpos.",
+                    "pt": "",
                     "en": "Details of kitchen utensils, always clean."
                 },
                 {
                     "src": "images/cz4.jpg",
-                    "pt": "Pratos prontos a servir no balcão.",
+                    "pt": "",
                     "en": "Dishes ready to be served at the counter."
                 },
                 {
@@ -304,7 +304,7 @@ const galleryLangData = {
                 {
                     "src": "images/es4.jpg",
                     "pt": "Detalhe do quiosque a partir da esplanada.",
-                    "en": "Detail of the kiosk from the terrace."
+                    "en": "Detail of the kiosk from the bar."
                 },
                 {
                     "src": "https://placehold.co/800x600/ff7c00/ffffff?text=Esplanada+5",
@@ -341,7 +341,7 @@ const galleryLangData = {
                 {
                     "src": "images/ck1.jpg",
                     "pt": "Cocktail Verde da Casa, muito refrescante.",
-                    "en": "House Green Cocktail, very refreshing."
+                    "en": "House Passion Fruit Cocktail, very refreshing."
                 },
                 {
                     "src": "images/ck2.jpg",
@@ -393,22 +393,22 @@ const galleryLangData = {
                 {
                     "src": "images/cz1.jpg",
                     "pt": "Vista da área de preparação: higiene e ordem.",
-                    "en": "View of the preparation area: hygiene and order."
+                    "en": "Luciana invites you in..."
                 },
                 {
                     "src": "images/cz2.jpg",
                     "pt": "O nosso chefe em ação, a preparar a sua refeição.",
-                    "en": "Our chef in action, preparing your meal."
+                    "en": ""
                 },
                 {
                     "src": "images/cz3.jpg",
                     "pt": "Detlhes dos utensílios de cozinha, sempre limpos.",
-                    "en": "Details of kitchen utensils, always clean."
+                    "en": ""
                 },
                 {
                     "src": "images/cz4.jpg",
                     "pt": "Pratos prontos a servir no balcão.",
-                    "en": "Dishes ready to be served at the counter."
+                    "en": ""
                 },
                 {
                     "src": "https://placehold.co/800x600/262019/ffffff?text=Cozinha+5",
